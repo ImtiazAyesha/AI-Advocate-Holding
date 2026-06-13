@@ -32,9 +32,9 @@ export default function PrivacyPolicyPage() {
           headlineBefore="Questions about your"
           accentWord="data?"
           description="To exercise your choices, request data deletion, or report a concern, we're here to help. Replies are typically provided within 48 business hours."
-          primaryHref="mailto:hello@evrenai.com"
+          primaryHref="mailto:hello@aiadvocateholding.com"
           primaryLabel="Email Us"
-          email="hello@evrenai.com"
+          email="hello@aiadvocateholding.com"
           watermark="Privacy"
         />
       </main>

@@ -32,9 +32,9 @@ export default function TermsOfServicePage() {
           headlineBefore="Need legal"
           accentWord="clarity?"
           description="If you have questions or require official communication regarding these terms, send us a brief message and our team will get back to you."
-          primaryHref="mailto:hello@evrenai.com"
+          primaryHref="mailto:hello@aiadvocateholding.com"
           primaryLabel="Email Us"
-          email="hello@evrenai.com"
+          email="hello@aiadvocateholding.com"
           watermark="Legal"
         />
       </main>

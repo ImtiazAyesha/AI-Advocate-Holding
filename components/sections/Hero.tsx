@@ -27,10 +27,11 @@ function HeroHeadlineLine({
     if (!wrap || !el) return;
 
     const fit = () => {
-      el.style.fontSize = `${maxSize}px`;
-      let size = maxSize;
       const maxWidth = wrap.clientWidth;
       if (!maxWidth) return;
+
+      let size = maxSize;
+      el.style.fontSize = `${size}px`;
 
       while (el.scrollWidth > maxWidth && size > minSize) {
         size -= 0.5;
@@ -45,7 +46,7 @@ function HeroHeadlineLine({
   }, [maxSize, minSize, children]);
 
   return (
-    <span ref={wrapRef} className="block w-full overflow-visible">
+    <span ref={wrapRef} className="block w-full min-w-0 overflow-visible">
       <span
         ref={textRef}
         className={`inline-block whitespace-nowrap max-w-full ${className}`.trim()}
@@ -75,8 +76,8 @@ function HeroWatermark({ text }: { text: string }) {
       if (!maxWidth) return;
 
       let size = parseFloat(getComputedStyle(el).fontSize) || 48;
-      const minSize = 22;
-      const maxSize = 200;
+      const minSize = maxWidth < 640 ? 16 : 22;
+      const maxSize = maxWidth < 640 ? 120 : 200;
 
       while (el.scrollWidth < maxWidth * 0.992 && size < maxSize) {
         size += 1;
@@ -108,7 +109,22 @@ function HeroWatermark({ text }: { text: string }) {
 //  HERO SECTION
 // ═══════════════════════════════════════════════════════════════════════
 
+function useMediaQuery(query: string) {
+  const [matches, setMatches] = useState(false);
+
+  useEffect(() => {
+    const media = window.matchMedia(query);
+    const update = () => setMatches(media.matches);
+    update();
+    media.addEventListener("change", update);
+    return () => media.removeEventListener("change", update);
+  }, [query]);
+
+  return matches;
+}
+
 export default function Hero() {
+  const isSm = useMediaQuery("(max-width: 639px)");
   const sectionRef = useRef<HTMLElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -143,13 +159,11 @@ export default function Hero() {
       id="hero"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="relative isolate w-full h-[100svh] min-h-[640px] overflow-x-clip overflow-y-hidden bg-evren-warm-white flex flex-col"
+      className="relative isolate w-full flex flex-col bg-evren-warm-white overflow-x-clip h-[76svh] max-h-[640px] sm:h-[82svh] sm:max-h-[680px] md:h-[100svh] md:max-h-none md:min-h-[640px] overflow-y-auto md:overflow-y-hidden"
     >
       {/* Layer 0 — subtle plus grid (below text) */}
       <div className="hero-deco-layer pointer-events-none">
-        <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[100vw] h-[100vh] min-h-[800px]"
-        >
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[100vw] h-full min-h-[480px] md:min-h-[800px]">
           <div ref={gridRef} className="absolute inset-0">
             <div
               className="absolute inset-0"
@@ -220,30 +234,30 @@ export default function Hero() {
       {/* Layer 2 — all readable content */}
       <div
         ref={contentRef}
-        className="hero-content-layer site-container hero-content-shell flex flex-col flex-1 min-h-0 pt-[7.25rem] sm:pt-[8.25rem] lg:pt-[8.75rem] pb-28 sm:pb-32 lg:pb-36 group/hero hero-fade-in"
+        className="hero-content-layer site-container hero-content-shell flex flex-col flex-1 min-h-0 max-sm:px-4 pt-[calc(5.5rem+env(safe-area-inset-top,0px))] sm:pt-[7rem] md:pt-[8.25rem] lg:pt-[8.75rem] pb-[3.5rem] sm:pb-16 md:pb-28 lg:pb-36 group/hero hero-fade-in"
       >
-        <div className="relative flex-1 flex flex-col items-center justify-center min-h-0 pb-10 sm:pb-14 lg:pb-[7.5rem] xl:pb-32">
-          <div className="flex flex-col items-center text-center w-full max-w-6xl mx-auto px-1 sm:px-0">
+        <div className="relative flex-1 flex flex-col items-center justify-start md:justify-center min-h-0 pt-0 sm:pt-0 pb-1 sm:pb-6 md:pb-14 lg:pb-[7.5rem] xl:pb-32">
+          <div className="flex flex-col items-center text-center w-full max-w-6xl mx-auto min-w-0">
             {/* Badge */}
-            <div className="mb-5 sm:mb-7">
-              <span className="block text-[10px] sm:text-[11px] font-heading font-bold text-evren-navy/50 tracking-[0.1em] sm:tracking-[0.25em] uppercase text-center">
+            <div className="mb-4 sm:mb-7">
+              <span className="block text-[10px] sm:text-[11px] font-heading font-bold text-evren-navy/50 tracking-[0.08em] sm:tracking-[0.25em] uppercase text-center leading-snug max-w-[30ch] sm:max-w-none mx-auto">
                 The universe is always expanding. So are we.
               </span>
             </div>
 
             {/* Headline — auto-scales to fit width; line 2 uses dark liquid gradient */}
-            <h1 className="font-heading w-full overflow-visible flex flex-col gap-1 sm:gap-1.5">
+            <h1 className="font-heading w-full min-w-0 overflow-visible flex flex-col gap-0.5 sm:gap-1.5">
               <HeroHeadlineLine
-                maxSize={54}
-                minSize={18}
-                className="font-light text-evren-medium-gray/90 tracking-normal leading-[1.2]"
+                maxSize={isSm ? 38 : 54}
+                minSize={isSm ? 14 : 18}
+                className="font-light text-evren-medium-gray/90 tracking-normal leading-[1.15] sm:leading-[1.2]"
               >
                 Where Ideas Become
               </HeroHeadlineLine>
               <HeroHeadlineLine
-                maxSize={128}
-                minSize={28}
-                className="heading-liquid font-extrabold tracking-tight"
+                maxSize={isSm ? 68 : 128}
+                minSize={isSm ? 15 : 28}
+                className="heading-liquid font-extrabold tracking-tight leading-[1.08] sm:leading-[1.12]"
               >
                 Intelligent Products.
               </HeroHeadlineLine>
@@ -251,8 +265,8 @@ export default function Hero() {
 
             {/* Body copy */}
             <p
-              className="mt-8 sm:mt-10 font-body text-evren-charcoal text-sm sm:text-base md:text-lg leading-relaxed text-balance max-w-[42ch] sm:max-w-[48ch]"
-              style={{ lineHeight: 1.75 }}
+              className="mt-5 sm:mt-8 md:mt-10 font-body text-evren-charcoal text-[13px] sm:text-base md:text-lg leading-relaxed text-pretty max-w-[34ch] sm:max-w-[42ch] md:max-w-[48ch] px-0.5 sm:px-0"
+              style={{ lineHeight: 1.7 }}
             >
               We build AI-powered digital products that grow with your vision.
               From first spark to global scale, we are your partner in turning
@@ -260,16 +274,17 @@ export default function Hero() {
             </p>
 
             {/* CTAs */}
-            <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3.5 sm:gap-4 w-full sm:w-auto px-4 sm:px-0">
+            <div className="mt-5 sm:mt-8 md:mt-10 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 w-full max-w-[20rem] sm:max-w-none sm:w-auto">
               <ArrowButton
                 href="/connect"
                 id="hero-cta-primary"
                 ariaLabel="Book a free consultation with AI Advocate Holding"
                 variant="primary"
-                size="lg"
-                className="w-full sm:w-auto justify-between sm:justify-center text-[14px] sm:text-base whitespace-nowrap"
+                size={isSm ? "md" : "lg"}
+                className="w-full sm:w-auto justify-between sm:justify-center text-[13px] sm:text-base"
               >
-                Book a Free Consultation
+                <span className="sm:hidden">Book Consultation</span>
+                <span className="hidden sm:inline">Book a Free Consultation</span>
               </ArrowButton>
 
               <ArrowButton
@@ -277,8 +292,8 @@ export default function Hero() {
                 id="hero-cta-secondary"
                 ariaLabel="See our approach"
                 variant="outline"
-                size="lg"
-                className="w-full sm:w-auto justify-between sm:justify-center text-[14px] sm:text-base whitespace-nowrap"
+                size={isSm ? "md" : "lg"}
+                className="w-full sm:w-auto justify-between sm:justify-center text-[13px] sm:text-base"
               >
                 See Our Approach
               </ArrowButton>

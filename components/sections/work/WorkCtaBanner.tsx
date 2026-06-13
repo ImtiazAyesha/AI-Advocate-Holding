@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { ArrowUpRight, Mail } from "lucide-react";
 import ArrowButton from "@/components/ui/ArrowButton";
+import CtaWatermark from "@/components/ui/CtaWatermark";
 
 export default function WorkCtaBanner() {
   const ctaRef = useRef<HTMLDivElement>(null);
@@ -39,14 +40,9 @@ export default function WorkCtaBanner() {
               filter: "blur(50px)",
             }}
           />
-          <motion.div className="absolute left-1/2 -translate-x-1/2 bottom-0 translate-y-[18%] md:translate-y-[15%] w-full text-center flex justify-center pointer-events-none z-0">
-            <span className="font-heading font-extrabold text-[18vw] sm:text-[16vw] md:text-[15vw] lg:text-[16rem] xl:text-[19rem] leading-none tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white/[0.1] to-transparent select-none whitespace-nowrap">
-              AI Advocate Holding
-            </span>
-          </motion.div>
         </motion.div>
 
-        <motion.div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-0 pb-20 sm:pb-24 md:pb-28 lg:pb-32">
+        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-0">
           <motion.div className="lg:col-span-7 p-6 sm:p-10 md:p-14 lg:p-16 flex flex-col justify-center">
             <motion.span
               initial={{ opacity: 0, x: -20 }}
@@ -89,7 +85,7 @@ export default function WorkCtaBanner() {
               </ArrowButton>
 
               <motion.a
-                href="mailto:hello@evrenai.com"
+                href="mailto:hello@aiadvocateholding.com"
                 initial={{ opacity: 0, y: 20 }}
                 animate={ctaInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.6, duration: 0.5 }}
@@ -99,7 +95,7 @@ export default function WorkCtaBanner() {
               >
                 <span className="flex items-center gap-2 sm:gap-3 truncate pr-2">
                   <Mail size={16} className="text-evren-peach/70 shrink-0" />
-                  <span className="truncate">hello@evrenai.com</span>
+                  <span className="truncate">hello@aiadvocateholding.com</span>
                 </span>
                 <ArrowUpRight
                   size={16}
@@ -108,7 +104,9 @@ export default function WorkCtaBanner() {
               </motion.a>
             </motion.div>
           </motion.div>
-        </motion.div>
+        </div>
+
+        <CtaWatermark text="AI Advocate Holding" />
       </motion.div>
     </section>
   );

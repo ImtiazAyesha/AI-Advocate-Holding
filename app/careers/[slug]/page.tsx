@@ -159,13 +159,13 @@ export default async function JobDetailPage({ params }: { params: Promise<{ slug
                   Think you'd be a great fit? We'd love to hear from you.
                 </p>
                 <a
-                  href={`mailto:hello@evrenai.com?subject=${encodeURIComponent(job.emailSubject)}`}
+                  href={`mailto:hello@aiadvocateholding.com?subject=${encodeURIComponent(job.emailSubject)}`}
                   className="w-full inline-flex items-center justify-center gap-2 bg-evren-peach hover:bg-evren-rose text-evren-navy text-[16px] font-heading font-bold px-[32px] py-[16px] rounded-full transition-all duration-300 hover:shadow-[0_4px_16px_rgba(136,201,179,0.4)] hover:-translate-y-0.5"
                 >
                   Apply Directly
                   <ArrowUpRight size={18} strokeWidth={2.5} />
                 </a>
-                <span className="block mt-4 text-[13px] text-evren-medium-gray/70 font-body">Or send your portfolio directly to hello@evrenai.com</span>
+                <span className="block mt-4 text-[13px] text-evren-medium-gray/70 font-body">Or send your portfolio directly to hello@aiadvocateholding.com</span>
               </div>
             </div>
 

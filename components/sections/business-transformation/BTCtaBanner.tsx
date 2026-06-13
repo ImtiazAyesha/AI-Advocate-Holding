@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { ArrowUpRight, Mail, Zap } from "lucide-react";
 import ArrowButton from "@/components/ui/ArrowButton";
+import CtaWatermark from "@/components/ui/CtaWatermark";
 
 // ═══════════════════════════════════════════════════════════════════════
 //  COMPONENT
@@ -47,16 +48,10 @@ export default function BTCtaBanner() {
               }}
             />
 
-            {/* ── Massive Background Typography ── */}
-            <div className="absolute left-1/2 -translate-x-1/2 bottom-0 translate-y-[18%] md:translate-y-[15%] w-full text-center flex justify-center pointer-events-none z-0">
-              <span className="font-heading font-extrabold text-[12vw] sm:text-[10vw] md:text-[9vw] lg:text-[7.5rem] xl:text-[9.5rem] leading-none tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white/[0.1] to-transparent select-none whitespace-nowrap">
-                Transformation
-              </span>
-            </div>
           </div>
 
           {/* ── CTA Content — Asymmetric Split ── */}
-          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-0 pb-16 sm:pb-20 md:pb-24 lg:pb-[10rem]">
+          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-0">
             {/* Left column — Editorial headline */}
             <div className="lg:col-span-7 p-6 sm:p-10 md:p-14 lg:p-16 flex flex-col justify-center">
               {/* Pre-headline badge */}
@@ -120,7 +115,7 @@ export default function BTCtaBanner() {
 
                 {/* Secondary CTA */}
                 <motion.a
-                  href="mailto:hello@evrenai.com"
+                  href="mailto:hello@aiadvocateholding.com"
                   initial={{ opacity: 0, y: 20 }}
                   animate={ctaInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ delay: 0.6, duration: 0.5 }}
@@ -130,7 +125,7 @@ export default function BTCtaBanner() {
                 >
                   <span className="flex items-center gap-2 sm:gap-3 truncate pr-2">
                     <Mail size={16} className="text-evren-peach/70 shrink-0" />
-                    <span className="truncate">hello@evrenai.com</span>
+                    <span className="truncate">hello@aiadvocateholding.com</span>
                   </span>
                   <ArrowUpRight
                     size={16}
@@ -140,6 +135,8 @@ export default function BTCtaBanner() {
               </div>
             </div>
           </div>
+
+          <CtaWatermark text="Transformation" />
         </motion.div>
       </div>
     </section>

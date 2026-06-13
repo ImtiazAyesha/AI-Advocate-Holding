@@ -73,10 +73,10 @@ export default function PrivacyPolicyContent() {
               <p>
                 Because we value human connection, we have intentionally avoided dry legal jargon. If you ever have a question about how we use your information, reach out to us at{" "}
                 <a
-                  href="mailto:hello@evrenai.com"
+                  href="mailto:hello@aiadvocateholding.com"
                   className="font-semibold text-evren-navy underline decoration-evren-peach decoration-2 underline-offset-4 hover:text-evren-rose transition-colors"
                 >
-                  hello@evrenai.com
+                  hello@aiadvocateholding.com
                 </a>.
               </p>
             </div>

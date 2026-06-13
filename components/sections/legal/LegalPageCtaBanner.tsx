@@ -3,6 +3,7 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { ArrowUpRight, Mail, Scale, Shield } from "lucide-react";
 import ArrowButton from "@/components/ui/ArrowButton";
+import CtaWatermark from "@/components/ui/CtaWatermark";
 
 const ICONS = {
   shield: Shield,
@@ -98,14 +99,9 @@ export default function LegalPageCtaBanner({
                 filter: "blur(50px)",
               }}
             />
-            <div className="absolute left-1/2 -translate-x-1/2 bottom-0 translate-y-[18%] md:translate-y-[15%] w-full text-center flex justify-center pointer-events-none z-0">
-              <span className="font-heading font-extrabold text-[18vw] sm:text-[16vw] md:text-[15vw] lg:text-[16rem] xl:text-[19rem] leading-none tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white/[0.1] to-transparent select-none whitespace-nowrap">
-                {watermark}
-              </span>
-            </div>
           </div>
 
-          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-0 pb-14 sm:pb-16 md:pb-20 lg:pb-24">
+          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-0">
             <div className="lg:col-span-7 p-5 sm:p-6 md:p-8 lg:p-10 flex flex-col justify-center">
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
@@ -178,6 +174,8 @@ export default function LegalPageCtaBanner({
               </div>
             </div>
           </div>
+
+          <CtaWatermark text={watermark} />
         </motion.div>
       </div>
     </section>
