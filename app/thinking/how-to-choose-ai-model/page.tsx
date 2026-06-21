@@ -61,7 +61,7 @@ const blogSchema = {
   dateModified: "2026-06-04",
   author: {
     "@type": "Person",
-    name: "Moazzam Ali",
+    name: "Saqib",
     jobTitle: "CEO & Co-Founder",
     url: "https://www.evrenai.com",
   },
@@ -170,7 +170,7 @@ export default async function HowToChooseAiModelPage() {
   const article = (await getPostBySlug("how-to-choose-ai-model")) ?? {
     title: "How to Choose the Right AI Model for Your Product",
     publishedAt: "2026-06-04T00:00:00.000Z",
-    author: { name: "Moazzam Ali" },
+    author: { name: "Saqib" },
     categories: [],
     mainImage: {
       asset: { url: "/blog-images/how-to-choose-ai-model/hero-usa.webp" },

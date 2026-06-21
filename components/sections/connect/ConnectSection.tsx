@@ -14,7 +14,9 @@ import {
   Loader2,
   Send,
 } from "lucide-react";
+import Image from "next/image";
 import emailjs from "@emailjs/browser";
+import { SOCIAL_LINKS } from "@/lib/social-links";
 
 const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY ?? "";
 const EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID ?? "";
@@ -51,18 +53,7 @@ const wordReveal: Variants = {
   },
 };
 
-// ── HEADLINE LINES (word-by-word reveal) ─────────────────────────────
-
-const HEADLINE_LINES: {
-  words: { text: string; decorated?: boolean; secondary?: boolean; light?: boolean }[];
-}[] = [
-    {
-      words: [{ text: "Let's " }, { text: "build " }, { text: "something " }],
-    },
-    {
-      words: [{ text: "intelligent.", decorated: true }],
-    },
-  ];
+// ── HEADLINE ─────────────────────────────────────────────────────────
 
 // ── CONSTANTS ────────────────────────────────────────────────────────
 
@@ -406,15 +397,15 @@ export default function ConnectSection() {
               className="lg:sticky lg:top-32 flex flex-col items-start text-left"
             >
               {/* 1. BADGE */}
-              <motion.div variants={fadeSlideUp} className="mb-6">
-                <span className="block text-[10px] sm:text-[11px] font-heading font-bold text-evren-navy/50 tracking-[0.1em] sm:tracking-[0.25em] uppercase">
+              <motion.div variants={fadeSlideUp} className="mb-5 sm:mb-6">
+                <span className="block text-[11px] font-heading font-bold text-evren-peach uppercase tracking-[0.2em]">
                   Start a Conversation
                 </span>
               </motion.div>
 
-              {/* 2. HEADLINE */}
+              {/* 2. HEADLINE — matches main hero: light lead line + large liquid accent */}
               <motion.h1
-                className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] max-w-2xl px-0"
+                className="font-heading w-full min-w-0 max-w-xl flex flex-col gap-1 sm:gap-1.5"
                 variants={{
                   hidden: {},
                   visible: {
@@ -422,57 +413,77 @@ export default function ConnectSection() {
                   },
                 }}
               >
-                {HEADLINE_LINES.map((line, lineIdx) => (
-                  <span key={lineIdx} className="block">
-                    {line.words.map((word) => {
-                      const textStyle = word.light
-                        ? "font-light text-evren-medium-gray/90 tracking-normal"
-                        : "font-extrabold text-evren-navy tracking-tight";
-                      return word.decorated ? (
-                        <motion.span
-                          key={word.text}
-                          className={`inline-block ${textStyle}`}
-                          variants={wordReveal}
-                        ><span className="heading-highlight">{word.text}</span></motion.span>
-                      ) : (
-                        <motion.span
-                          key={word.text}
-                          className={`inline-block whitespace-pre ${textStyle}`}
-                          variants={wordReveal}
-                        >
-                          {word.text}
-                        </motion.span>
-                      );
-                    })}
-                  </span>
-                ))}
-                <span className="sr-only">Let's build something intelligent.</span>
+                <motion.span
+                  variants={wordReveal}
+                  className="block text-[1.625rem] sm:text-3xl lg:text-[2.125rem] font-light text-evren-medium-gray/90 tracking-normal leading-[1.15] sm:leading-[1.2]"
+                >
+                  Let&apos;s build something
+                </motion.span>
+                <motion.span
+                  variants={wordReveal}
+                  className="block text-[2.75rem] sm:text-6xl lg:text-7xl xl:text-[4.75rem] heading-liquid font-extrabold tracking-tight leading-[1.08] sm:leading-[1.12]"
+                >
+                  intelligent.
+                </motion.span>
+                <span className="sr-only">Let&apos;s build something intelligent.</span>
               </motion.h1>
 
-              {/* 3. BODY COPY */}
-              <motion.div variants={fadeSlideUp} className="mt-8 max-w-md">
-                <p
-                  className="font-body text-evren-charcoal text-base md:text-lg leading-relaxed"
-                  style={{ lineHeight: 1.7 }}
-                >
+              {/* 3. LEAD COPY */}
+              <motion.div variants={fadeSlideUp} className="mt-6 sm:mt-8 max-w-lg">
+                <p className="font-body text-[15px] sm:text-base lg:text-lg text-evren-charcoal/85 leading-[1.75]">
                   Tell us about your vision, and we&apos;ll tell you how we&apos;d
-                  build it. No pitch decks, no sales scripts just a technical
+                  build it. No pitch decks, no sales scripts, just a technical
                   conversation between builders.
                 </p>
               </motion.div>
 
               {/* 4. TRUST POINTS */}
-              <motion.div variants={fadeSlideUp} className="mt-8 flex flex-col gap-4">
-                {TRUST_POINTS.map((point, idx) => (
-                  <div key={idx} className="flex items-start gap-3">
-                    <div className="mt-[2px] w-5 h-5 rounded-full bg-evren-peach-light flex items-center justify-center shrink-0">
-                      <CheckCircle2 size={12} className="text-evren-navy" strokeWidth={2.5} />
-                    </div>
-                    <span className="font-body text-sm text-evren-charcoal/80 leading-relaxed max-w-sm">
-                      {point}
-                    </span>
-                  </div>
-                ))}
+              <motion.div variants={fadeSlideUp} className="mt-10 sm:mt-12">
+                <p className="text-[11px] font-heading font-semibold uppercase tracking-[0.18em] text-evren-medium-gray mb-4">
+                  Why teams work with us
+                </p>
+                <ul className="flex flex-col gap-3.5">
+                  {TRUST_POINTS.map((point) => (
+                    <li key={point} className="flex items-center gap-3">
+                      <div className="w-[18px] h-[18px] rounded-full bg-evren-peach/15 flex items-center justify-center shrink-0">
+                        <CheckCircle2 size={11} className="text-evren-gold" strokeWidth={2.5} />
+                      </div>
+                      <span className="font-body text-sm sm:text-[15px] text-evren-charcoal/75 leading-snug">
+                        {point}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+
+              {/* 5. Social links */}
+              <motion.div
+                variants={fadeSlideUp}
+                className="mt-10 sm:mt-12 pt-8 border-t border-evren-navy/10"
+              >
+                <p className="text-[11px] font-heading font-semibold uppercase tracking-[0.18em] text-evren-medium-gray mb-4">
+                  Find us elsewhere
+                </p>
+                <div className="flex items-center gap-5">
+                  {SOCIAL_LINKS.map((social) => (
+                    <a
+                      key={social.label}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={social.label}
+                      className="inline-flex transition-opacity duration-200 opacity-60 hover:opacity-100"
+                    >
+                      <Image
+                        src={social.icon}
+                        alt=""
+                        width={20}
+                        height={20}
+                        className="h-5 w-5 object-contain"
+                      />
+                    </a>
+                  ))}
+                </div>
               </motion.div>
             </motion.div>
 

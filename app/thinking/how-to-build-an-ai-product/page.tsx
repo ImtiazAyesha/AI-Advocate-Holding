@@ -62,7 +62,7 @@ const blogSchema = {
   dateModified: "2026-06-03",
   author: {
     "@type": "Person",
-    name: "Moazzam Ali",
+    name: "Saqib",
     jobTitle: "CEO & Co-Founder",
     worksFor: { "@type": "Organization", name: "AI Advocate Holding" },
   },
@@ -176,7 +176,7 @@ export default async function HowToBuildAiProductPage() {
   const article = (await getPostBySlug("how-to-build-an-ai-product")) ?? {
     title: "How to Build an AI Product: 5 Steps That Actually Work",
     publishedAt: "2026-06-03T00:00:00.000Z",
-    author: { name: "Moazzam Ali" },
+    author: { name: "Saqib" },
     categories: [],
     mainImage: {
       asset: {

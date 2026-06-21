@@ -57,7 +57,7 @@ const blogSchema = {
   dateModified: "2026-04-14",
   author: {
     "@type": "Person",
-    name: "Moazzam Ali",
+    name: "Saqib",
     jobTitle: "CEO & Co-Founder",
     url: "https://www.evrenai.com",
   },
@@ -159,7 +159,7 @@ export default async function MvpVsPocPage() {
   const article = (await getPostBySlug("mvp-vs-poc")) ?? {
     title: "MVP vs POC: Why Every AI Product Needs Both",
     publishedAt: "2026-04-14T00:00:00.000Z",
-    author: { name: "Moazzam Ali" },
+    author: { name: "Saqib" },
     categories: [],
     mainImage: {
       asset: {

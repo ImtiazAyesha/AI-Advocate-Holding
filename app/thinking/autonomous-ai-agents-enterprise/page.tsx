@@ -67,7 +67,7 @@ const blogSchema = {
   dateModified: "2026-06-04",
   author: {
     "@type": "Person",
-    name: "Moazzam Ali",
+    name: "Saqib",
     jobTitle: "CEO & Co-Founder",
     worksFor: { "@type": "Organization", name: "AI Advocate Holding" },
   },
@@ -179,7 +179,7 @@ export default async function AutonomousAiAgentsEnterprisePage() {
   const article = (await getPostBySlug("autonomous-ai-agents-enterprise")) ?? {
     title: "Autonomous AI Agents for Enterprise: Pilot to Production",
     publishedAt: "2026-06-04T00:00:00.000Z",
-    author: { name: "Moazzam Ali" },
+    author: { name: "Saqib" },
     categories: [],
     mainImage: {
       asset: {

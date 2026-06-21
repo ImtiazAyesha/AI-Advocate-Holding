@@ -63,7 +63,7 @@ const blogSchema = {
   dateModified: "2026-06-03",
   author: {
     "@type": "Person",
-    name: "Moazzam Ali",
+    name: "Saqib",
     jobTitle: "CEO & Co-Founder",
     worksFor: { "@type": "Organization", name: "AI Advocate Holding" },
   },
@@ -172,7 +172,7 @@ export default async function WhenToUseLlmsPage() {
   const article = (await getPostBySlug("when-to-use-llms-in-your-product")) ?? {
     title: "When to Use LLMs in Your Product: A Practical Decision Guide",
     publishedAt: "2026-06-03T00:00:00.000Z",
-    author: { name: "Moazzam Ali" },
+    author: { name: "Saqib" },
     categories: [],
     mainImage: {
       asset: {

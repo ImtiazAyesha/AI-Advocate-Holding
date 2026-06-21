@@ -61,7 +61,7 @@ const blogSchema = {
   dateModified: "2026-06-05",
   author: {
     "@type": "Person",
-    name: "Moazzam Ali",
+    name: "Saqib",
     jobTitle: "CEO & Co-Founder",
     worksFor: { "@type": "Organization", name: "AI Advocate Holding" },
   },
@@ -175,7 +175,7 @@ export default async function BuildVsBuyAiPage() {
     (await getPostBySlug("build-vs-buy-ai-cto-decision-framework")) ?? {
       title: "Build vs Buy AI: The 2026 CTO Decision Framework",
       publishedAt: "2026-06-05T00:00:00.000Z",
-      author: { name: "Moazzam Ali" },
+      author: { name: "Saqib" },
       categories: [],
       mainImage: {
         asset: {

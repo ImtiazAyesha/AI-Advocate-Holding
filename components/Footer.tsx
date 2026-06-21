@@ -3,11 +3,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
-import { ArrowUpRight, Linkedin, Twitter, MapPin, Mail, Zap } from "lucide-react";
+import { ArrowUpRight, MapPin, Mail, Zap } from "lucide-react";
 import ArrowButton from "@/components/ui/ArrowButton";
 import CtaWatermark from "@/components/ui/CtaWatermark";
 import { useRef } from "react";
 import { usePathname } from "next/navigation";
+import { SOCIAL_LINKS } from "@/lib/social-links";
 
 // ═══════════════════════════════════════════════════════════════════════
 //  FOOTER — Unique CTA Banner + Editorial Footer
@@ -19,7 +20,6 @@ const NAV_LINKS = [
   { label: "Work", href: "/work" },
   { label: "Thinking", href: "/thinking" },
   { label: "Business Transformation", href: "/business-transformation" },
-  { label: "Careers", href: "/careers" },
 ];
 
 const OFFICES = [
@@ -27,19 +27,7 @@ const OFFICES = [
   { city: "Dubai, UAE", icon: MapPin },
 ];
 
-const SOCIALS = [
-  {
-    label: "LinkedIn",
-    href: "https://linkedin.com/company/evren-ai",
-    icon: Linkedin,
-  },
-  {
-    label: "X (Twitter)",
-    href: "https://x.com/evrenai_org",
-    icon: Twitter,
-  },
-];
-
+const SOCIALS = SOCIAL_LINKS;
 
 // ═══════════════════════════════════════════════════════════════════════
 //  COMPONENT
@@ -51,12 +39,17 @@ export default function Footer({ hideCTA = false }: { hideCTA?: boolean }) {
   
   const pathname = usePathname();
   const isArticlePage = pathname?.startsWith('/thinking/') && pathname !== '/thinking';
+  const isAboutPage = pathname === '/about';
 
   return (
     <footer>
       {/* ─── Part A: Immersive Asymmetric CTA ─── */}
       {!hideCTA && (
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 mb-20 sm:mb-28">
+        <div
+          className={`max-w-7xl mx-auto px-4 sm:px-6 relative z-10 mb-20 sm:mb-28 ${
+            isAboutPage ? "pt-10 sm:pt-12 lg:pt-16" : ""
+          }`}
+        >
         <motion.div
           ref={ctaRef}
           initial={{ scale: 0.94, opacity: 0, y: 40 }}
@@ -193,7 +186,7 @@ export default function Footer({ hideCTA = false }: { hideCTA?: boolean }) {
               >
                 <span className="relative block h-10 w-10 sm:h-11 sm:w-11 shrink-0">
                   <Image
-                    src="/Evren Logo.png"
+                    src="/logo.png"
                     alt=""
                     fill
                     className="object-contain object-left"
@@ -273,7 +266,7 @@ export default function Footer({ hideCTA = false }: { hideCTA?: boolean }) {
               </a>
 
               {/* Social links */}
-              <div className="flex items-center gap-3 mt-6">
+              <div className="flex items-center gap-4 mt-6">
                 {SOCIALS.map((social) => (
                   <a
                     key={social.label}
@@ -281,9 +274,15 @@ export default function Footer({ hideCTA = false }: { hideCTA?: boolean }) {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={social.label}
-                    className="group w-9 h-9 rounded-lg bg-evren-light-gray/60 hover:bg-evren-peach-light/50 flex items-center justify-center transition-colors duration-200 text-evren-charcoal/70 hover:text-evren-peach"
+                    className="group inline-flex transition-opacity duration-200 opacity-70 hover:opacity-100"
                   >
-                    <social.icon size={16} />
+                    <Image
+                      src={social.icon}
+                      alt=""
+                      width={22}
+                      height={22}
+                      className="h-[22px] w-[22px] object-contain"
+                    />
                   </a>
                 ))}
               </div>

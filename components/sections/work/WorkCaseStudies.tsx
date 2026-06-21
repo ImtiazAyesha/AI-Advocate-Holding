@@ -289,14 +289,6 @@ export default function WorkCaseStudies() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            {/* <Link
-              href="/"
-              className="inline-flex items-center gap-1.5 text-sm text-evren-medium-gray font-body hover:text-evren-navy transition-colors duration-200 mb-6"
-            >
-              <ArrowLeft size={14} strokeWidth={2} />
-              Home
-            </Link> */}
-
             <span className="text-sm uppercase tracking-widest text-evren-peach font-bold mb-3 block">
               Our Case Studies
             </span>

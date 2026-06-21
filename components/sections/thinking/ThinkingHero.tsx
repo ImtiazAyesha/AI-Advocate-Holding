@@ -74,7 +74,7 @@ export default function ThinkingHero() {
     <section
       ref={sectionRef}
       id="thinking-hero"
-      className="relative w-full overflow-hidden bg-evren-warm-white pb-4 pt-32 sm:pb-8 sm:pt-36 lg:pb-12 lg:pt-44"
+      className="relative w-full overflow-hidden bg-evren-warm-white pb-4 pt-32 sm:pb-8 sm:pt-36 md:h-[100svh] md:max-h-none md:min-h-[640px] md:flex md:flex-col md:overflow-y-hidden md:pb-28 md:pt-0 lg:pb-36 lg:pt-0"
     >
       {/* ── Animated gradient mesh blobs ──────────────────────────── */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
@@ -155,18 +155,19 @@ export default function ThinkingHero() {
       ──────────────────────────────────────────────────────────── */}
       <motion.div
         ref={contentRef}
-        className="relative z-10 max-w-5xl mx-auto px-5 sm:px-6 lg:px-12 flex flex-col items-center text-center group"
+        className="relative z-10 site-container hero-content-shell flex flex-col min-h-0 w-full md:flex-1 md:pt-[8.25rem] lg:pt-[8.75rem]"
         style={{ y: contentY }}
         variants={staggerContainer}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
       >
+        <div className="relative flex flex-col items-center min-h-0 max-w-5xl mx-auto w-full text-center group px-5 sm:px-0 md:flex-1 md:justify-center">
 
 
         {/* 1. BADGE (Text Only) */}
         <motion.div
           variants={fadeSlideUp}
-          className="mb-4 px-4 sm:px-0"
+          className="mb-4 sm:mb-7 px-4 sm:px-0"
         >
           <span className="block text-[10px] sm:text-[11px] font-heading font-bold text-evren-navy/50 tracking-[0.1em] sm:tracking-[0.25em] uppercase text-center">
             The Editorial Index
@@ -213,7 +214,7 @@ export default function ThinkingHero() {
         </motion.h1>
 
         {/* 3. BODY COPY */}
-        <motion.div variants={fadeSlideUp} className="mt-8 max-w-2xl mx-auto">
+        <motion.div variants={fadeSlideUp} className="mt-5 sm:mt-8 md:mt-10 max-w-2xl mx-auto">
           <p
             className="font-body text-evren-charcoal text-base md:text-lg lg:text-xl leading-relaxed"
             style={{ lineHeight: 1.7 }}
@@ -221,6 +222,7 @@ export default function ThinkingHero() {
             We open-source our methodologies, engineering insights, and hard-won lessons from building AI systems in production. Written for the leaders who ship not the algorithms that crawl.
           </p>
         </motion.div>
+        </div>
       </motion.div>
 
       {/* ── Bottom fade gradient ──────────────────────────────────── */}

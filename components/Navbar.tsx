@@ -99,7 +99,7 @@ export default function Navbar() {
           >
             <span className="relative block h-9 w-9 sm:h-10 sm:w-10 shrink-0">
               <Image
-                src="/Evren Logo.png"
+                src="/logo.png"
                 alt=""
                 fill
                 className="object-contain object-left"

@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { Search, Code, Rocket, ChevronRight } from "lucide-react";
+import Image from "next/image";
 import { useRef, useState, useEffect } from "react";
 import ArrowButton from "@/components/ui/ArrowButton";
 
@@ -13,32 +14,32 @@ const PHASES = [
   {
     id: "01",
     title: "Discover",
-    shortDesc: "Technical discovery & blueprinting",
+    shortDesc: "AI strategy, workflows & technical planning",
     description:
-      "We immerse ourselves in your world. Through technical discovery and data modeling, we blueprint how AI will fundamentally improve your product.",
+      "We start by understanding your business goals, manual workflows, and automation opportunities. Through structured discovery, we define the right approach, whether that is OpenAI or Claude integration, AI chatbots, agents, SaaS platforms, or mobile apps, and create a clear blueprint for a practical, production-ready solution.",
     icon: Search,
     tag: "Phase 1",
-    video: "/Illustrations/Intelligence.mp4",
+    illustration: "/illusions/undraw_ai-data-extraction_soxc.svg",
   },
   {
     id: "02",
     title: "Build",
-    shortDesc: "Agile sprints & working code",
+    shortDesc: "AI apps, automation & full stack delivery",
     description:
-      "Agile, two-week sprints. You see working code immediately. Intelligence and ML models are woven into the architecture from sprint one.",
+      "We build in agile sprints with working software at every stage. From GPT-powered assistants and workflow automation (Zapier, Make, n8n) to React, Node.js, and Python SaaS applications, we deliver scalable solutions with built-in QA including Selenium, Cypress, and API testing for reliable, bug-free delivery.",
     icon: Code,
     tag: "Phase 2",
-    video: "/Illustrations/Partnership.mp4",
+    illustration: "/illusions/undraw_build-mode_aa78.svg",
   },
   {
     id: "03",
     title: "Scale",
-    shortDesc: "Deploy & transfer knowledge",
+    shortDesc: "Deploy, optimize & grow with confidence",
     description:
-      "Our success is measured by your independence. We deploy the product, optimize performance, and transfer all knowledge to your internal team.",
+      "We take your product to production with scalable architecture, performance optimization, and ongoing QA across web, mobile, and AI systems. Whether you're scaling a SaaS platform, cross-platform app, or data analytics solution, we ensure your systems are secure, fast, and built for real business growth.",
     icon: Rocket,
     tag: "Phase 3",
-    video: "/Illustrations/Knowledge.mp4",
+    illustration: "/illusions/undraw_code-deployed_iwvu.svg",
   },
 ];
 
@@ -169,27 +170,13 @@ function StepListItem({
 //  RIGHT DETAIL PANEL
 // ═══════════════════════════════════════════════════════════════════════
 
-function DetailPanel({ 
-  step, 
-  index,
-  onDotClick
-}: { 
-  step: (typeof PHASES)[0]; 
-  index: number;
+function DetailPanel({
+  step,
+  onDotClick,
+}: {
+  step: (typeof PHASES)[0];
   onDotClick: (index: number) => void;
 }) {
-  const Icon = step.icon;
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  // Play from the start on every step activation.
-  // Using [step.video] so this re-fires each time the active phase changes.
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-    video.currentTime = 0;
-    video.play().catch(() => { });
-  }, [step.video]);
-
   return (
     <AnimatePresence mode="wait">
       <motion.div
@@ -200,24 +187,20 @@ function DetailPanel({
         transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
         className="h-full flex flex-col"
       >
-        {/* Video showcase area */}
+        {/* Illustration showcase area */}
         <motion.div
-          className="relative w-full rounded-2xl bg-white overflow-hidden mb-6"
+          className="relative w-full rounded-2xl bg-evren-peach-light overflow-hidden mb-6 aspect-[16/9]"
           initial={{ scale: 0.95, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ type: "spring", stiffness: 200, damping: 20, delay: 0.08 }}
         >
-          <video
-            ref={videoRef}
-            src={step.video}
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full object-cover"
-            style={{ display: "block", aspectRatio: "16/9" }}
+          <Image
+            src={step.illustration}
+            alt={`${step.title} phase illustration`}
+            fill
+            className="object-contain p-4 sm:p-6"
+            sizes="(max-width: 1024px) 100vw, 50vw"
           />
-
         </motion.div>
 
         {/* Title */}
@@ -368,10 +351,9 @@ export default function ProcessSnapshot() {
 
           {/* RIGHT: Detail panel — dark card */}
           <div className="p-4 sm:p-5 lg:p-7 bg-evren-navy rounded-2xl lg:rounded-none lg:rounded-r-3xl min-h-[320px] sm:min-h-[360px] lg:min-h-0">
-            <DetailPanel 
-              key={activeIndex} 
-              step={PHASES[activeIndex]} 
-              index={activeIndex} 
+            <DetailPanel
+              key={activeIndex}
+              step={PHASES[activeIndex]}
               onDotClick={handleStepClick}
             />
           </div>

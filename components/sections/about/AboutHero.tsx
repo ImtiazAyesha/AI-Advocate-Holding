@@ -76,7 +76,7 @@ export default function AboutHero() {
     <section
       ref={sectionRef}
       id="about-hero"
-      className="relative w-full overflow-hidden bg-evren-warm-white min-h-[100svh] md:min-h-[600px] flex flex-col justify-center"
+      className="relative w-full overflow-hidden bg-evren-warm-white min-h-[100svh] flex flex-col justify-center md:h-[100svh] md:max-h-none md:min-h-[640px] md:justify-start md:overflow-y-hidden"
     >
       {/* ── Animated gradient mesh blobs ──────────────────────────── */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
@@ -157,18 +157,19 @@ export default function AboutHero() {
       ──────────────────────────────────────────────────────────── */}
       <motion.div
         ref={contentRef}
-        className="relative z-10 max-w-5xl mx-auto px-5 sm:px-6 lg:px-12 pt-[100px] sm:pt-[110px] lg:pt-[120px] pb-10 sm:pb-16 lg:pb-20 flex flex-col items-center text-center group"
+        className="relative z-10 site-container hero-content-shell flex flex-col min-h-0 w-full pt-[100px] sm:pt-[110px] pb-10 sm:pb-16 md:flex-1 md:pt-[8.25rem] md:pb-28 lg:pt-[8.75rem] lg:pb-36"
         style={{ y: contentY }}
         variants={staggerContainer}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
       >
+        <div className="relative flex flex-col items-center min-h-0 max-w-5xl mx-auto w-full text-center group md:flex-1 md:justify-center">
 
 
         {/* 1. BADGE (Text Only) */}
         <motion.div
           variants={fadeSlideUp}
-          className="mb-4 px-4 sm:px-0"
+          className="mb-4 sm:mb-7 px-4 sm:px-0"
         >
           <span className="block text-[10px] sm:text-[11px] font-heading font-bold text-evren-navy/50 tracking-[0.1em] sm:tracking-[0.25em] uppercase text-center">
             Our Story
@@ -217,7 +218,7 @@ export default function AboutHero() {
         </motion.h1>
 
         {/* 3. BODY COPY */}
-        <motion.div variants={fadeSlideUp} className="mt-8 max-w-2xl mx-auto">
+        <motion.div variants={fadeSlideUp} className="mt-5 sm:mt-8 md:mt-10 max-w-2xl mx-auto">
           <p
             className="font-body text-evren-charcoal text-base md:text-lg lg:text-xl leading-relaxed"
             style={{ lineHeight: 1.7 }}
@@ -230,7 +231,7 @@ export default function AboutHero() {
         </motion.div>
 
         {/* 4. CTA BUTTONS */}
-        <motion.div variants={fadeSlideUp} className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto px-4 sm:px-0">
+        <motion.div variants={fadeSlideUp} className="mt-5 sm:mt-8 md:mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto px-4 sm:px-0">
           <ArrowButton
             href="/connect"
             id="about-hero-cta"
@@ -253,6 +254,7 @@ export default function AboutHero() {
             See Our Approach
           </ArrowButton>
         </motion.div>
+        </div>
       </motion.div>
 
       {/* ── Bottom fade gradient ──────────────────────────────────── */}

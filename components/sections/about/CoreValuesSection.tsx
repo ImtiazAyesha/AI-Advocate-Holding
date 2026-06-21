@@ -1,14 +1,19 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useCallback, useEffect } from "react";
 import { motion, useInView, AnimatePresence, type Variants } from "framer-motion";
-import { Handshake, Brain, BookOpen, Rocket, Heart, ArrowRight } from "lucide-react";
+import {
+  Search,
+  Database,
+  Layers,
+  Code2,
+  ShieldCheck,
+  Activity,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
 
-// ═══════════════════════════════════════════════════════════════════════
-//  MOTION VARIANTS
-// ═══════════════════════════════════════════════════════════════════════
-
-const SPRING = { type: "spring" as const, stiffness: 100, damping: 20 };
+const AUTOPLAY_MS = 4500;
 
 const staggerContainer: Variants = {
   hidden: {},
@@ -17,114 +22,210 @@ const staggerContainer: Variants = {
 
 const fadeSlideUp: Variants = {
   hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { ...SPRING, duration: 0.6 } },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { type: "spring", stiffness: 100, damping: 20, duration: 0.6 },
+  },
 };
 
-// ─── GLOBAL COLOR TOKENS ─────────────────────────────────────────────
-// Active card:   dark navy bg, cream media, peach title, white desc, peach arrow
-// Inactive card: peach bg, cream media, dark title, dark desc, white arrow + dark icon
-const ACTIVE = {
-  bg: "#1A2421",
-  titleColor: "#88C9B3",
-  descColor: "rgba(255,255,255,0.72)",
-  arrowBg: "#88C9B3",
-  arrowIcon: "#1A2421",
-};
-const INACTIVE = {
-  bg: "#88C9B3",
-  titleColor: "#1A2421",
-  descColor: "rgba(26,36,33,0.72)",
-  arrowBg: "rgba(255,255,255,0.9)",
-  arrowIcon: "#1A2421",
-};
-
-// ─── VALUES DATA ─────────────────────────────────────────────────────
 const values = [
   {
-    title: "Partnership First",
+    title: "Discover the Business Problem",
     description:
-      "We don't build for clients. We build with them. Every engagement begins and ends with shared ownership.",
-    icon: Handshake,
-    video: "/Illustrations/Partnership.mp4",
+      "Problem discovery and requirements come first. We clarify the business challenge, success metrics, and what your product must solve before any build begins.",
+    icon: Search,
+    bg: "bg-evren-navy",
+    theme: "dark" as const,
   },
   {
-    title: "Intelligent by Design",
+    title: "Audit Data and Feasibility",
     description:
-      "AI isn't bolted on it's woven into the architecture from day one. Every system we ship thinks before it acts.",
-    icon: Brain,
-    video: "/Illustrations/Intelligence.mp4",
+      "Data discovery and data quality are assessed early. We identify what is ready for AI, what needs preparation, and whether the solution is feasible before commitment.",
+    icon: Database,
+    bg: "bg-evren-peach-light",
+    theme: "light" as const,
   },
   {
-    title: "Knowledge Transfer",
+    title: "Design the AI Architecture",
     description:
-      "We leave your team smarter than we found it. Documentation, training, and empowerment are non-negotiable deliverables.",
-    icon: BookOpen,
-    video: "/Illustrations/Knowledge.mp4",
+      "Solution design and product requirements shape every decision. We define the architecture, user flows, and AI capabilities that will deliver real business value.",
+    icon: Layers,
+    bg: "bg-evren-navy-light",
+    theme: "dark" as const,
   },
   {
-    title: "Always Expanding",
+    title: "Build and Evaluate the AI System",
     description:
-      "Complacency is the enemy. We invest relentlessly in new tools, frameworks, and methodologies so our partners never fall behind.",
-    icon: Rocket,
-    video: "/Illustrations/Expanding.mp4",
+      "Data pipelines, model and LLM development, and evaluation run in parallel. Each iteration is tested against clear criteria so the system performs reliably before launch.",
+    icon: Code2,
+    bg: "bg-evren-peach",
+    theme: "light" as const,
   },
   {
-    title: "Human-Centered Craft",
+    title: "Deploy with Guardrails",
     description:
-      "Great technology disappears into the experience. We obsess over the details that make complex systems feel effortless.",
-    icon: Heart,
-    video: "/Illustrations/Human Crafted.mp4",
+      "Productization, deployment, and rollout happen with safety guardrails built in. Your AI goes live in a controlled, production-ready way your team can trust.",
+    icon: ShieldCheck,
+    bg: "bg-evren-gold",
+    theme: "dark" as const,
+  },
+  {
+    title: "Monitor and Improve",
+    description:
+      "Observability, feedback loops, and governance are established from day one. Continuous monitoring helps your AI improve over time and stay aligned with business needs.",
+    icon: Activity,
+    bg: "bg-evren-warm-white",
+    theme: "light" as const,
   },
 ];
 
-// ═══════════════════════════════════════════════════════════════════════
-//  CORE VALUES — Split left-panel + coverflow carousel
-// ═══════════════════════════════════════════════════════════════════════
+function ValueCard({
+  value,
+  index,
+  isVisible,
+  isCenter,
+  isEnlarged,
+  cardsPerView,
+  onSelect,
+}: {
+  value: (typeof values)[0];
+  index: number;
+  isVisible: boolean;
+  isCenter: boolean;
+  isEnlarged: boolean;
+  cardsPerView: number;
+  onSelect: () => void;
+}) {
+  const Icon = value.icon;
+  const isDark = value.theme === "dark";
+
+  return (
+    <button
+      type="button"
+      onClick={onSelect}
+      aria-label={`View ${value.title}`}
+      aria-current={isCenter ? "true" : undefined}
+      className={`
+        group shrink-0 text-left rounded-2xl overflow-hidden border
+        transition-all duration-500 ease-out origin-center
+        ${value.bg}
+        ${isDark ? "border-evren-navy" : "border-evren-light-gray/70"}
+        ${isEnlarged
+          ? "scale-100 sm:scale-105 z-20 border-evren-peach/50 shadow-warm"
+          : isCenter
+            ? "scale-100 z-20 border-evren-peach/40 shadow-sm"
+            : isVisible
+              ? "scale-[0.92] sm:scale-[0.94] z-10 opacity-70"
+              : "scale-[0.88] z-0 border-transparent opacity-40"
+        }
+      `}
+      style={{
+        width: `calc((100% - (var(--card-gap) * (${cardsPerView} - 1))) / ${cardsPerView})`,
+      }}
+    >
+      <div
+        className={`relative w-full transition-all duration-500 ${
+          isEnlarged ? "h-[230px] sm:h-[250px]" : "h-[210px] sm:h-[225px]"
+        }`}
+      >
+        <Icon
+          size={isEnlarged ? 88 : 72}
+          strokeWidth={1}
+          aria-hidden
+          className={`
+            absolute top-3 right-3 pointer-events-none transition-all duration-500
+            ${isDark ? "text-white/12 group-hover:text-white/18" : "text-evren-navy/10 group-hover:text-evren-navy/16"}
+          `}
+        />
+
+        <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5">
+          <p
+            className={`font-mono text-[9px] sm:text-[10px] uppercase tracking-[0.2em] mb-1.5 ${
+              isDark ? "text-evren-peach/80" : "text-evren-gold"
+            }`}
+          >
+            Step {String(index + 1).padStart(2, "0")}
+          </p>
+          <h3
+            className={`
+              font-heading font-bold leading-snug
+              ${isEnlarged ? "text-base sm:text-lg line-clamp-2" : "text-sm sm:text-base line-clamp-2"}
+              ${isDark ? "text-white" : "text-evren-navy"}
+            `}
+          >
+            {value.title}
+          </h3>
+          <p
+            className={`
+              font-body leading-relaxed mt-1.5
+              ${isEnlarged ? "text-[11px] sm:text-xs line-clamp-3" : "text-[10px] sm:text-[11px] line-clamp-2"}
+              ${isDark ? "text-white/85" : "text-evren-charcoal/75"}
+            `}
+          >
+            {value.description}
+          </p>
+        </div>
+      </div>
+    </button>
+  );
+}
 
 export default function CoreValuesSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.15 });
 
   const [current, setCurrent] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
+  const [cardsPerView, setCardsPerView] = useState(3);
+  const [isPaused, setIsPaused] = useState(false);
 
-  // One ref slot per card (null for non-video cards)
-  const videoRefs = useRef<(HTMLVideoElement | null)[]>([null, null, null, null, null]);
+  const maxIndex = Math.max(0, values.length - cardsPerView);
 
-  const goTo = (idx: number) => setCurrent((idx + values.length) % values.length);
+  const centerOffset = Math.floor((cardsPerView - 1) / 2);
 
-  // Resize listener for responsive values
-  useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 640);
-    handleResize(); // Initial check
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  const scrollIndex = Math.min(
+    Math.max(current - centerOffset, 0),
+    maxIndex
+  );
 
-  // Play active card's video; pause all others
-  useEffect(() => {
-    videoRefs.current.forEach((video, idx) => {
-      if (!video) return;
-      if (idx === current) {
-        video.currentTime = 0;
-        video.play().catch(() => { });
-      } else {
-        video.pause();
-        video.currentTime = 0;
-      }
-    });
-  }, [current]);
+  const centerIndex = scrollIndex + centerOffset;
 
   const active = values[current];
-  const ActiveIcon = active.icon;
+
+  const nextSlide = useCallback(
+    () => setCurrent((prev) => (prev + 1) % values.length),
+    []
+  );
+
+  const prevSlide = useCallback(
+    () => setCurrent((prev) => (prev - 1 + values.length) % values.length),
+    []
+  );
+
+  useEffect(() => {
+    const updateCardsPerView = () => {
+      const next = window.innerWidth < 640 ? 1 : window.innerWidth < 1024 ? 2 : 3;
+      setCardsPerView(next);
+    };
+
+    updateCardsPerView();
+    window.addEventListener("resize", updateCardsPerView);
+    return () => window.removeEventListener("resize", updateCardsPerView);
+  }, []);
+
+  useEffect(() => {
+    if (!isInView || isPaused) return;
+
+    const timer = setInterval(nextSlide, AUTOPLAY_MS);
+    return () => clearInterval(timer);
+  }, [isInView, isPaused, nextSlide, current]);
 
   return (
     <section
       ref={sectionRef}
       id="core-values"
-      className="relative w-full overflow-hidden bg-white py-8 lg:py-12"
+      className="relative w-full overflow-hidden bg-white py-12 lg:py-16"
     >
-      {/* ── Background orb ──────────────────────────────────────── */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
         <div
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full"
@@ -140,11 +241,9 @@ export default function CoreValuesSection() {
           variants={staggerContainer}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="flex flex-col items-center gap-0"
+          className="flex flex-col items-center"
         >
-          {/* ══ HEADER — centered ═══════════════════════════════ */}
-          <div className="text-center mb-10 flex flex-col items-center gap-5">
-            {/* Section Tag */}
+          <div className="text-center mb-6 sm:mb-8 flex flex-col items-center gap-3">
             <motion.p
               variants={fadeSlideUp}
               className="text-sm uppercase tracking-widest text-evren-peach font-heading font-bold mb-2"
@@ -152,18 +251,15 @@ export default function CoreValuesSection() {
               What We Stand For
             </motion.p>
 
-            {/* Dynamic headline */}
-            <motion.div variants={fadeSlideUp} className="pb-3">
+            <motion.div variants={fadeSlideUp} className="pb-1">
               <AnimatePresence mode="wait">
                 <motion.h2
                   key={current}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
+                  exit={{ opacity: 0, y: -16 }}
                   transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                  className="font-heading font-extrabold text-evren-navy
-                             text-4xl sm:text-5xl lg:text-6xl
-                             leading-[1.05] -tracking-tight"
+                  className="font-heading font-extrabold text-evren-navy text-2xl sm:text-3xl lg:text-4xl leading-[1.08] -tracking-tight max-w-3xl mx-auto"
                 >
                   {active.title.split(" ").map((word, wi, arr) =>
                     wi === arr.length - 1 ? (
@@ -178,7 +274,6 @@ export default function CoreValuesSection() {
               </AnimatePresence>
             </motion.div>
 
-            {/* Dynamic description */}
             <motion.div variants={fadeSlideUp} className="overflow-hidden">
               <AnimatePresence mode="wait">
                 <motion.p
@@ -187,7 +282,7 @@ export default function CoreValuesSection() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -12 }}
                   transition={{ duration: 0.25, delay: 0.05 }}
-                  className="font-body text-evren-charcoal/60 text-base md:text-lg leading-relaxed max-w-xl mx-auto"
+                  className="font-body text-evren-charcoal/60 text-sm md:text-base leading-relaxed max-w-xl mx-auto"
                   style={{ lineHeight: 1.7 }}
                 >
                   {active.description}
@@ -196,183 +291,90 @@ export default function CoreValuesSection() {
             </motion.div>
           </div>
 
-          {/* ══════════════════════════════════════════════════════
-              RIGHT — Coverflow carousel
-          ══════════════════════════════════════════════════════ */}
-          <motion.div variants={fadeSlideUp} className="w-full">
+          <motion.div
+            variants={fadeSlideUp}
+            className="w-full"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+          >
             <div
-              className="relative flex items-center justify-center w-full"
-              style={{ height: isMobile ? "380px" : "460px" }}
+              className="
+                [--card-gap:1rem] sm:[--card-gap:1.25rem] lg:[--card-gap:1.5rem]
+                relative w-full overflow-hidden py-2 sm:py-3
+              "
             >
-              {values.map((value, i) => {
-                const Icon = value.icon;
-                const offset = i - current;
-                // Wrap offset to range [-2, 2]
-                const wrapped =
-                  offset > values.length / 2
-                    ? offset - values.length
-                    : offset < -values.length / 2
-                      ? offset + values.length
-                      : offset;
-
-                const isActive = wrapped === 0;
-                const isVisible = Math.abs(wrapped) <= 2;
-
-                if (!isVisible) return null;
-
-                // Position & style based on distance from center
-                const xOffset = wrapped * (isMobile ? 100 : 155);
-                const scale = isActive ? 1 : 1 - Math.abs(wrapped) * 0.1;
-                const opacity = isActive ? 1 : 1 - Math.abs(wrapped) * (isMobile ? 0.5 : 0.3);
-                const zIndex = 10 - Math.abs(wrapped);
-                // Outermost cards (±2) mirror the active navy scheme; ±1 use peach
-                const colors = isActive || Math.abs(wrapped) === 2 ? ACTIVE : INACTIVE;
-
-                return (
-                  <motion.div
-                    key={value.title}
-                    className="absolute cursor-pointer"
-                    style={{ zIndex }}
-                    animate={{
-                      x: xOffset,
-                      scale,
-                      opacity,
-                    }}
-                    transition={{ type: "spring", stiffness: 260, damping: 28 }}
-                    onClick={() => goTo(i)}
-                  >
-                    {isActive ? (
-                      /* ── Active: full expanded card ── */
-                      <div
-                        className="rounded-2xl lg:rounded-3xl overflow-hidden"
-                        style={{
-                          width: isMobile ? "200px" : "240px",
-                          background: ACTIVE.bg,
-                          boxShadow: "0 32px 80px -12px rgba(0,0,0,0.3)",
-                        }}
-                      >
-                        {/* Media */}
-                        {value.video ? (
-                          <div className="mx-4 mt-4 rounded-2xl overflow-hidden">
-                            <video
-                              ref={(el) => { videoRefs.current[i] = el; }}
-                              src={value.video}
-                              loop
-                              muted
-                              playsInline
-                              className="w-full object-cover"
-                              style={{ display: "block", aspectRatio: "4/3" }}
-                            />
-                          </div>
-                        ) : (
-                          <div
-                            className="mx-4 mt-4 rounded-2xl flex items-center justify-center"
-                            style={{ background: "#F5F0EB", aspectRatio: "4/3" }}
-                          >
-                            <Icon size={64} strokeWidth={1.1} color="#1A2421" />
-                          </div>
-                        )}
-
-                        {/* Text + arrow */}
-                        <div className="px-5 pt-4 pb-5">
-                          <h3
-                            className="font-heading font-bold text-lg leading-tight mb-2"
-                            style={{ color: ACTIVE.titleColor }}
-                          >
-                            {value.title}
-                          </h3>
-                          <p
-                            className="font-body text-[12px] mb-4"
-                            style={{ color: ACTIVE.descColor, lineHeight: 1.6 }}
-                          >
-                            {value.description}
-                          </p>
-                          {/* Arrow button */}
-                          <div className="flex justify-end">
-                            <button
-                              onClick={(e) => { e.stopPropagation(); goTo(current + 1); }}
-                              className="w-9 h-9 rounded-full flex items-center justify-center transition-opacity duration-200 hover:opacity-80"
-                              style={{ background: ACTIVE.arrowBg }}
-                              aria-label="Next principle"
-                            >
-                              <ArrowRight size={15} color={ACTIVE.arrowIcon} />
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    ) : (
-                      /* ── Inactive: real card, scaled+faded by parent ── */
-                      <div
-                        className="rounded-[1.25rem] lg:rounded-3xl overflow-hidden"
-                        style={{
-                          width: isMobile ? "160px" : "200px",
-                          background: colors.bg,
-                          boxShadow: "0 10px 30px -8px rgba(0,0,0,0.18)",
-                        }}
-                      >
-                        {/* Media — video cards show actual video first-frame; icon cards show icon */}
-                        {value.video ? (
-                          <div className="mx-3 mt-3 rounded-2xl overflow-hidden">
-                            <video
-                              ref={(el) => { videoRefs.current[i] = el; }}
-                              src={value.video}
-                              muted
-                              playsInline
-                              preload="metadata"
-                              className="w-full object-cover"
-                              style={{ display: "block", aspectRatio: "4/3" }}
-                            />
-                          </div>
-                        ) : (
-                          <div
-                            className="mx-3 mt-3 rounded-2xl flex items-center justify-center"
-                            style={{ background: "#F5F0EB", aspectRatio: "4/3" }}
-                          >
-                            <Icon size={48} strokeWidth={1.2} color="#1A2421" />
-                          </div>
-                        )}
-
-                        {/* Text */}
-                        <div className="px-4 pt-3 pb-5">
-                          <h3
-                            className="font-heading font-bold text-base leading-tight mb-1.5"
-                            style={{ color: colors.titleColor }}
-                          >
-                            {value.title}
-                          </h3>
-                          <p
-                            className="font-body text-[11px]"
-                            style={{ color: colors.descColor, lineHeight: 1.55 }}
-                          >
-                            {value.description}
-                          </p>
-                        </div>
-                      </div>
-                    )}
-                  </motion.div>
-                );
-              })}
-            </div>
-          </motion.div>
-
-          {/* Dot pagination — below carousel */}
-          <motion.div variants={fadeSlideUp} className="flex items-center justify-center gap-3 mt-8 sm:mt-12 lg:mt-8 relative z-20">
-            {values.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => goTo(i)}
-                aria-label={`Go to principle ${i + 1}`}
+              <div
+                className="flex items-center transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]"
+                style={{
+                  gap: "var(--card-gap)",
+                  transform: `translateX(calc(-${scrollIndex} * ((100% - (var(--card-gap) * (${cardsPerView} - 1))) / ${cardsPerView} + var(--card-gap))))`,
+                }}
               >
-                <span
-                  className="block rounded-full transition-all duration-300"
-                  style={{
-                    width: i === current ? "32px" : "8px",
-                    height: "8px",
-                    background: i === current ? "#88C9B3" : "rgba(26,36,33,0.18)",
-                  }}
-                />
-              </button>
-            ))}
+                {values.map((value, i) => {
+                  const isVisible = i >= scrollIndex && i < scrollIndex + cardsPerView;
+                  const isCenter = i === current;
+                  const isEnlarged =
+                    i === centerIndex && i !== 0 && i !== values.length - 1;
+
+                  return (
+                    <ValueCard
+                      key={value.title}
+                      value={value}
+                      index={i}
+                      isVisible={isVisible}
+                      isCenter={isCenter}
+                      isEnlarged={isEnlarged}
+                      cardsPerView={cardsPerView}
+                      onSelect={() => setCurrent(i)}
+                    />
+                  );
+                })}
+              </div>
+            </div>
+
+            <div className="flex items-center justify-end mt-5 sm:mt-6">
+              <div className="flex items-center gap-3 sm:gap-4">
+                <button
+                  type="button"
+                  onClick={prevSlide}
+                  aria-label="Previous step"
+                  className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-evren-navy/15 flex items-center justify-center text-evren-navy hover:bg-evren-navy hover:text-white transition-colors duration-300 group"
+                >
+                  <ChevronLeft
+                    size={20}
+                    className="transform group-hover:-translate-x-0.5 transition-transform"
+                  />
+                </button>
+
+                <div className="flex gap-2 sm:gap-2.5 items-center px-1">
+                  {values.map((_, i) => (
+                    <button
+                      key={i}
+                      type="button"
+                      onClick={() => setCurrent(i)}
+                      aria-label={`Go to step ${i + 1}`}
+                      className={`transition-all duration-300 rounded-full border border-evren-navy/20 ${
+                        i === current
+                          ? "w-8 sm:w-10 h-2.5 sm:h-3 bg-evren-peach border-evren-peach"
+                          : "w-2.5 sm:w-3 h-2.5 sm:h-3 bg-transparent hover:bg-evren-navy/10 cursor-pointer"
+                      }`}
+                    />
+                  ))}
+                </div>
+
+                <button
+                  type="button"
+                  onClick={nextSlide}
+                  aria-label="Next step"
+                  className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-evren-navy/15 flex items-center justify-center text-evren-navy hover:bg-evren-navy hover:text-white transition-colors duration-300 group"
+                >
+                  <ChevronRight
+                    size={20}
+                    className="transform group-hover:translate-x-0.5 transition-transform"
+                  />
+                </button>
+              </div>
+            </div>
           </motion.div>
         </motion.div>
       </div>

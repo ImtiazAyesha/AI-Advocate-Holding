@@ -62,7 +62,7 @@ const blogSchema = {
   dateModified: "2026-06-04",
   author: {
     "@type": "Person",
-    name: "Moazzam Ali",
+    name: "Saqib",
     jobTitle: "CEO & Co-Founder",
     worksFor: { "@type": "Organization", name: "AI Advocate Holding" },
   },
@@ -177,7 +177,7 @@ export default async function AiProductDevLifecyclePage() {
     (await getPostBySlug("ai-in-product-development-lifecycle")) ?? {
       title: "AI in Product Development Lifecycle: 5 Phases That Matter",
       publishedAt: "2026-06-04T00:00:00.000Z",
-      author: { name: "Moazzam Ali" },
+      author: { name: "Saqib" },
       categories: [],
       mainImage: {
         asset: {

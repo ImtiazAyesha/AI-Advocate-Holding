@@ -61,7 +61,7 @@ function HeroHeadlineLine({
 //  WATERMARK — scales to container width so text never clips
 // ═══════════════════════════════════════════════════════════════════════
 
-function HeroWatermark({ text }: { text: string }) {
+function HeroWatermark({ text, compact = false }: { text: string; compact?: boolean }) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLParagraphElement>(null);
 
@@ -77,7 +77,7 @@ function HeroWatermark({ text }: { text: string }) {
 
       let size = parseFloat(getComputedStyle(el).fontSize) || 48;
       const minSize = maxWidth < 640 ? 16 : 22;
-      const maxSize = maxWidth < 640 ? 120 : 200;
+      const maxSize = compact ? (maxWidth < 640 ? 72 : 96) : maxWidth < 640 ? 120 : 200;
 
       while (el.scrollWidth < maxWidth * 0.992 && size < maxSize) {
         size += 1;
@@ -94,7 +94,7 @@ function HeroWatermark({ text }: { text: string }) {
     const observer = new ResizeObserver(fit);
     observer.observe(wrap);
     return () => observer.disconnect();
-  }, [text]);
+  }, [text, compact]);
 
   return (
     <div ref={wrapRef} className="hero-watermark-wrap">
@@ -124,7 +124,10 @@ function useMediaQuery(query: string) {
 }
 
 export default function Hero() {
+  const isXs = useMediaQuery("(max-width: 374px)");
   const isSm = useMediaQuery("(max-width: 639px)");
+  const isMd = useMediaQuery("(max-width: 767px)");
+  const isCompactHero = useMediaQuery("(max-height: 860px)");
   const sectionRef = useRef<HTMLElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -153,17 +156,26 @@ export default function Hero() {
   };
 
 
+  const headlineLineOneMax = isXs ? 30 : isSm ? 36 : isCompactHero ? 38 : isMd ? 46 : 54;
+  const headlineLineOneMin = isXs ? 13 : isSm ? 14 : 18;
+  const headlineLineTwoMax = isXs ? 48 : isSm ? 62 : isCompactHero ? 64 : isMd ? 88 : 108;
+  const headlineLineTwoMin = isXs ? 14 : isSm ? 15 : 24;
+
   return (
     <section
       ref={sectionRef}
       id="hero"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="relative isolate w-full flex flex-col bg-evren-warm-white overflow-x-clip h-[76svh] max-h-[640px] sm:h-[82svh] sm:max-h-[680px] md:h-[100svh] md:max-h-none md:min-h-[640px] overflow-y-auto md:overflow-y-hidden"
+      className={`relative isolate w-full flex flex-col bg-evren-warm-white overflow-x-clip ${
+        isCompactHero
+          ? "min-h-[100dvh] max-h-[100dvh] overflow-y-auto"
+          : "min-h-[100dvh] md:h-[100svh] md:min-h-[640px] lg:min-h-[680px]"
+      }`}
     >
       {/* Layer 0 — subtle plus grid (below text) */}
       <div className="hero-deco-layer pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[100vw] h-full min-h-[480px] md:min-h-[800px]">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[100vw] h-full min-h-[420px] sm:min-h-[520px] md:min-h-[800px]">
           <div ref={gridRef} className="absolute inset-0">
             <div
               className="absolute inset-0"
@@ -180,8 +192,8 @@ export default function Hero() {
                     id="base-plus-pattern"
                     x="0"
                     y="0"
-                    width="56"
-                    height="56"
+                    width={isSm ? 44 : 56}
+                    height={isSm ? 44 : 56}
                     patternUnits="userSpaceOnUse"
                   >
                     <path
@@ -210,8 +222,8 @@ export default function Hero() {
                       id="glow-plus-pattern"
                       x="0"
                       y="0"
-                      width="56"
-                      height="56"
+                      width={isSm ? 44 : 56}
+                      height={isSm ? 44 : 56}
                       patternUnits="userSpaceOnUse"
                     >
                       <path
@@ -234,30 +246,44 @@ export default function Hero() {
       {/* Layer 2 — all readable content */}
       <div
         ref={contentRef}
-        className="hero-content-layer site-container hero-content-shell flex flex-col flex-1 min-h-0 max-sm:px-4 pt-[calc(5.5rem+env(safe-area-inset-top,0px))] sm:pt-[7rem] md:pt-[8.25rem] lg:pt-[8.75rem] pb-[3.5rem] sm:pb-16 md:pb-28 lg:pb-36 group/hero hero-fade-in"
+        className={`hero-content-layer site-container hero-content-shell flex flex-col flex-1 min-h-0 w-full group/hero hero-fade-in ${
+          isCompactHero
+            ? "pt-[calc(5rem+env(safe-area-inset-top,0px))] sm:pt-[calc(5.5rem+env(safe-area-inset-top,0px))] pb-[calc(3.25rem+env(safe-area-inset-bottom,0px))]"
+            : "pt-[calc(5.25rem+env(safe-area-inset-top,0px))] sm:pt-[7rem] md:pt-[8.25rem] lg:pt-[8.75rem] pb-[calc(5rem+env(safe-area-inset-bottom,0px))] sm:pb-16 md:pb-28 lg:pb-36"
+        }`}
       >
-        <div className="relative flex-1 flex flex-col items-center justify-start md:justify-center min-h-0 pt-0 sm:pt-0 pb-1 sm:pb-6 md:pb-14 lg:pb-[7.5rem] xl:pb-32">
-          <div className="flex flex-col items-center text-center w-full max-w-6xl mx-auto min-w-0">
+        <div
+          className={`relative flex-1 flex flex-col items-center w-full min-h-0 ${
+            isCompactHero
+              ? "justify-center py-2 pb-[clamp(2.75rem,10vh,4.5rem)]"
+              : "justify-center py-4 sm:py-6 md:py-0 pb-[clamp(3.25rem,11vh,7.5rem)] md:pb-14 lg:pb-[7.5rem] xl:pb-32"
+          }`}
+        >
+          <div
+            className={`flex flex-col items-center text-center w-full mx-auto min-w-0 px-1 min-[375px]:px-2 sm:px-0 ${
+              isCompactHero ? "max-w-4xl" : "max-w-6xl"
+            }`}
+          >
             {/* Badge */}
-            <div className="mb-4 sm:mb-7">
-              <span className="block text-[10px] sm:text-[11px] font-heading font-bold text-evren-navy/50 tracking-[0.08em] sm:tracking-[0.25em] uppercase text-center leading-snug max-w-[30ch] sm:max-w-none mx-auto">
+            <div className={isCompactHero ? "mb-2 sm:mb-3" : "mb-4 sm:mb-7"}>
+              <span className="block text-[9px] min-[375px]:text-[10px] sm:text-[11px] font-heading font-bold text-evren-navy/50 tracking-[0.06em] min-[375px]:tracking-[0.12em] sm:tracking-[0.25em] uppercase text-center leading-snug max-w-[28ch] min-[375px]:max-w-[32ch] sm:max-w-none mx-auto">
                 The universe is always expanding. So are we.
               </span>
             </div>
 
             {/* Headline — auto-scales to fit width; line 2 uses dark liquid gradient */}
-            <h1 className="font-heading w-full min-w-0 overflow-visible flex flex-col gap-0.5 sm:gap-1.5">
+            <h1 className="font-heading w-full min-w-0 overflow-visible flex flex-col gap-0.5 sm:gap-1">
               <HeroHeadlineLine
-                maxSize={isSm ? 38 : 54}
-                minSize={isSm ? 14 : 18}
-                className="font-light text-evren-medium-gray/90 tracking-normal leading-[1.15] sm:leading-[1.2]"
+                maxSize={headlineLineOneMax}
+                minSize={headlineLineOneMin}
+                className="font-light text-evren-medium-gray/90 tracking-normal leading-[1.12] sm:leading-[1.2]"
               >
                 Where Ideas Become
               </HeroHeadlineLine>
               <HeroHeadlineLine
-                maxSize={isSm ? 68 : 128}
-                minSize={isSm ? 15 : 28}
-                className="heading-liquid font-extrabold tracking-tight leading-[1.08] sm:leading-[1.12]"
+                maxSize={headlineLineTwoMax}
+                minSize={headlineLineTwoMin}
+                className="heading-liquid font-extrabold tracking-tight leading-[1.06] sm:leading-[1.1] md:leading-[1.12]"
               >
                 Intelligent Products.
               </HeroHeadlineLine>
@@ -265,8 +291,12 @@ export default function Hero() {
 
             {/* Body copy */}
             <p
-              className="mt-5 sm:mt-8 md:mt-10 font-body text-evren-charcoal text-[13px] sm:text-base md:text-lg leading-relaxed text-pretty max-w-[34ch] sm:max-w-[42ch] md:max-w-[48ch] px-0.5 sm:px-0"
-              style={{ lineHeight: 1.7 }}
+              className={`font-body text-evren-charcoal leading-relaxed text-pretty mx-auto ${
+                isCompactHero
+                  ? "mt-3 sm:mt-4 text-sm sm:text-base max-w-[40ch] sm:max-w-[46ch]"
+                  : "mt-4 min-[375px]:mt-5 sm:mt-8 md:mt-10 text-[13px] min-[375px]:text-sm sm:text-base md:text-lg max-w-[32ch] min-[375px]:max-w-[34ch] sm:max-w-[42ch] md:max-w-[48ch]"
+              }`}
+              style={{ lineHeight: 1.65 }}
             >
               We build AI-powered digital products that grow with your vision.
               From first spark to global scale, we are your partner in turning
@@ -274,14 +304,20 @@ export default function Hero() {
             </p>
 
             {/* CTAs */}
-            <div className="mt-5 sm:mt-8 md:mt-10 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 w-full max-w-[20rem] sm:max-w-none sm:w-auto">
+            <div
+              className={`flex flex-col sm:flex-row items-stretch sm:items-center justify-center w-full ${
+                isCompactHero
+                  ? "mt-3 sm:mt-4 gap-2.5 sm:gap-3 max-w-[min(100%,22rem)] sm:max-w-none"
+                  : "mt-4 min-[375px]:mt-5 sm:mt-8 md:mt-10 gap-3 sm:gap-4 max-w-[min(100%,20rem)] sm:max-w-none"
+              }`}
+            >
               <ArrowButton
                 href="/connect"
                 id="hero-cta-primary"
                 ariaLabel="Book a free consultation with AI Advocate Holding"
                 variant="primary"
-                size={isSm ? "md" : "lg"}
-                className="w-full sm:w-auto justify-between sm:justify-center text-[13px] sm:text-base"
+                size={isSm ? "md" : isCompactHero ? "md" : "lg"}
+                className="w-full sm:w-auto min-h-[44px] justify-between sm:justify-center text-[12px] min-[375px]:text-[13px] sm:text-base"
               >
                 <span className="sm:hidden">Book Consultation</span>
                 <span className="hidden sm:inline">Book a Free Consultation</span>
@@ -292,8 +328,8 @@ export default function Hero() {
                 id="hero-cta-secondary"
                 ariaLabel="See our approach"
                 variant="outline"
-                size={isSm ? "md" : "lg"}
-                className="w-full sm:w-auto justify-between sm:justify-center text-[13px] sm:text-base"
+                size={isSm ? "md" : isCompactHero ? "md" : "lg"}
+                className="w-full sm:w-auto min-h-[44px] justify-between sm:justify-center text-[12px] min-[375px]:text-[13px] sm:text-base"
               >
                 See Our Approach
               </ArrowButton>
@@ -303,8 +339,10 @@ export default function Hero() {
       </div>
 
       {/* Full-width centered watermark */}
-      <div className="hero-watermark-band pointer-events-none">
-        <HeroWatermark text="AI Advocate Holding" />
+      <div
+        className={`hero-watermark-band pointer-events-none ${isCompactHero ? "hero-watermark-band--compact" : ""}`}
+      >
+        <HeroWatermark text="AI Advocate Holding" compact={isCompactHero} />
       </div>
 
       {/* Layer 3 — bottom section fade (above bg, below content) */}

@@ -3,6 +3,7 @@
 import { useRef, useState, useEffect } from "react";
 import { motion, useInView, AnimatePresence, type Variants } from "framer-motion";
 import { Search, Code, Rocket, CheckCircle2 } from "lucide-react";
+import Image from "next/image";
 
 // ═══════════════════════════════════════════════════════════════════════
 //  MOTION
@@ -51,30 +52,18 @@ const tabContentVariants: Variants = {
 };
 
 // ═══════════════════════════════════════════════════════════════════════
-//  PHASE VIDEO — autoplays from start on each tab activation
+//  PHASE ILLUSTRATION
 // ═══════════════════════════════════════════════════════════════════════
 
-function PhaseVideo({ src }: { src: string }) {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-    video.currentTime = 0;
-    video.play().catch(() => { });
-  }, [src]);
-
+function PhaseIllustration({ src, title }: { src: string; title: string }) {
   return (
-    <div className="relative w-full aspect-[4/3] rounded-studio shadow-warm overflow-hidden border border-evren-light-gray/60 bg-white">
-      <video
-        ref={videoRef}
+    <div className="relative w-full aspect-[16/9] rounded-2xl bg-evren-peach-light overflow-hidden border border-evren-light-gray/60 shadow-warm">
+      <Image
         src={src}
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="w-full h-full object-cover"
-        style={{ display: "block" }}
+        alt={`${title} phase illustration`}
+        fill
+        className="object-contain p-4 sm:p-6"
+        sizes="(max-width: 768px) 100vw, 50vw"
       />
     </div>
   );
@@ -90,7 +79,7 @@ interface Phase {
   body: string;
   deliverables: string[];
   icon: typeof Search;
-  video: string;
+  illustration: string;
   callout?: {
     text: string;
   };
@@ -99,41 +88,41 @@ interface Phase {
 const PHASES: Phase[] = [
   {
     number: "01",
-    title: "Discover & Align",
-    body: "Before a single line of code is written, we map your product's universe. Through deep technical discovery, we create a deterministic blueprint that defines how AI will fundamentally improve your product not just decorate it.",
+    title: "Discover",
+    body: "We start by understanding your business goals, manual workflows, and automation opportunities. Through structured discovery, we define the right approach, whether that is OpenAI or Claude integration, AI chatbots, agents, SaaS platforms, or mobile apps, and create a clear blueprint for a practical, production-ready solution.",
     deliverables: [
-      "Data models & entity relationships",
-      "User flows & journey maps",
-      "AI feasibility studies & model selection",
+      "Business workflow & automation assessment",
+      "AI feasibility & integration roadmap",
+      "Technical architecture & project blueprint",
     ],
     icon: Search,
-    video: "/Illustrations/Intelligence.mp4",
+    illustration: "/illusions/undraw_ai-data-extraction_soxc.svg",
   },
   {
     number: "02",
     title: "Build",
-    body: "Agile, two-week sprints with working deployments at the end of each cycle. You see progress immediately. Intelligence isn't an add-on it's the core logic from Sprint 1. ML models, LLM pipelines, and data flows are woven into the architecture from the foundation.",
+    body: "We build in agile sprints with working software at every stage. From GPT-powered assistants and workflow automation (Zapier, Make, n8n) to React, Node.js, and Python SaaS applications, we deliver scalable solutions with built-in QA including Selenium, Cypress, and API testing for reliable, bug-free delivery.",
     deliverables: [
-      "AI-First Integration from Sprint 1",
-      "Working deployments every 2 weeks",
-      "Continuous model training & optimization",
+      "AI chatbots, agents & OpenAI/Claude integrations",
+      "Full stack SaaS, APIs & workflow automation",
+      "Built-in QA with Selenium, Cypress & API testing",
     ],
     icon: Code,
-    video: "/Illustrations/Partnership.mp4",
+    illustration: "/illusions/undraw_build-mode_aa78.svg",
   },
   {
     number: "03",
     title: "Scale",
-    body: "Our success is measured by your independence. We deploy the product, optimize for production performance, and systematically transfer all knowledge code, documentation, and operational expertise to your internal team.",
+    body: "We take your product to production with scalable architecture, performance optimization, and ongoing QA across web, mobile, and AI systems. Whether you're scaling a SaaS platform, cross-platform app, or data analytics solution, we ensure your systems are secure, fast, and built for real business growth.",
     deliverables: [
-      "Infrastructure hardening & monitoring",
-      "Complete documentation & ADRs",
-      "Team enablement & knowledge transfer",
+      "Production deployment & performance optimization",
+      "QA automation across web, mobile & AI systems",
+      "Scalable architecture for long-term growth",
     ],
     icon: Rocket,
-    video: "/Illustrations/Knowledge.mp4",
+    illustration: "/illusions/undraw_code-deployed_iwvu.svg",
     callout: {
-      text: "We build to enable your team, not to create dependency.",
+      text: "We focus on business outcomes, not just development.",
     },
   },
 ];
@@ -168,9 +157,9 @@ function PhaseContent({ active }: { active: Phase }) {
           </div>
         </div>
 
-        {/* ── Video Side (MOBILE ONLY) ── */}
+        {/* ── Illustration (MOBILE ONLY) ── */}
         <div className="md:hidden w-full mb-8">
-          <PhaseVideo src={active.video} />
+          <PhaseIllustration src={active.illustration} title={active.title} />
         </div>
 
         {/* Body */}
@@ -203,9 +192,9 @@ function PhaseContent({ active }: { active: Phase }) {
         )}
       </div>
 
-      {/* ── Video Side (DESKTOP ONLY) ── */}
+      {/* ── Illustration (DESKTOP ONLY) ── */}
       <div className="hidden md:block">
-        <PhaseVideo src={active.video} />
+        <PhaseIllustration src={active.illustration} title={active.title} />
       </div>
     </div>
   );

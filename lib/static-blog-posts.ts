@@ -17,7 +17,7 @@ export const STATIC_BLOG_POSTS: BlogPost[] = [
       },
       alt: "Build vs buy AI decision framework for CTOs in 2026, AI Advocate Holding",
     },
-    author: { name: "Moazzam Ali" },
+    author: { name: "Saqib" },
     categories: [
       { title: "AI Strategy", slug: { current: "ai-strategy" } },
     ],
@@ -35,7 +35,7 @@ export const STATIC_BLOG_POSTS: BlogPost[] = [
       },
       alt: "AI process automation ROI framework showing 6 value metrics, AI Advocate Holding",
     },
-    author: { name: "Moazzam Ali" },
+    author: { name: "Saqib" },
     categories: [
       { title: "AI Strategy", slug: { current: "ai-strategy" } },
     ],
@@ -53,7 +53,7 @@ export const STATIC_BLOG_POSTS: BlogPost[] = [
       },
       alt: "4-phase framework for autonomous AI agent deployment from pilot to enterprise production, AI Advocate Holding",
     },
-    author: { name: "Moazzam Ali" },
+    author: { name: "Saqib" },
     categories: [
       { title: "AI Strategy", slug: { current: "ai-strategy" } },
     ],
@@ -69,7 +69,7 @@ export const STATIC_BLOG_POSTS: BlogPost[] = [
       asset: { url: "/blog-images/how-to-choose-ai-model/hero-usa.webp" },
       alt: "AI model comparison framework showing GPT-4, Claude, Llama 3 and decision criteria, AI Advocate Holding",
     },
-    author: { name: "Moazzam Ali" },
+    author: { name: "Saqib" },
     categories: [
       { title: "AI Strategy", slug: { current: "ai-strategy" } },
     ],
@@ -87,7 +87,7 @@ export const STATIC_BLOG_POSTS: BlogPost[] = [
       },
       alt: "5-phase AI product development lifecycle from discovery to scale, AI Advocate Holding",
     },
-    author: { name: "Moazzam Ali" },
+    author: { name: "Saqib" },
     categories: [
       { title: "Product Development", slug: { current: "product-development" } },
     ],
@@ -105,7 +105,7 @@ export const STATIC_BLOG_POSTS: BlogPost[] = [
       },
       alt: "Decision framework for when to use LLMs in your product — LLM vs classical ML, AI Advocate Holding",
     },
-    author: { name: "Moazzam Ali" },
+    author: { name: "Saqib" },
     categories: [
       { title: "AI Strategy", slug: { current: "ai-strategy" } },
     ],
@@ -121,7 +121,7 @@ export const STATIC_BLOG_POSTS: BlogPost[] = [
       asset: { url: "/blog-images/how-to-build-an-ai-product/hero-usa.webp" },
       alt: "5-step framework for building an AI product from discovery to scale, AI Advocate Holding",
     },
-    author: { name: "Moazzam Ali" },
+    author: { name: "Saqib" },
     categories: [
       { title: "Product Development", slug: { current: "product-development" } },
     ],
@@ -139,7 +139,7 @@ export const STATIC_BLOG_POSTS: BlogPost[] = [
       },
       alt: "MVP vs POC comparison diagram showing two validation phases side by side with timelines for AI product development",
     },
-    author: { name: "Moazzam Ali" },
+    author: { name: "Saqib" },
     categories: [
       { title: "Product Development", slug: { current: "product-development" } },
     ],
