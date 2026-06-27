@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef } from "react";
-import Image from "next/image";
 import { motion, useInView, type Variants } from "framer-motion";
 import { BrainCircuit, Workflow } from "lucide-react";
 
@@ -69,114 +68,160 @@ function VisualLLM() {
   );
 }
 
-function VisualVision() {
+function VisualSaaS() {
   return (
-    <div className="relative w-full h-full flex items-center justify-center overflow-hidden bg-evren-warm-white/50 rounded-2xl border border-evren-light-gray group-hover:border-evren-peach/30 transition-colors duration-500 p-4 md:p-6">
-      {/* Grid Pattern */}
-      <div className="absolute inset-4 grid grid-cols-5 grid-rows-3 gap-2 opacity-15">
-        {[...Array(15)].map((_, i) => (
-          <div key={i} className="bg-evren-navy/40 w-full h-full rounded-sm" />
+    <div className="relative w-full h-full flex flex-col overflow-hidden bg-evren-warm-white/50 rounded-2xl border border-evren-light-gray group-hover:border-evren-peach/30 transition-colors duration-500 p-4 md:p-5">
+      {/* Browser chrome */}
+      <div className="flex items-center gap-1.5 mb-3">
+        <div className="w-2 h-2 rounded-full bg-red-300/60" />
+        <div className="w-2 h-2 rounded-full bg-yellow-300/60" />
+        <div className="w-2 h-2 rounded-full bg-green-300/60" />
+        <div className="flex-1 h-5 rounded-md bg-evren-navy/5 ml-2 flex items-center px-2">
+          <div className="w-16 h-1.5 rounded-full bg-evren-navy/12" />
+        </div>
+      </div>
+      {/* Stat cards */}
+      <div className="grid grid-cols-3 gap-2 mb-3">
+        {[
+          { label: "Users", val: "2.4k" },
+          { label: "MRR", val: "$18k" },
+          { label: "Uptime", val: "99.9%" },
+        ].map((s, i) => (
+          <motion.div
+            key={s.label}
+            className="bg-white rounded-xl border border-evren-light-gray/60 p-2 flex flex-col gap-0.5"
+            initial={{ opacity: 0, y: 6 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: i * 0.15, duration: 0.4 }}
+          >
+            <span className="text-[9px] font-semibold text-evren-navy/40 uppercase tracking-wide">{s.label}</span>
+            <span className="text-sm md:text-base font-bold text-evren-navy leading-none">{s.val}</span>
+          </motion.div>
         ))}
       </div>
-      
-      {/* Moving Targeting Reticle */}
+      {/* Content rows */}
+      <div className="flex flex-col gap-2 flex-1">
+        {[75, 55, 65].map((w, i) => (
+          <motion.div key={i} className="flex items-center gap-2"
+            initial={{ opacity: 0, x: -8 }} animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.4 + i * 0.12, duration: 0.4 }}
+          >
+            <div className="w-2 h-2 rounded-full bg-evren-peach/60 shrink-0" />
+            <div className="h-[6px] rounded-full bg-evren-navy/8" style={{ width: `${w}%` }} />
+          </motion.div>
+        ))}
+      </div>
+      {/* Deploy strip */}
       <motion.div
-         className="absolute w-[40%] h-[50%] border-[3px] border-evren-peach rounded-md backdrop-blur-[2px] bg-evren-peach/30 shadow-[0_0_15px_rgba(136,201,179,0.4)]"
-         animate={{ 
-            left: ["10%", "50%", "40%", "10%"],
-            top: ["10%", "20%", "40%", "10%"],
-            scale: [1, 1.1, 0.95, 1] 
-         }}
-         transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+        className="mt-3 h-7 rounded-lg bg-evren-navy flex items-center justify-center"
+        animate={{ opacity: [0.7, 1, 0.7] }}
+        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
       >
-        <div className="absolute -top-[2px] -left-[2px] w-3 h-3 border-t-2 border-l-2 border-evren-navy" />
-        <div className="absolute -top-[2px] -right-[2px] w-3 h-3 border-t-2 border-r-2 border-evren-navy" />
-        <div className="absolute -bottom-[2px] -left-[2px] w-3 h-3 border-b-2 border-l-2 border-evren-navy" />
-        <div className="absolute -bottom-[2px] -right-[2px] w-3 h-3 border-b-2 border-r-2 border-evren-navy" />
+        <span className="text-[10px] font-bold text-white/80 tracking-wide uppercase">Deploy to Production</span>
       </motion.div>
     </div>
   );
 }
 
-function VisualPredictive() {
-  const bars = [20, 35, 25, 60, 45, 80, 50, 75];
+function VisualQA() {
+  const tests = ["login_flow_test", "api_response_test", "ai_output_validation", "regression_suite", "performance_bench"];
   return (
-    <div className="relative w-full h-full flex items-end justify-between px-6 pb-6 pt-12 overflow-hidden bg-evren-warm-white/50 rounded-2xl border border-evren-light-gray group-hover:border-evren-peach/30 transition-colors duration-500">
-      {bars.map((height, i) => (
-        <motion.div
-           key={i}
-           className="w-[8%] bg-evren-navy/20 rounded-t-sm"
-           initial={{ height: "10%" }}
-           animate={{ height: [`10%`, `${height}%`, `20%`] }}
-           transition={{ duration: 4, repeat: Infinity, delay: i * 0.15, ease: "easeInOut" }}
-        />
-      ))}
-      {/* Moving Threshold Line */}
-      <motion.div 
-        className="absolute left-0 w-full h-[2px] bg-evren-peach shadow-[0_0_8px_rgba(136,201,179,0.6)] z-10"
-        animate={{ bottom: ["20%", "75%", "45%", "20%"] }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-      />
-    </div>
-  );
-}
-
-function WorkflowNode({ x, y, icon, bgClass, name, sub, delay }: { x: string, y: string, icon: string, bgClass: string, name: string, sub: string, delay: number }) {
-  return (
-    <motion.div
-      className={`absolute shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-white flex flex-col items-center justify-center rounded-[1rem] md:rounded-[1.2rem] w-[76px] h-[76px] md:w-[96px] md:h-[96px] p-2 z-10 ${bgClass}`}
-      style={{ left: x, top: y }}
-      initial={{ opacity: 0, scale: 0.8, x: "-50%", y: "-50%" }}
-      animate={{ opacity: 1, scale: 1, x: "-50%", y: "-50%" }}
-      transition={{ duration: 0.5, delay }}
-    >
-      <div className="w-7 h-7 md:w-9 md:h-9 mb-[6px] md:mb-2 flex items-center justify-center bg-white rounded-md md:rounded-lg shadow-sm">
-        <Image src={icon} alt={name} width={20} height={20} className="object-contain block md:hidden" />
-        <Image src={icon} alt={name} width={24} height={24} className="object-contain hidden md:block" />
+    <div className="relative w-full h-full flex flex-col justify-center overflow-hidden bg-evren-warm-white/50 rounded-2xl border border-evren-light-gray group-hover:border-evren-peach/30 transition-colors duration-500 p-4 md:p-5">
+      <div className="flex items-center gap-2 mb-3 pb-2 border-b border-evren-navy/8">
+        <div className="w-1.5 h-1.5 rounded-full bg-evren-peach animate-pulse" />
+        <span className="text-[10px] font-bold text-evren-navy/50 uppercase tracking-widest">Test Suite Running</span>
       </div>
-      <span className="text-[8px] md:text-[10px] font-bold text-evren-navy leading-none text-center whitespace-nowrap">{name}</span>
-      <span className="text-[6px] md:text-[8px] text-evren-charcoal leading-tight text-center mt-1 whitespace-nowrap">{sub}</span>
-    </motion.div>
+      <div className="flex flex-col gap-1.5">
+        {tests.map((label, i) => (
+          <motion.div key={label} className="flex items-center gap-2"
+            initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: i * 0.18, duration: 0.35 }}
+          >
+            <motion.div
+              className="w-4 h-4 rounded-full flex items-center justify-center shrink-0 bg-[#4ade80]/15"
+              initial={{ scale: 0 }} animate={{ scale: 1 }}
+              transition={{ delay: i * 0.18 + 0.2, type: "spring", stiffness: 200 }}
+            >
+              <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
+                <path d="M1.5 4L3 5.5L6.5 2" stroke="#4ade80" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </motion.div>
+            <span className="text-[10px] md:text-[11px] font-mono text-evren-navy/60 truncate">{label}</span>
+            <span className="ml-auto text-[9px] font-bold text-[#4ade80] shrink-0">PASS</span>
+          </motion.div>
+        ))}
+      </div>
+      <motion.div
+        className="mt-3 flex items-center justify-between bg-white rounded-lg border border-evren-light-gray/60 px-3 py-1.5"
+        animate={{ opacity: [0.6, 1, 0.6] }}
+        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+      >
+        <span className="text-[10px] font-bold text-[#4ade80]">5 passed</span>
+        <span className="text-[10px] font-mono text-evren-navy/40">0 failed</span>
+        <span className="text-[10px] font-mono text-evren-navy/40">5 total</span>
+      </motion.div>
+    </div>
   );
 }
 
 function VisualWorkflow() {
   return (
-    <div className="relative w-full h-full flex flex-col items-center justify-center overflow-hidden bg-[#F9FAFB] rounded-2xl border border-evren-light-gray group-hover:border-evren-peach/20 transition-colors duration-500">
-      {/* Dot Grid Background */}
-      <div 
-        className="absolute inset-0 opacity-[0.15] pointer-events-none" 
-        style={{ backgroundImage: 'radial-gradient(var(--evren-navy) 1px, transparent 1px)', backgroundSize: '18px 18px' }}
+    <div className="relative w-full h-full rounded-2xl overflow-hidden bg-[#F9FAFB] border border-evren-light-gray group-hover:border-evren-peach/20 transition-colors duration-500">
+      {/* Dot grid */}
+      <div
+        className="absolute inset-0 opacity-[0.12] pointer-events-none"
+        style={{ backgroundImage: "radial-gradient(var(--evren-navy) 1px, transparent 1px)", backgroundSize: "16px 16px" }}
       />
-      
-      {/* SVG Connecting Paths (drawn under nodes) */}
-      <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none">
-         <path
-           d="M 25 25 L 65 25 Q 75 25 75 35 L 75 65 Q 75 75 65 75 L 25 75"
-           fill="none"
-           stroke="rgba(26,36,33,0.15)"
-           strokeWidth="1.5"
-           vectorEffect="non-scaling-stroke"
-         />
-         {/* Animated path overlay */}
-         <motion.path
-           d="M 25 25 L 65 25 Q 75 25 75 35 L 75 65 Q 75 75 65 75 L 25 75"
-           fill="none"
-           stroke="#88C9B3"
-           strokeWidth="2.5"
-           strokeLinecap="round"
-           vectorEffect="non-scaling-stroke"
-           initial={{ pathLength: 0, opacity: 1 }}
-           animate={{ pathLength: 1, opacity: 0.15 }}
-           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-         />
+      {/* Portrait viewBox — parent has explicit px height so inset-0 resolves correctly */}
+      <svg
+        viewBox="0 0 140 240"
+        className="absolute inset-0 w-full h-full"
+        preserveAspectRatio="xMidYMid meet"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        {/* ── Node 1: Trigger ── */}
+        <rect x="20" y="8" width="100" height="34" rx="8" fill="white" stroke="rgba(26,36,33,0.1)" strokeWidth="1" />
+        <circle cx="36" cy="25" r="7" fill="rgba(136,201,179,0.18)" />
+        <text x="36" y="29" textAnchor="middle" fontSize="8" fill="#5aaa8a">⚡</text>
+        <text x="85" y="22" textAnchor="middle" fontSize="7.5" fontWeight="700" fill="#1A2421" fontFamily="system-ui,sans-serif">Trigger</text>
+        <text x="85" y="34" textAnchor="middle" fontSize="6" fill="rgba(26,36,33,0.4)" fontFamily="system-ui,sans-serif">New event</text>
+
+        {/* ── Connector 1 ── */}
+        <line x1="70" y1="42" x2="70" y2="70" stroke="rgba(26,36,33,0.15)" strokeWidth="1.5" strokeDasharray="3 3" strokeLinecap="round" />
+        <polygon points="67,68 70,74 73,68" fill="rgba(26,36,33,0.2)" />
+
+        {/* ── Node 2: Automation ── */}
+        <rect x="10" y="76" width="120" height="34" rx="8" fill="#1A2421" />
+        <text x="70" y="90" textAnchor="middle" fontSize="7.5" fontWeight="700" fill="white" fontFamily="system-ui,sans-serif">n8n / Zapier / Make</text>
+        <text x="70" y="102" textAnchor="middle" fontSize="6" fill="rgba(255,255,255,0.45)" fontFamily="system-ui,sans-serif">Route → filter → act</text>
+
+        {/* ── Connector 2 ── */}
+        <line x1="70" y1="110" x2="70" y2="138" stroke="rgba(26,36,33,0.15)" strokeWidth="1.5" strokeDasharray="3 3" strokeLinecap="round" />
+        <polygon points="67,136 70,142 73,136" fill="rgba(26,36,33,0.2)" />
+
+        {/* ── Node 3: AI Processing ── */}
+        <rect x="10" y="144" width="120" height="34" rx="8" fill="rgba(26,36,33,0.04)" stroke="rgba(26,36,33,0.1)" strokeWidth="1" />
+        <text x="70" y="158" textAnchor="middle" fontSize="7.5" fontWeight="700" fill="#1A2421" fontFamily="system-ui,sans-serif">AI Processing</text>
+        <text x="70" y="170" textAnchor="middle" fontSize="6" fill="rgba(26,36,33,0.4)" fontFamily="system-ui,sans-serif">Context → decision → action</text>
+
+        {/* ── Connector 3 ── */}
+        <line x1="70" y1="178" x2="70" y2="206" stroke="rgba(136,201,179,0.5)" strokeWidth="1.5" strokeDasharray="3 3" strokeLinecap="round" />
+        <polygon points="67,204 70,210 73,204" fill="rgba(136,201,179,0.7)" />
+
+        {/* ── Node 4: Output ── */}
+        <rect x="20" y="212" width="100" height="22" rx="8" fill="rgba(136,201,179,0.15)" stroke="#88C9B3" strokeWidth="1.5" />
+        <text x="70" y="227" textAnchor="middle" fontSize="7.5" fontWeight="700" fill="#1A2421" fontFamily="system-ui,sans-serif">Output  •  Auto-synced</text>
+
+        {/* ── Animated traveling dot ── */}
+        <motion.circle
+          r="3.5"
+          fill="#88C9B3"
+          cx={70}
+          animate={{ cy: [8, 42, 76, 110, 144, 178, 212, 234, 8] }}
+          transition={{ duration: 3.5, repeat: Infinity, ease: "linear", times: [0, 0.17, 0.27, 0.44, 0.54, 0.71, 0.81, 0.98, 1] }}
+          style={{ filter: "drop-shadow(0 0 5px rgba(136,201,179,0.9))" }}
+        />
       </svg>
-      
-      {/* 4 Nodes in a pattern matching the reference image */}
-      <WorkflowNode x="25%" y="25%" icon="/webhook.png" name="Webhooks" sub="Webhook response" bgClass="bg-[#E8F4F0]" delay={0} />
-      <WorkflowNode x="75%" y="25%" icon="/slack.png" name="Slack" sub="Get a user" bgClass="bg-[#F0F5FF]" delay={0.2} />
-      <WorkflowNode x="75%" y="75%" icon="/chat-gpt.png" name="Chat GPT" sub="Edit/Generate" bgClass="bg-[#ffffff]" delay={0.4} />
-      <WorkflowNode x="25%" y="75%" icon="/n8n.png" name="n8n" sub="Router logic" bgClass="bg-[#F8FAFC]" delay={0.6} />
     </div>
   );
 }
@@ -187,24 +232,24 @@ function VisualWorkflow() {
 
 const PILLARS = [
   {
-    title: "LLM Integration",
-    body: "We architect production-grade LLM pipelines from prompt engineering and RAG architectures to fine-tuning domain-specific models that deliver reliable, context-aware outputs at scale.",
+    title: "AI API Integration",
+    body: "We integrate OpenAI and Claude APIs into your product with production-grade reliability. Prompt engineering, context management, streaming responses, and cost controls built in from the start.",
     Visual: VisualLLM,
     bgIcon: BrainCircuit,
   },
   {
-    title: "Computer Vision",
-    body: "Real-time image and video analysis pipelines built for edge and cloud. Object detection, OCR, document intelligence, and multi-modal reasoning tailored to your industry.",
-    Visual: VisualVision,
+    title: "SaaS Development",
+    body: "Full-stack SaaS platforms built with React, Next.js, Node.js, and PostgreSQL. Clean architecture, multi-tenancy, authentication, billing, and the performance foundations that hold up at scale.",
+    Visual: VisualSaaS,
   },
   {
-    title: "Predictive Analytics",
-    body: "Transform historical data into forward-looking decisions. Time-series forecasting, anomaly detection, and recommendation engines built on your proprietary data moats.",
-    Visual: VisualPredictive,
+    title: "QA Automation",
+    body: "Every product we ship includes automated testing. Selenium and Cypress for end-to-end coverage, API and regression testing, and performance benchmarks that catch problems before your users do.",
+    Visual: VisualQA,
   },
   {
     title: "Workflow Automation",
-    body: "End-to-end intelligent automation from document processing and data extraction to decision routing and compliance enforcement. Your ops team, amplified by AI agents.",
+    body: "We build automation pipelines using n8n, Zapier, and Make that eliminate manual work across your business. Lead routing, data sync, AI-enhanced processing, and cross-app workflows that run without supervision.",
     Visual: VisualWorkflow,
     bgIcon: Workflow,
   },
@@ -307,20 +352,17 @@ export default function AINativeDifference() {
             variants={fadeUp}
             className="text-3xl md:text-4xl lg:text-[2.5rem] xl:text-5xl text-evren-navy font-heading font-bold mb-6 leading-tight"
           >
-            The <span className="relative inline-block">
-              <span className="heading-highlight">AI-Native</span>
-            </span> Difference
+            What We{" "}
+            <span className="relative inline-block">
+              <span className="heading-highlight">Build</span>
+            </span>{" "}
+            and How
           </motion.h2>
           <motion.p
             variants={fadeUp}
             className="text-base lg:text-lg text-evren-charcoal font-body leading-relaxed mb-8"
           >
-            Most studios build a product and then ask:{" "}
-            <em className="text-evren-peach/80 font-bold">
-              &ldquo;Can we add AI to this?&rdquo;
-            </em>{" "}
-            At AI Advocate Holding, we start with AI. Intelligence isn&apos;t a feature we
-            retrofit it&apos;s the foundation we build on.
+            Four core capabilities delivered as one integrated service. AI development, workflow automation, SaaS platforms, and QA work together in every project we take on.
           </motion.p>
         </motion.div>
 

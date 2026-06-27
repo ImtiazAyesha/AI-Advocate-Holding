@@ -52,12 +52,12 @@ const HEADLINE_LINES: {
   words: { text: string; decorated?: boolean; secondary?: boolean; light?: boolean }[];
 }[] = [
   {
-    words: [{ text: "Built to Scale. " }],
+    words: [{ text: "How We Build " }, { text: "AI." }],
   },
   {
     words: [
-      { text: "Designed to ", light: true },
-      { text: "Think.", decorated: true, light: true },
+      { text: "Quality ", light: true },
+      { text: "First.", decorated: true, light: true },
     ],
   },
 ];
@@ -237,9 +237,9 @@ export default function ApproachHero() {
             className="font-body text-evren-charcoal text-base md:text-lg lg:text-xl leading-relaxed"
             style={{ lineHeight: 1.7 }}
           >
-            From architecture to deployment, intelligence is woven into every
-            layer of our process. We don&rsquo;t retrofit AI we start with
-            it. The result? Products that think, adapt, and scale from day one.
+            We integrate AI from the first sprint, automate the workflows that
+            slow teams down, and build SaaS platforms engineered to scale.
+            Expert QA is not optional here. It is how every project ships.
           </p>
         </motion.div>
 

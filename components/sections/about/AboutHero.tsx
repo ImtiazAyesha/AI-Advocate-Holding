@@ -43,9 +43,9 @@ const wordReveal: Variants = {
 };
 
 const HEADLINE_LINES: { words: { text: string; decorated?: boolean; secondary?: boolean; light?: boolean }[] }[] = [
-  { words: [{ text: "AI Advocate ", decorated: true }, { text: "Holding." }] },
-  { words: [{ text: "The ", light: true }, { text: "Future ", light: true }, { text: "Is ", light: true }, { text: "Always ", light: true }] },
-  { words: [{ text: "Expanding. ", light: true }, { text: "So ", light: true }, { text: "Are ", light: true }, { text: "We.", light: true }] },
+  { words: [{ text: "We Build ", decorated: true }, { text: "AI." }] },
+  { words: [{ text: "We ", light: true }, { text: "Automate. ", light: true }] },
+  { words: [{ text: "We ", light: true }, { text: "Ship. ", light: true }] },
 ];
 
 const FLOATING_ICONS = [
@@ -172,7 +172,7 @@ export default function AboutHero() {
           className="mb-4 sm:mb-7 px-4 sm:px-0"
         >
           <span className="block text-[10px] sm:text-[11px] font-heading font-bold text-evren-navy/50 tracking-[0.1em] sm:tracking-[0.25em] uppercase text-center">
-            Our Story
+            Who We Are
           </span>
         </motion.div>
 
@@ -223,10 +223,9 @@ export default function AboutHero() {
             className="font-body text-evren-charcoal text-base md:text-lg lg:text-xl leading-relaxed"
             style={{ lineHeight: 1.7 }}
           >
-            AI Advocate Holding was born from a single conviction: that the most powerful
-            technology should feel effortlessly human. We bridge the gap between
-            deep technical AI and human-centered design building intelligent
-            products that don&rsquo;t just work, but genuinely connect.
+            AI Advocate Holding is an AI development and automation agency based in Dallas, TX.
+            We help startups and businesses build AI-powered applications, automate complex
+            workflows, and ship scalable SaaS platforms with expert QA built in from day one.
           </p>
         </motion.div>
 
@@ -240,7 +239,7 @@ export default function AboutHero() {
             size="lg"
             className="w-full sm:w-auto justify-between sm:justify-center text-[14px] sm:text-base whitespace-nowrap"
           >
-            Let&rsquo;s Build Together
+            Start a Project
           </ArrowButton>
 
           <ArrowButton

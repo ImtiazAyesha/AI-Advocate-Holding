@@ -10,7 +10,7 @@ export const VERIFIEDX_CYBERSECURITY_CONTENT: TextFocusedCaseStudyContent = {
   timeline: "6 Months",
   teamSize: "5 Specialists",
   hardMetric: "$7.5M+ Losses Prevented",
-  heroImage: "/case studies/case 2.webp",
+  heroImage: "/case-study-images/verifiedx-cybersecurity/hero.svg",
   hero: {
     headline:
       "Mitigating Multi-Million Dollar Cyber Risk with Proactive AI Threat Detection",

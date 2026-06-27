@@ -10,7 +10,7 @@ export const BILLCLEAR_LEGAL_TECH_CONTENT: TextFocusedCaseStudyContent = {
   timeline: "6 Months",
   teamSize: "4 Specialists",
   hardMetric: "15% Revenue Recovered",
-  heroImage: "/case studies/case 5.webp",
+  heroImage: "/case-study-images/billclear-legal-tech/hero.svg",
   hero: {
     headline:
       "Recovering Lost Revenue & Ensuring Billing Compliance for a Top-Tier Law Firm",

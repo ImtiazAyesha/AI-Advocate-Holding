@@ -11,7 +11,7 @@ export const ISEEDOC_TELEHEALTH_CONTENT: TextFocusedCaseStudyContent = {
   timeline: "8 Months",
   teamSize: "6 Specialists",
   hardMetric: "90% Faster Reports",
-  heroImage: "/case studies/case 1.webp",
+  heroImage: "/case-study-images/iseedoc-telehealth/hero.svg",
   hero: {
     headline:
       "Revolutionizing Healthcare Access: An AI-Powered Virtual Consultation Platform",

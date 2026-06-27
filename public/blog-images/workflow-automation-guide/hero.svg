@@ -1,0 +1,55 @@
+<svg viewBox="0 0 1200 628" xmlns="http://www.w3.org/2000/svg" width="1200" height="628">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f0f7f4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e8f4ef;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="628" fill="url(#bg2)"/>
+  <!-- Background circles -->
+  <circle cx="200" cy="100" r="300" fill="rgba(136,201,179,0.08)"/>
+  <circle cx="1000" cy="528" r="280" fill="rgba(78,124,110,0.06)"/>
+  <!-- Title -->
+  <text x="600" y="90" font-family="Arial,sans-serif" font-size="34" font-weight="800" fill="#1a2421" text-anchor="middle">Workflow Automation</text>
+  <text x="600" y="128" font-family="Arial,sans-serif" font-size="17" fill="#4e7c6e" text-anchor="middle">n8n vs Zapier vs Make: Choosing the Right Tool</text>
+  <!-- Step 1: Trigger -->
+  <rect x="60" y="230" width="180" height="140" rx="14" fill="#1a2421" stroke="none"/>
+  <text x="150" y="290" font-family="Arial,sans-serif" font-size="13" fill="#88C9B3" text-anchor="middle" font-weight="600">TRIGGER</text>
+  <text x="150" y="316" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle">New Event</text>
+  <text x="150" y="342" font-family="Arial,sans-serif" font-size="12" fill="#88C9B3" text-anchor="middle" opacity="0.7">Webhook / Schedule</text>
+  <!-- Arrow -->
+  <line x1="240" y1="300" x2="318" y2="300" stroke="#88C9B3" stroke-width="2.5"/>
+  <polygon points="318,293 334,300 318,307" fill="#88C9B3"/>
+  <!-- Step 2: Filter -->
+  <rect x="338" y="230" width="180" height="140" rx="14" fill="#88C9B3" stroke="none"/>
+  <text x="428" y="290" font-family="Arial,sans-serif" font-size="13" fill="#1a2421" text-anchor="middle" font-weight="600">FILTER</text>
+  <text x="428" y="316" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#1a2421" text-anchor="middle">Conditions</text>
+  <text x="428" y="342" font-family="Arial,sans-serif" font-size="12" fill="#1a2421" text-anchor="middle" opacity="0.7">If / Else / Branch</text>
+  <!-- Arrow -->
+  <line x1="518" y1="300" x2="596" y2="300" stroke="#88C9B3" stroke-width="2.5"/>
+  <polygon points="596,293 612,300 596,307" fill="#88C9B3"/>
+  <!-- Step 3: Action -->
+  <rect x="616" y="230" width="180" height="140" rx="14" fill="#4e7c6e" stroke="none"/>
+  <text x="706" y="290" font-family="Arial,sans-serif" font-size="13" fill="#88C9B3" text-anchor="middle" font-weight="600">ACTION</text>
+  <text x="706" y="316" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle">Execute Task</text>
+  <text x="706" y="342" font-family="Arial,sans-serif" font-size="12" fill="#88C9B3" text-anchor="middle" opacity="0.8">API / DB / Email</text>
+  <!-- Arrow -->
+  <line x1="796" y1="300" x2="874" y2="300" stroke="#88C9B3" stroke-width="2.5"/>
+  <polygon points="874,293 890,300 874,307" fill="#88C9B3"/>
+  <!-- Step 4: Output -->
+  <rect x="894" y="230" width="240" height="140" rx="14" fill="#1a2421" stroke="#88C9B3" stroke-width="1.5"/>
+  <text x="1014" y="290" font-family="Arial,sans-serif" font-size="13" fill="#88C9B3" text-anchor="middle" font-weight="600">OUTPUT</text>
+  <text x="1014" y="316" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle">Automated Result</text>
+  <text x="1014" y="342" font-family="Arial,sans-serif" font-size="12" fill="#88C9B3" text-anchor="middle" opacity="0.7">Notify / Save / Sync</text>
+  <!-- Tool Labels -->
+  <text x="200" y="430" font-family="Arial,sans-serif" font-size="20" font-weight="800" fill="#1a2421" text-anchor="middle">n8n</text>
+  <text x="200" y="455" font-family="Arial,sans-serif" font-size="13" fill="#4e7c6e" text-anchor="middle">Self-hosted</text>
+  <text x="600" y="430" font-family="Arial,sans-serif" font-size="20" font-weight="800" fill="#1a2421" text-anchor="middle">Zapier</text>
+  <text x="600" y="455" font-family="Arial,sans-serif" font-size="13" fill="#4e7c6e" text-anchor="middle">No-code friendly</text>
+  <text x="1000" y="430" font-family="Arial,sans-serif" font-size="20" font-weight="800" fill="#1a2421" text-anchor="middle">Make</text>
+  <text x="1000" y="455" font-family="Arial,sans-serif" font-size="13" fill="#4e7c6e" text-anchor="middle">Visual builder</text>
+  <!-- Separator lines -->
+  <line x1="400" y1="410" x2="400" y2="470" stroke="#88C9B3" stroke-width="1" opacity="0.4"/>
+  <line x1="800" y1="410" x2="800" y2="470" stroke="#88C9B3" stroke-width="1" opacity="0.4"/>
+  <text x="600" y="580" font-family="Arial,sans-serif" font-size="14" fill="#4e7c6e" text-anchor="middle" opacity="0.7">AI Advocate Holding</text>
+</svg>

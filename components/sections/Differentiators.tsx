@@ -40,9 +40,9 @@ interface Principle {
 const PRINCIPLES: Principle[] = [
   {
     id: "ai-native",
-    label: "CORE ARCHITECTURE",
-    title: "AI-Native by Design",
-    body: "AI isn't a feature we bolt on at the end. It is woven into our architecture from day one, making your product fundamentally smarter.",
+    label: "AI + AUTOMATION EXPERTISE",
+    title: "Full-Stack AI Capability",
+    body: "From OpenAI and Claude API integrations to workflow automation with Zapier, Make, and n8n we bring end-to-end AI expertise that turns complex requirements into practical, production-ready solutions.",
     icon: Cpu,
     layerClass:
       "bg-evren-navy border border-evren-navy-light/30 shadow-[0_20px_60px_rgba(26,36,33,0.25)]",
@@ -57,9 +57,9 @@ const PRINCIPLES: Principle[] = [
   },
   {
     id: "partnership",
-    label: "PARTNERSHIP",
-    title: "True Partnership",
-    body: "We don't just take orders. We embed in your vision, challenge assumptions, and build alongside your team as true collaborators not vendors.",
+    label: "QUALITY ASSURANCE",
+    title: "Built-In QA, Zero Surprises",
+    body: "Every product we ship includes automated testing Selenium, Cypress, API and regression testing. Quality is built in from the first sprint, not bolted on as an afterthought.",
     icon: Users,
     layerClass:
       "bg-white border border-evren-light-gray/40 shadow-warm",
@@ -74,9 +74,9 @@ const PRINCIPLES: Principle[] = [
   },
   {
     id: "built-to-last",
-    label: "SUSTAINABILITY",
-    title: "Built to Last",
-    body: "Our goal is your independence. We ensure complete knowledge transfer so your team can own, scale, and evolve what we create long after the engagement ends.",
+    label: "BUSINESS OUTCOMES",
+    title: "Scalable Code. Real Results.",
+    body: "We write clean, scalable architecture and maintain fast, structured communication throughout. Our focus is your business outcome shipping software that works, scales, and grows with you.",
     icon: Shield,
     layerClass:
       "bg-gradient-to-br from-evren-peach-light via-evren-peach/25 to-evren-peach-light/90 border border-evren-peach/50 shadow-[0_15px_40px_rgba(136,201,179,0.28)]",
@@ -292,12 +292,12 @@ export default function Differentiators() {
             Why AI Advocate Holding
           </p>
           <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] text-evren-navy font-heading font-bold leading-tight">
-            Built to Scale.{" "}
-            <span className="heading-highlight">Designed to Think.</span>
+            AI Expertise.{" "}
+            <span className="heading-highlight">Built-In Quality.</span>
           </h2>
           <p className="mt-4 text-evren-medium-gray font-body text-[15px] leading-relaxed max-w-xl">
-            Three principles that set us apart each one woven into every
-            project, every decision, every line of code.
+            Three reasons our clients choose us and why they keep coming back
+            to build, automate, and scale with us.
           </p>
         </motion.div>
       </div>

@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
-import { ArrowUpRight, MapPin, Mail, Zap } from "lucide-react";
+import { ArrowUpRight, Mail, Zap } from "lucide-react";
 import ArrowButton from "@/components/ui/ArrowButton";
 import CtaWatermark from "@/components/ui/CtaWatermark";
 import { useRef } from "react";
@@ -19,12 +19,11 @@ const NAV_LINKS = [
   { label: "Approach", href: "/approach" },
   { label: "Work", href: "/work" },
   { label: "Thinking", href: "/thinking" },
-  { label: "Business Transformation", href: "/business-transformation" },
+  // { label: "Business Transformation", href: "/business-transformation" },
 ];
 
 const OFFICES = [
-  { city: "United States (HQ)", icon: MapPin },
-  { city: "Dubai, UAE", icon: MapPin },
+  { city: "18250 Marsh LN, Dallas, TX 75286" },
 ];
 
 const SOCIALS = SOCIAL_LINKS;
@@ -46,16 +45,16 @@ export default function Footer({ hideCTA = false }: { hideCTA?: boolean }) {
       {/* ─── Part A: Immersive Asymmetric CTA ─── */}
       {!hideCTA && (
         <div
-          className={`max-w-7xl mx-auto px-4 sm:px-6 relative z-10 mb-20 sm:mb-28 ${
+          className={`relative z-10 mb-20 sm:mb-28 ${
             isAboutPage ? "pt-10 sm:pt-12 lg:pt-16" : ""
           }`}
         >
         <motion.div
           ref={ctaRef}
-          initial={{ scale: 0.94, opacity: 0, y: 40 }}
-          animate={ctaInView ? { scale: 1, opacity: 1, y: 0 } : {}}
+          initial={{ opacity: 0, y: 40 }}
+          animate={ctaInView ? { opacity: 1, y: 0 } : {}}
           transition={{ type: "spring", stiffness: 70, damping: 20, duration: 0.9 }}
-          className="bg-evren-navy rounded-[32px] relative overflow-hidden shadow-warm-hover"
+          className="w-full bg-evren-navy relative overflow-hidden"
         >
           {/* ── Decorative Background Elements ── */}
           <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
@@ -81,7 +80,8 @@ export default function Footer({ hideCTA = false }: { hideCTA?: boolean }) {
           </div>
 
           {/* ── CTA Content — Asymmetric Split ── */}
-          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-0">
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-0">
             {/* Left column — Editorial headline */}
             <div className="lg:col-span-7 p-6 sm:p-10 md:p-14 lg:p-16 flex flex-col justify-center">
               {/* Pre-headline badge */}
@@ -95,7 +95,7 @@ export default function Footer({ hideCTA = false }: { hideCTA?: boolean }) {
                   <Zap size={16} className="text-evren-peach" strokeWidth={2.5} />
                 </div>
                 <span className="text-[10px] sm:text-[11px] font-heading font-semibold text-evren-peach/90 uppercase tracking-[0.2em] leading-tight mt-0.5">
-                  {isArticlePage ? "FROM PROTOTYPE TO PRODUCTION" : "Ready to build something extraordinary?"}
+                  {isArticlePage ? "FROM PROTOTYPE TO PRODUCTION" : "AI Development · Automation · SaaS · QA"}
                 </span>
               </motion.div>
 
@@ -108,13 +108,13 @@ export default function Footer({ hideCTA = false }: { hideCTA?: boolean }) {
               >
                 {!isArticlePage && (
                   <span className="block text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.08]">
-                    Have an idea?
+                    Ready to Build Your
                   </span>
                 )}
                 <span className="block text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.08] mt-1">
-                  {isArticlePage ? "Building" : "Let's"}{" "}
+                  {isArticlePage ? "Building" : ""}{" "}
                   <span className="relative inline-block">
-                    <span className="heading-highlight">{isArticlePage ? "something?" : "talk."}</span>
+                    <span className="heading-highlight">{isArticlePage ? "something?" : "AI Product?"}</span>
                   </span>
                 </span>
               </motion.h2>
@@ -125,9 +125,9 @@ export default function Footer({ hideCTA = false }: { hideCTA?: boolean }) {
                 transition={{ delay: 0.4, duration: 0.5 }}
                 className="text-base md:text-lg text-white/50 font-body max-w-lg mt-6 leading-relaxed"
               >
-                {isArticlePage 
+                {isArticlePage
                   ? "We would love to hear about it. Let's discuss how AI Advocate Holding can accelerate your journey from prototype to production."
-                  : "Partner with the studio that embeds intelligence from day one. Stop experimenting start scaling."}
+                  : "From AI development and workflow automation to SaaS platforms and QA we help you ship production-ready software that works from day one. Send us a message to discuss your project."}
               </motion.p>
             </div>
 
@@ -167,6 +167,7 @@ export default function Footer({ hideCTA = false }: { hideCTA?: boolean }) {
               </div>
             </div>
           </div>
+          </div>
 
           <CtaWatermark text="AI Advocate Holding" />
         </motion.div>
@@ -174,9 +175,10 @@ export default function Footer({ hideCTA = false }: { hideCTA?: boolean }) {
       )}
 
       {/* ─── Part B: Main Footer ─── */}
-      <div className="bg-evren-warm-white border-t border-evren-navy/10 pt-16 sm:pt-24 pb-6 sm:pb-8 px-4 sm:px-6">
+      <div className="bg-evren-warm-white border-t border-evren-navy/10 py-8 sm:py-10 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-10 md:gap-8 mb-10 sm:mb-12">
+          <div className="hero-glass-container px-10 pt-12 pb-8 md:px-14 md:pt-16 md:pb-10 lg:px-16 lg:pt-20 lg:pb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-10 md:gap-6 mb-10 md:mb-12">
             {/* Col 1 — Brand */}
             <div className="md:col-span-2">
               <Link
@@ -201,7 +203,7 @@ export default function Footer({ hideCTA = false }: { hideCTA?: boolean }) {
                 </span>
               </Link>
               <p className="text-evren-medium-gray font-body text-sm max-w-xs leading-relaxed">
-                Where Ideas Become Intelligent Products.
+                AI development, automation, and SaaS built production-ready with expert QA.
               </p>
             </div>
 
@@ -227,24 +229,16 @@ export default function Footer({ hideCTA = false }: { hideCTA?: boolean }) {
               </nav>
             </div>
 
-            {/* Col 3 — Offices */}
-            <div>
+            {/* Col 3 — Location */}
+            <div className="md:-ml-6">
               <h4 className="font-heading font-bold text-evren-navy mb-5 text-sm uppercase tracking-wider">
-                Offices
+                Location
               </h4>
               <div className="flex flex-col gap-4">
                 {OFFICES.map((office) => (
-                  <div key={office.city} className="flex items-start gap-2.5">
-                    <div className="w-7 h-7 rounded-lg bg-evren-peach-light/50 flex items-center justify-center shrink-0 mt-0.5">
-                      <office.icon
-                        size={13}
-                        className="text-evren-peach"
-                      />
-                    </div>
-                    <span className="text-sm text-evren-charcoal font-body leading-snug">
-                      {office.city}
-                    </span>
-                  </div>
+                  <span key={office.city} className="text-sm text-evren-charcoal font-body leading-snug">
+                    {office.city}
+                  </span>
                 ))}
               </div>
             </div>
@@ -265,51 +259,36 @@ export default function Footer({ hideCTA = false }: { hideCTA?: boolean }) {
                 hello@aiadvocateholding.com
               </a>
 
-              {/* Social links */}
-              <div className="flex items-center gap-4 mt-6">
-                {SOCIALS.map((social) => (
-                  <a
-                    key={social.label}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={social.label}
-                    className="group inline-flex transition-opacity duration-200 opacity-70 hover:opacity-100"
-                  >
-                    <Image
-                      src={social.icon}
-                      alt=""
-                      width={22}
-                      height={22}
-                      className="h-[22px] w-[22px] object-contain"
-                    />
-                  </a>
-                ))}
-              </div>
             </div>
           </div>
 
-          {/* ─── Bottom Bar: Copyright + Legal ─── */}
-          <div className="h-px bg-evren-medium-gray/15 mb-4 sm:mb-6" />
+          {/* ─── Bottom Bar: Copyright + Socials ─── */}
+          <div className="h-px bg-evren-medium-gray/15 mb-6" />
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-xs text-evren-medium-gray/70 font-body">
               &copy; 2026 AI Advocate Holding. All rights reserved.
             </p>
-            <div className="flex items-center gap-4 text-xs text-evren-medium-gray/70 font-body">
-              <Link
-                href="/privacy-policy"
-                className="hover:text-evren-charcoal transition-colors duration-200"
-              >
-                Privacy Policy
-              </Link>
-              <span className="w-1 h-1 rounded-full bg-evren-medium-gray/30" />
-              <Link
-                href="/terms-of-service"
-                className="hover:text-evren-charcoal transition-colors duration-200"
-              >
-                Terms of Service
-              </Link>
+            <div className="flex items-center gap-4">
+              {SOCIALS.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
+                  className="inline-flex transition-opacity duration-200 opacity-50 hover:opacity-100"
+                >
+                  <Image
+                    src={social.icon}
+                    alt=""
+                    width={20}
+                    height={20}
+                    className="h-[20px] w-[20px] object-contain"
+                  />
+                </a>
+              ))}
             </div>
+          </div>
           </div>
         </div>
       </div>

@@ -6,7 +6,7 @@ export const SOCIAL_LINKS = [
   },
   {
     label: "X (Twitter)",
-    href: "https://x.com/evrenai_org",
+    href: "https://x.com/AiAdvocatellc",
     icon: "/socials/twitter.svg",
   },
   {

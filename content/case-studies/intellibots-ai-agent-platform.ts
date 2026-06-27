@@ -10,7 +10,7 @@ export const INTELLIBOTS_AI_AGENT_PLATFORM_CONTENT: TextFocusedCaseStudyContent 
   timeline: "8 Months",
   teamSize: "6 Specialists",
   hardMetric: "70% Fewer Support Queries",
-  heroImage: "/case studies/case 6.webp",
+  heroImage: "/case-study-images/intellibots-ai-agent-platform/hero.svg",
   hero: {
     headline:
       "From Chatbot to Command Center: Empowering Enterprise with an AI Agent Deployment Platform",

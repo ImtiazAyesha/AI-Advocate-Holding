@@ -1,0 +1,71 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d1218"/>
+      <stop offset="100%" stop-color="#141c24"/>
+    </linearGradient>
+    <linearGradient id="chartFill" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#88C9B3" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#88C9B3" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="chartFill2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#88C9B3" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#88C9B3" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="800" fill="url(#bg4)"/>
+
+  <!-- Subtle grid lines -->
+  <line x1="0" y1="200" x2="1200" y2="200" stroke="#88C9B3" stroke-width="0.5" opacity="0.06"/>
+  <line x1="0" y1="320" x2="1200" y2="320" stroke="#88C9B3" stroke-width="0.5" opacity="0.06"/>
+  <line x1="0" y1="440" x2="1200" y2="440" stroke="#88C9B3" stroke-width="0.5" opacity="0.06"/>
+  <line x1="0" y1="560" x2="1200" y2="560" stroke="#88C9B3" stroke-width="0.5" opacity="0.06"/>
+  <line x1="200" y1="0" x2="200" y2="800" stroke="#88C9B3" stroke-width="0.5" opacity="0.04"/>
+  <line x1="450" y1="0" x2="450" y2="800" stroke="#88C9B3" stroke-width="0.5" opacity="0.04"/>
+  <line x1="700" y1="0" x2="700" y2="800" stroke="#88C9B3" stroke-width="0.5" opacity="0.04"/>
+  <line x1="950" y1="0" x2="950" y2="800" stroke="#88C9B3" stroke-width="0.5" opacity="0.04"/>
+
+  <!-- Chart line 1 (main trend — rising) -->
+  <polyline points="80,560 180,520 280,490 380,460 480,430 560,400 640,360 720,310 800,270 880,230 960,190 1060,160 1140,130" fill="none" stroke="#88C9B3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+  <!-- Chart fill -->
+  <polygon points="80,560 180,520 280,490 380,460 480,430 560,400 640,360 720,310 800,270 880,230 960,190 1060,160 1140,130 1140,620 80,620" fill="url(#chartFill)"/>
+
+  <!-- Chart line 2 (secondary, slightly below) -->
+  <polyline points="80,600 180,580 280,560 380,530 480,510 560,490 640,460 720,430 800,400 880,370 960,340 1060,310 1140,280" fill="none" stroke="#88C9B3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.35"/>
+  <polygon points="80,600 180,580 280,560 380,530 480,510 560,490 640,460 720,430 800,400 880,370 960,340 1060,310 1140,280 1140,640 80,640" fill="url(#chartFill2)"/>
+
+  <!-- Data point highlight -->
+  <circle cx="1060" cy="160" r="8" fill="#88C9B3" opacity="0.9"/>
+  <circle cx="1060" cy="160" r="20" fill="#88C9B3" opacity="0.15"/>
+
+  <!-- Waveform (earnings call audio) — top area -->
+  <g opacity="0.3">
+    <rect x="80" y="80" width="4" height="30" rx="2" fill="#88C9B3"/>
+    <rect x="92" y="65" width="4" height="60" rx="2" fill="#88C9B3"/>
+    <rect x="104" y="75" width="4" height="40" rx="2" fill="#88C9B3"/>
+    <rect x="116" y="58" width="4" height="74" rx="2" fill="#88C9B3"/>
+    <rect x="128" y="70" width="4" height="50" rx="2" fill="#88C9B3"/>
+    <rect x="140" y="82" width="4" height="26" rx="2" fill="#88C9B3"/>
+    <rect x="152" y="60" width="4" height="70" rx="2" fill="#88C9B3"/>
+    <rect x="164" y="74" width="4" height="42" rx="2" fill="#88C9B3"/>
+    <rect x="176" y="66" width="4" height="58" rx="2" fill="#88C9B3"/>
+    <rect x="188" y="80" width="4" height="30" rx="2" fill="#88C9B3"/>
+    <rect x="200" y="55" width="4" height="80" rx="2" fill="#88C9B3"/>
+    <rect x="212" y="68" width="4" height="54" rx="2" fill="#88C9B3"/>
+    <rect x="224" y="78" width="4" height="34" rx="2" fill="#88C9B3"/>
+    <rect x="236" y="62" width="4" height="66" rx="2" fill="#88C9B3"/>
+    <rect x="248" y="72" width="4" height="46" rx="2" fill="#88C9B3"/>
+  </g>
+
+  <!-- Arrow indicating &lt; 90s -->
+  <rect x="820" y="100" width="160" height="52" rx="10" fill="#88C9B3" opacity="0.1" stroke="#88C9B3" stroke-width="1" stroke-opacity="0.35"/>
+  <text x="900" y="122" text-anchor="middle" fill="#88C9B3" font-size="18" font-family="system-ui,sans-serif" font-weight="800" opacity="0.85">&lt; 90s</text>
+  <text x="900" y="141" text-anchor="middle" fill="#88C9B3" font-size="11" font-family="system-ui,sans-serif" font-weight="500" opacity="0.55">Earnings to Insight</text>
+
+  <!-- Metric -->
+  <text x="600" y="668" text-anchor="middle" fill="#88C9B3" font-size="72" font-family="system-ui,sans-serif" font-weight="800" opacity="0.06">&lt; 90s</text>
+
+  <!-- Label -->
+  <text x="60" y="750" fill="#88C9B3" font-size="15" font-family="system-ui,sans-serif" font-weight="700" opacity="0.5" letter-spacing="3">FINANCIAL INTELLIGENCE PLATFORM</text>
+</svg>

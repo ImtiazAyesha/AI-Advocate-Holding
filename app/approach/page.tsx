@@ -8,23 +8,23 @@ import AINativeDifference from "@/components/sections/approach/AINativeDifferenc
 import EnterpriseStack from "@/components/sections/approach/EnterpriseStack";
 
 export const metadata: Metadata = {
-  title: "Our Approach - Built to Scale. Designed to Think. | AI Advocate Holding",
+  title: "Our Approach | AI Advocate Holding",
   description:
-    "Discover how AI Advocate Holding bridges the gap between high-level innovation and hardened, scalable production code. Our AI-native approach integrates intelligence from Sprint 1, not as an afterthought.",
+    "How AI Advocate Holding builds AI-powered applications, automates workflows, and ships scalable SaaS platforms with QA built in from day one.",
   keywords: [
-    "AI development methodology",
-    "AI-native development",
-    "enterprise AI architecture",
-    "scalable AI solutions",
-    "AI integration strategy",
-    "LLM integration",
-    "computer vision",
-    "predictive analytics",
+    "AI development approach",
+    "workflow automation",
+    "SaaS development",
+    "QA automation",
+    "OpenAI integration",
+    "Claude API",
+    "n8n automation",
+    "production-ready AI",
   ],
   openGraph: {
-    title: "Our Approach - Built to Scale. Designed to Think. | AI Advocate Holding",
+    title: "Our Approach | AI Advocate Holding",
     description:
-      "Discover how AI Advocate Holding bridges the gap between high-level innovation and hardened, scalable production code.",
+      "How we build AI-powered products, automate workflows, and ship production-ready SaaS with expert QA.",
     type: "website",
   },
 };

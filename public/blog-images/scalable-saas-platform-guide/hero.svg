@@ -1,0 +1,39 @@
+<svg viewBox="0 0 1200 628" xmlns="http://www.w3.org/2000/svg" width="1200" height="628">
+  <defs>
+    <linearGradient id="bg5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a2421;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0d1814;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="628" fill="url(#bg5)"/>
+  <circle cx="600" cy="314" r="320" fill="rgba(136,201,179,0.04)"/>
+  <!-- Title -->
+  <text x="600" y="72" font-family="Arial,sans-serif" font-size="34" font-weight="800" fill="#ffffff" text-anchor="middle">How to Build a Scalable SaaS Platform</text>
+  <text x="600" y="108" font-family="Arial,sans-serif" font-size="17" fill="#88C9B3" text-anchor="middle">React + Node.js + PostgreSQL Architecture</text>
+  <!-- Layer 1: Client -->
+  <rect x="200" y="156" width="800" height="80" rx="14" fill="rgba(136,201,179,0.18)" stroke="#88C9B3" stroke-width="1.5"/>
+  <text x="600" y="188" font-family="Arial,sans-serif" font-size="14" fill="#88C9B3" text-anchor="middle" font-weight="600">CLIENT LAYER</text>
+  <text x="600" y="212" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle">React  |  Next.js  |  Flutter  |  React Native</text>
+  <!-- Arrow -->
+  <line x1="600" y1="236" x2="600" y2="258" stroke="#88C9B3" stroke-width="2" stroke-dasharray="6,3"/>
+  <polygon points="593,258 600,274 607,258" fill="#88C9B3"/>
+  <!-- Layer 2: API -->
+  <rect x="200" y="274" width="800" height="80" rx="14" fill="rgba(78,124,110,0.25)" stroke="#4e7c6e" stroke-width="1.5"/>
+  <text x="600" y="306" font-family="Arial,sans-serif" font-size="14" fill="#88C9B3" text-anchor="middle" font-weight="600">API LAYER</text>
+  <text x="600" y="330" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle">Node.js  |  Python  |  REST  |  GraphQL</text>
+  <!-- Arrow -->
+  <line x1="600" y1="354" x2="600" y2="376" stroke="#88C9B3" stroke-width="2" stroke-dasharray="6,3"/>
+  <polygon points="593,376 600,392 607,376" fill="#88C9B3"/>
+  <!-- Layer 3: Services -->
+  <rect x="200" y="392" width="380" height="80" rx="14" fill="rgba(136,201,179,0.12)" stroke="rgba(136,201,179,0.3)" stroke-width="1.5"/>
+  <text x="390" y="424" font-family="Arial,sans-serif" font-size="14" fill="#88C9B3" text-anchor="middle" font-weight="600">AI SERVICES</text>
+  <text x="390" y="448" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#ffffff" text-anchor="middle">OpenAI  |  Claude  |  ML</text>
+  <rect x="620" y="392" width="380" height="80" rx="14" fill="rgba(136,201,179,0.12)" stroke="rgba(136,201,179,0.3)" stroke-width="1.5"/>
+  <text x="810" y="424" font-family="Arial,sans-serif" font-size="14" fill="#88C9B3" text-anchor="middle" font-weight="600">DATA LAYER</text>
+  <text x="810" y="448" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#ffffff" text-anchor="middle">PostgreSQL  |  Redis  |  S3</text>
+  <!-- Connecting line -->
+  <line x1="580" y1="432" x2="620" y2="432" stroke="#88C9B3" stroke-width="1.5" opacity="0.4"/>
+  <!-- Bottom -->
+  <text x="600" y="540" font-family="Arial,sans-serif" font-size="15" fill="#4e7c6e" text-anchor="middle">Scalable Architecture. Clean Code. Built for Growth.</text>
+  <text x="600" y="592" font-family="Arial,sans-serif" font-size="13" fill="#4e7c6e" text-anchor="middle" opacity="0.6">AI Advocate Holding</text>
+</svg>

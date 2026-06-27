@@ -1,0 +1,69 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#131a10"/>
+      <stop offset="100%" stop-color="#1a2318"/>
+    </linearGradient>
+    <linearGradient id="scanBeam" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#88C9B3" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#88C9B3" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="800" fill="url(#bg3)"/>
+
+  <!-- Dot grid -->
+  <pattern id="dots3" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+    <circle cx="20" cy="20" r="1" fill="#88C9B3" opacity="0.1"/>
+  </pattern>
+  <rect width="1200" height="800" fill="url(#dots3)"/>
+
+  <!-- Building silhouette (wireframe) -->
+  <!-- Main building body -->
+  <rect x="320" y="220" width="560" height="420" fill="none" stroke="#88C9B3" stroke-width="2" stroke-opacity="0.25"/>
+  <!-- Building fill subtle -->
+  <rect x="320" y="220" width="560" height="420" fill="#88C9B3" opacity="0.02"/>
+
+  <!-- Windows grid -->
+  <rect x="360" y="260" width="60" height="50" rx="4" fill="#88C9B3" opacity="0.08" stroke="#88C9B3" stroke-width="1" stroke-opacity="0.2"/>
+  <rect x="460" y="260" width="60" height="50" rx="4" fill="#88C9B3" opacity="0.08" stroke="#88C9B3" stroke-width="1" stroke-opacity="0.2"/>
+  <rect x="560" y="260" width="60" height="50" rx="4" fill="#88C9B3" opacity="0.08" stroke="#88C9B3" stroke-width="1" stroke-opacity="0.2"/>
+  <rect x="660" y="260" width="60" height="50" rx="4" fill="#88C9B3" opacity="0.08" stroke="#88C9B3" stroke-width="1" stroke-opacity="0.2"/>
+  <rect x="760" y="260" width="60" height="50" rx="4" fill="#88C9B3" opacity="0.08" stroke="#88C9B3" stroke-width="1" stroke-opacity="0.2"/>
+
+  <rect x="360" y="340" width="60" height="50" rx="4" fill="#88C9B3" opacity="0.06" stroke="#88C9B3" stroke-width="1" stroke-opacity="0.15"/>
+  <rect x="460" y="340" width="60" height="50" rx="4" fill="#88C9B3" opacity="0.06" stroke="#88C9B3" stroke-width="1" stroke-opacity="0.15"/>
+  <rect x="560" y="340" width="60" height="50" rx="4" fill="#88C9B3" opacity="0.06" stroke="#88C9B3" stroke-width="1" stroke-opacity="0.15"/>
+  <rect x="660" y="340" width="60" height="50" rx="4" fill="#88C9B3" opacity="0.06" stroke="#88C9B3" stroke-width="1" stroke-opacity="0.15"/>
+  <rect x="760" y="340" width="60" height="50" rx="4" fill="#88C9B3" opacity="0.06" stroke="#88C9B3" stroke-width="1" stroke-opacity="0.15"/>
+
+  <!-- Door -->
+  <rect x="555" y="510" width="90" height="130" rx="6" fill="none" stroke="#88C9B3" stroke-width="1.5" stroke-opacity="0.25"/>
+
+  <!-- Scan beam overlay -->
+  <rect x="320" y="220" width="560" height="180" fill="url(#scanBeam)"/>
+  <!-- Scan line -->
+  <line x1="320" y1="400" x2="880" y2="400" stroke="#88C9B3" stroke-width="2" stroke-opacity="0.5"/>
+
+  <!-- Camera/eye icon — top right -->
+  <circle cx="940" cy="180" r="50" fill="#88C9B3" opacity="0.08" stroke="#88C9B3" stroke-width="1.5" stroke-opacity="0.3"/>
+  <circle cx="940" cy="180" r="22" fill="none" stroke="#88C9B3" stroke-width="2" stroke-opacity="0.6"/>
+  <circle cx="940" cy="180" r="10" fill="#88C9B3" opacity="0.5"/>
+  <!-- Camera lens lines -->
+  <line x1="900" y1="180" x2="860" y2="220" stroke="#88C9B3" stroke-width="1" stroke-opacity="0.25" stroke-dasharray="4 3"/>
+  <line x1="940" y1="230" x2="880" y2="320" stroke="#88C9B3" stroke-width="1" stroke-opacity="0.25" stroke-dasharray="4 3"/>
+
+  <!-- Alert badge -->
+  <rect x="60" y="160" width="170" height="44" rx="22" fill="#f59e0b" opacity="0.12" stroke="#f59e0b" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="145" y="187" text-anchor="middle" fill="#f59e0b" font-size="14" font-family="system-ui,sans-serif" font-weight="700" opacity="0.8">0 Incidents Today</text>
+
+  <!-- Check badge -->
+  <rect x="60" y="220" width="140" height="44" rx="22" fill="#88C9B3" opacity="0.1" stroke="#88C9B3" stroke-width="1" stroke-opacity="0.3"/>
+  <text x="130" y="247" text-anchor="middle" fill="#88C9B3" font-size="14" font-family="system-ui,sans-serif" font-weight="700" opacity="0.7">AI Monitoring</text>
+
+  <!-- Metric -->
+  <text x="600" y="668" text-anchor="middle" fill="#88C9B3" font-size="72" font-family="system-ui,sans-serif" font-weight="800" opacity="0.07">40%</text>
+
+  <!-- Label -->
+  <text x="60" y="750" fill="#88C9B3" font-size="15" font-family="system-ui,sans-serif" font-weight="700" opacity="0.5" letter-spacing="3">CONSTRUCTION SAFETY AI</text>
+</svg>

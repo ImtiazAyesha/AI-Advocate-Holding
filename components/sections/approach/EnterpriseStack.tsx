@@ -74,9 +74,9 @@ const LAYERS: Layer[] = [
   {
     id: "frontend",
     category: "LAYER 01",
-    label: "Interfaces that Move",
-    sublabel: "Web, mobile, and cross-platform experiences built for speed, accessibility, and the kind of responsiveness users now expect as standard.",
-    technologies: ["Web", "Mobile", "Cross-Platform"],
+    label: "Client Layer",
+    sublabel: "React, Next.js, Flutter, and React Native for web and mobile. Interfaces built for speed and designed to work across every device and screen size.",
+    technologies: ["React", "Next.js", "React Native"],
     borderColor: "border-evren-navy/10",
     bgColor: "bg-white",
     iconBg: "bg-evren-navy/5",
@@ -88,9 +88,9 @@ const LAYERS: Layer[] = [
   {
     id: "backend",
     category: "LAYER 02",
-    label: "Logic That Scales",
-    sublabel: "API architecture designed for the load you have today and the load you'll have in two years. Flexible enough to extend, solid enough to trust.",
-    technologies: ["APIs", "Microservices", "Real-Time"],
+    label: "API Layer",
+    sublabel: "Node.js and Python backends with REST and GraphQL APIs. Designed to handle the traffic you have today and the traffic you will have in a year.",
+    technologies: ["Node.js", "Python", "REST / GraphQL"],
     borderColor: "border-evren-navy/10",
     bgColor: "bg-white",
     iconBg: "bg-evren-navy/5",
@@ -100,11 +100,11 @@ const LAYERS: Layer[] = [
     animDelay: 0.12,
   },
   {
-    id: "cloud",
+    id: "automation",
     category: "LAYER 03",
-    label: "Infrastructure That Doesn't Flinch",
-    sublabel: "Multi-cloud deployment pipelines with automated scaling, monitoring, and rollback so your product stays live while your team sleeps.",
-    technologies: ["Multi-Cloud", "Auto-Scaling", "Zero-Downtime"],
+    label: "Automation Layer",
+    sublabel: "n8n, Zapier, and Make connect your tools and eliminate manual work. Triggers, filters, actions, and AI-enhanced processing that runs on its own.",
+    technologies: ["n8n", "Zapier", "Make"],
     borderColor: "border-evren-navy/10",
     bgColor: "bg-white",
     iconBg: "bg-evren-navy/5",
@@ -116,9 +116,9 @@ const LAYERS: Layer[] = [
   {
     id: "ai",
     category: "LAYER 04",
-    label: "Intelligence at the Core",
-    sublabel: "Model-agnostic AI integration built around your data, your domain, and your users not around whichever model happens to be trending.",
-    technologies: ["Model-Agnostic", "Context-Aware", "Domain-Trained"],
+    label: "AI and QA Layer",
+    sublabel: "OpenAI and Claude API integration with Selenium, Cypress, and regression testing baked in. Every AI feature ships with the automated tests that verify it works.",
+    technologies: ["OpenAI", "Claude API", "Selenium / Cypress"],
     borderColor: "border-evren-navy/10",
     bgColor: "bg-white",
     iconBg: "bg-evren-navy/5",
@@ -185,7 +185,7 @@ export default function EnterpriseStack() {
             variants={fadeUp}
             className="text-base lg:text-lg text-evren-charcoal font-body leading-relaxed mb-8"
           >
-            Built to the standard your product needs from MVP to regulated enterprise. Every layer is chosen for reliability, security, and long-term scalability.
+            The tools we use across every engagement. Each layer chosen for reliability, performance, and real-world production requirements, not hype.
           </motion.p>
 
           {/* Decorative divider */}
@@ -198,28 +198,6 @@ export default function EnterpriseStack() {
             }}
           /> */}
 
-          {/* Compliance badges */}
-          <motion.div
-            variants={fadeUp}
-            className="flex flex-wrap justify-center gap-x-5 gap-y-3"
-          >
-            {[
-              "Security-First Architecture",
-              "Privacy by Design",
-              "Compliance-Adaptable Infrastructure",
-              "Audit-Ready by Default",
-            ].map((badge) => (
-              <div key={badge} className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-evren-peach" />
-                <span
-                  className="text-xs font-semibold text-evren-navy/60 uppercase tracking-wider"
-                  style={{ fontFamily: "'JetBrains Mono', 'Fira Code', monospace" }}
-                >
-                  {badge}
-                </span>
-              </div>
-            ))}
-          </motion.div>
         </motion.div>
 
         {/* ═══════════════════════════════════════════════════════════

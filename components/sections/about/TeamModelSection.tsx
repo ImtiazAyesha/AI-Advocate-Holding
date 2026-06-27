@@ -121,9 +121,9 @@ export default function TeamModelSection() {
                          text-3xl sm:text-4xl lg:text-[2.75rem] xl:text-5xl
                          leading-[1.1] -tracking-tight mb-7"
             >
-              The agility of a studio.
+              The speed of a startup.
               <br />
-              The capacity of an{" "}
+              The discipline of an{" "}
               <span className="relative inline-block">
                 agency
                 <svg
@@ -165,9 +165,9 @@ export default function TeamModelSection() {
               className="font-body text-evren-charcoal/70 text-base md:text-lg leading-relaxed mb-5"
               style={{ lineHeight: 1.75 }}
             >
-              Our team of engineers, designers, and strategists turn complex
-              challenges into elegant, scalable solutions that grow alongside
-              the businesses we serve.
+              Our engineers, automation specialists, and QA engineers work as one
+              unit to take products from concept to production without the handoff
+              delays that slow most engagements down.
             </motion.p>
 
             <motion.p
@@ -175,9 +175,9 @@ export default function TeamModelSection() {
               className="font-body text-evren-charcoal/55 text-base md:text-[17px] leading-relaxed"
               style={{ lineHeight: 1.75 }}
             >
-              Every person at AI Advocate Holding is a full-time specialist who has worked
-              with the team long enough to think as one no freelancers, no
-              outsourcing, no compromises.
+              AI development, workflow automation, SaaS platforms, and QA are not
+              separate services here. They are a single, integrated delivery model
+              built to ship production-ready software fast.
             </motion.p>
 
           </motion.div>
@@ -218,7 +218,7 @@ export default function TeamModelSection() {
                     </span>
                   </div>
                   <p className="font-body text-white/50 text-[15px] leading-relaxed max-w-sm">
-                    Full-time specialists across engineering, design & strategy
+                    Full-time specialists across AI development, automation, and QA
                   </p>
                 </div>
               </div>
@@ -250,7 +250,7 @@ export default function TeamModelSection() {
                     Projects Delivered
                   </span>
                   <p className="font-body text-evren-charcoal/60 text-[13px] lg:text-sm leading-relaxed max-w-[90%]">
-                    Enterprise-grade products shipped across 3 continents
+                    AI apps, automation workflows, and SaaS platforms delivered
                   </p>
                 </div>
               </div>
@@ -276,13 +276,13 @@ export default function TeamModelSection() {
                 </div>
                 <div className="flex flex-col">
                   <span className="font-heading font-extrabold text-evren-navy text-[2.5rem] lg:text-[2.75rem] -tracking-tight leading-none mb-2">
-                    2
+                    1
                   </span>
                   <span className="font-heading font-semibold text-evren-navy/70 text-[11px] xl:text-xs uppercase tracking-[0.08em] mb-2 leading-tight">
-                    Global Offices
+                    Office
                   </span>
                   <p className="font-body text-evren-charcoal/60 text-[13px] lg:text-sm leading-relaxed max-w-[90%]">
-                    Houston & Dubai built for follow-the-sun delivery
+                    Dallas, TX, serving clients across the US and beyond
                   </p>
                 </div>
               </div>

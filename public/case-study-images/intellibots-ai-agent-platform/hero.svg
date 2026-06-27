@@ -1,0 +1,93 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg6" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d0f1a"/>
+      <stop offset="100%" stop-color="#121524"/>
+    </linearGradient>
+    <radialGradient id="nodeGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#88C9B3" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#88C9B3" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="800" fill="url(#bg6)"/>
+
+  <!-- Subtle dot grid -->
+  <pattern id="dots6" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+    <circle cx="20" cy="20" r="1" fill="#88C9B3" opacity="0.08"/>
+  </pattern>
+  <rect width="1200" height="800" fill="url(#dots6)"/>
+
+  <!-- Center hub glow -->
+  <ellipse cx="600" cy="390" rx="120" ry="120" fill="url(#nodeGlow)"/>
+
+  <!-- Connection lines to satellites -->
+  <line x1="600" y1="390" x2="240" y2="200" stroke="#88C9B3" stroke-width="1.5" stroke-opacity="0.2" stroke-dasharray="6 4"/>
+  <line x1="600" y1="390" x2="960" y2="200" stroke="#88C9B3" stroke-width="1.5" stroke-opacity="0.2" stroke-dasharray="6 4"/>
+  <line x1="600" y1="390" x2="160" y2="440" stroke="#88C9B3" stroke-width="1.5" stroke-opacity="0.2" stroke-dasharray="6 4"/>
+  <line x1="600" y1="390" x2="1040" y2="440" stroke="#88C9B3" stroke-width="1.5" stroke-opacity="0.2" stroke-dasharray="6 4"/>
+  <line x1="600" y1="390" x2="280" y2="600" stroke="#88C9B3" stroke-width="1.5" stroke-opacity="0.2" stroke-dasharray="6 4"/>
+  <line x1="600" y1="390" x2="920" y2="600" stroke="#88C9B3" stroke-width="1.5" stroke-opacity="0.2" stroke-dasharray="6 4"/>
+
+  <!-- Center hub node -->
+  <circle cx="600" cy="390" r="64" fill="#1A2421" stroke="#88C9B3" stroke-width="2.5" stroke-opacity="0.7"/>
+  <circle cx="600" cy="390" r="44" fill="#88C9B3" opacity="0.08"/>
+  <!-- Hub icon: brain/agent -->
+  <circle cx="600" cy="382" r="18" fill="none" stroke="#88C9B3" stroke-width="2" stroke-opacity="0.7"/>
+  <line x1="582" y1="390" x2="618" y2="390" stroke="#88C9B3" stroke-width="1.5" stroke-opacity="0.5"/>
+  <line x1="600" y1="372" x2="600" y2="408" stroke="#88C9B3" stroke-width="1.5" stroke-opacity="0.5"/>
+  <circle cx="593" cy="382" r="4" fill="#88C9B3" opacity="0.6"/>
+  <circle cx="607" cy="382" r="4" fill="#88C9B3" opacity="0.6"/>
+  <text x="600" y="422" text-anchor="middle" fill="#88C9B3" font-size="10" font-family="system-ui,sans-serif" font-weight="700" opacity="0.6">AI HUB</text>
+
+  <!-- Satellite agent nodes -->
+  <!-- Top left -->
+  <circle cx="240" cy="200" r="44" fill="#1A2421" stroke="#88C9B3" stroke-width="1.5" stroke-opacity="0.35"/>
+  <rect x="220" y="185" width="40" height="30" rx="6" fill="none" stroke="#88C9B3" stroke-width="1.5" stroke-opacity="0.5"/>
+  <line x1="226" y1="197" x2="254" y2="197" stroke="#88C9B3" stroke-width="1" stroke-opacity="0.4"/>
+  <line x1="226" y1="204" x2="248" y2="204" stroke="#88C9B3" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="240" y="222" text-anchor="middle" fill="#88C9B3" font-size="8" font-family="system-ui,sans-serif" font-weight="600" opacity="0.5">TRIAGE</text>
+
+  <!-- Top right -->
+  <circle cx="960" cy="200" r="44" fill="#1A2421" stroke="#88C9B3" stroke-width="1.5" stroke-opacity="0.35"/>
+  <rect x="940" y="185" width="40" height="30" rx="6" fill="none" stroke="#88C9B3" stroke-width="1.5" stroke-opacity="0.5"/>
+  <line x1="946" y1="197" x2="974" y2="197" stroke="#88C9B3" stroke-width="1" stroke-opacity="0.4"/>
+  <line x1="946" y1="204" x2="968" y2="204" stroke="#88C9B3" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="960" y="222" text-anchor="middle" fill="#88C9B3" font-size="8" font-family="system-ui,sans-serif" font-weight="600" opacity="0.5">RESPOND</text>
+
+  <!-- Middle left -->
+  <circle cx="160" cy="440" r="44" fill="#1A2421" stroke="#88C9B3" stroke-width="1.5" stroke-opacity="0.35"/>
+  <rect x="140" y="425" width="40" height="30" rx="6" fill="none" stroke="#88C9B3" stroke-width="1.5" stroke-opacity="0.5"/>
+  <line x1="146" y1="437" x2="174" y2="437" stroke="#88C9B3" stroke-width="1" stroke-opacity="0.4"/>
+  <line x1="146" y1="444" x2="168" y2="444" stroke="#88C9B3" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="160" y="462" text-anchor="middle" fill="#88C9B3" font-size="8" font-family="system-ui,sans-serif" font-weight="600" opacity="0.5">ROUTE</text>
+
+  <!-- Middle right -->
+  <circle cx="1040" cy="440" r="44" fill="#1A2421" stroke="#88C9B3" stroke-width="1.5" stroke-opacity="0.35"/>
+  <rect x="1020" y="425" width="40" height="30" rx="6" fill="none" stroke="#88C9B3" stroke-width="1.5" stroke-opacity="0.5"/>
+  <line x1="1026" y1="437" x2="1054" y2="437" stroke="#88C9B3" stroke-width="1" stroke-opacity="0.4"/>
+  <line x1="1026" y1="444" x2="1048" y2="444" stroke="#88C9B3" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="1040" y="462" text-anchor="middle" fill="#88C9B3" font-size="8" font-family="system-ui,sans-serif" font-weight="600" opacity="0.5">LEARN</text>
+
+  <!-- Bottom left -->
+  <circle cx="280" cy="600" r="44" fill="#1A2421" stroke="#88C9B3" stroke-width="1.5" stroke-opacity="0.35"/>
+  <rect x="260" y="585" width="40" height="30" rx="6" fill="none" stroke="#88C9B3" stroke-width="1.5" stroke-opacity="0.5"/>
+  <line x1="266" y1="597" x2="294" y2="597" stroke="#88C9B3" stroke-width="1" stroke-opacity="0.4"/>
+  <line x1="266" y1="604" x2="288" y2="604" stroke="#88C9B3" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="280" y="622" text-anchor="middle" fill="#88C9B3" font-size="8" font-family="system-ui,sans-serif" font-weight="600" opacity="0.5">CLASSIFY</text>
+
+  <!-- Bottom right -->
+  <circle cx="920" cy="600" r="44" fill="#1A2421" stroke="#88C9B3" stroke-width="1.5" stroke-opacity="0.35"/>
+  <rect x="900" y="585" width="40" height="30" rx="6" fill="none" stroke="#88C9B3" stroke-width="1.5" stroke-opacity="0.5"/>
+  <line x1="906" y1="597" x2="934" y2="597" stroke="#88C9B3" stroke-width="1" stroke-opacity="0.4"/>
+  <line x1="906" y1="604" x2="928" y2="604" stroke="#88C9B3" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="920" y="622" text-anchor="middle" fill="#88C9B3" font-size="8" font-family="system-ui,sans-serif" font-weight="600" opacity="0.5">ESCALATE</text>
+
+  <!-- Stat badge -->
+  <rect x="490" y="108" width="220" height="52" rx="10" fill="#88C9B3" opacity="0.08" stroke="#88C9B3" stroke-width="1" stroke-opacity="0.3"/>
+  <text x="600" y="130" text-anchor="middle" fill="#88C9B3" font-size="18" font-family="system-ui,sans-serif" font-weight="800" opacity="0.85">70% Fewer Tickets</text>
+  <text x="600" y="149" text-anchor="middle" fill="#88C9B3" font-size="11" font-family="system-ui,sans-serif" font-weight="500" opacity="0.5">Support handled autonomously</text>
+
+  <!-- Label -->
+  <text x="60" y="750" fill="#88C9B3" font-size="15" font-family="system-ui,sans-serif" font-weight="700" opacity="0.5" letter-spacing="3">MULTI-AGENT AI PLATFORM</text>
+</svg>

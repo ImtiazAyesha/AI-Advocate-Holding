@@ -10,7 +10,7 @@ export const MARKETPULSE_FINANCIAL_AI_CONTENT: TextFocusedCaseStudyContent = {
   timeline: "7 Months",
   teamSize: "6 Specialists",
   hardMetric: "< 90 Seconds to Insight",
-  heroImage: "/case studies/case 4.webp",
+  heroImage: "/case-study-images/marketpulse-financial-ai/hero.svg",
   hero: {
     headline:
       "Delivering Actionable Market Alpha with Real-Time Earnings Call Intelligence",

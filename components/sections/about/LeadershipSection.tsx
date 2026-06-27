@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef } from "react";
 import Image from "next/image";
@@ -122,11 +122,11 @@ export default function LeadershipSection() {
                 variants={fadeSlideUp}
                 className="font-heading text-evren-charcoal text-lg sm:text-lg md:text-xl lg:text-2xl leading-[1.8] -tracking-[0.01em]"
               >
-                “The promise of AI is immense, but the path to ROI is fraught with risk. I founded AI Advocate Holding to be the partner I wish I had as an executive:{" "}
+                <span>Most teams spend months debating tools and architectures before writing a single line of production code. We built AI Advocate Holding to close that gap. </span>
                 <span className="heading-highlight font-semibold">
-                  one that speaks the language of the balance sheet
+                  We bring the technical depth, the QA discipline, and the delivery speed
                 </span>
-                , prioritizes risk mitigation as much as innovation, and measures success not in algorithms deployed, but in tangible enterprise value created.”
+                <span> that founders and product teams need to go from idea to working software without the usual false starts.</span>
               </motion.p>
 
             </div>

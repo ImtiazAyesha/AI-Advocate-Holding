@@ -1,0 +1,47 @@
+<svg viewBox="0 0 1200 628" xmlns="http://www.w3.org/2000/svg" width="1200" height="628">
+  <defs>
+    <linearGradient id="bg3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#111d1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0a1410;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="628" fill="url(#bg3)"/>
+  <circle cx="900" cy="200" r="350" fill="rgba(136,201,179,0.05)"/>
+  <!-- Title area -->
+  <text x="200" y="100" font-family="Arial,sans-serif" font-size="36" font-weight="800" fill="#ffffff">How to Build an</text>
+  <text x="200" y="148" font-family="Arial,sans-serif" font-size="36" font-weight="800" fill="#88C9B3">AI Chatbot</text>
+  <text x="200" y="184" font-family="Arial,sans-serif" font-size="17" fill="#4e7c6e">for Your Business</text>
+  <!-- Chat window -->
+  <rect x="580" y="80" width="560" height="490" rx="20" fill="rgba(255,255,255,0.04)" stroke="rgba(136,201,179,0.2)" stroke-width="1"/>
+  <!-- Chat header -->
+  <rect x="580" y="80" width="560" height="56" rx="20" fill="rgba(136,201,179,0.15)"/>
+  <rect x="580" y="116" width="560" height="20" fill="rgba(136,201,179,0.15)"/>
+  <circle cx="620" cy="108" r="14" fill="#88C9B3"/>
+  <text x="620" y="113" font-family="Arial,sans-serif" font-size="12" fill="#1a2421" text-anchor="middle" font-weight="700">AI</text>
+  <text x="648" y="105" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#ffffff">AI Assistant</text>
+  <text x="648" y="122" font-family="Arial,sans-serif" font-size="11" fill="#88C9B3" opacity="0.7">Online</text>
+  <!-- Message 1: Bot -->
+  <rect x="604" y="160" width="300" height="56" rx="12" fill="rgba(136,201,179,0.15)" stroke="rgba(136,201,179,0.1)" stroke-width="1"/>
+  <text x="622" y="183" font-family="Arial,sans-serif" font-size="13" fill="#88C9B3">Hello! How can I help</text>
+  <text x="622" y="202" font-family="Arial,sans-serif" font-size="13" fill="#88C9B3">you today?</text>
+  <!-- Message 2: User -->
+  <rect x="760" y="238" width="360" height="56" rx="12" fill="rgba(78,124,110,0.3)" stroke="rgba(78,124,110,0.2)" stroke-width="1"/>
+  <text x="778" y="261" font-family="Arial,sans-serif" font-size="13" fill="#ffffff">I need help with my order</text>
+  <text x="778" y="280" font-family="Arial,sans-serif" font-size="13" fill="#ffffff">#12345.</text>
+  <!-- Message 3: Bot -->
+  <rect x="604" y="316" width="380" height="72" rx="12" fill="rgba(136,201,179,0.15)" stroke="rgba(136,201,179,0.1)" stroke-width="1"/>
+  <text x="622" y="339" font-family="Arial,sans-serif" font-size="13" fill="#88C9B3">Sure! I found your order.</text>
+  <text x="622" y="358" font-family="Arial,sans-serif" font-size="13" fill="#88C9B3">It ships tomorrow. Would</text>
+  <text x="622" y="377" font-family="Arial,sans-serif" font-size="13" fill="#88C9B3">you like tracking info?</text>
+  <!-- Message 4: User -->
+  <rect x="880" y="408" width="240" height="40" rx="12" fill="rgba(78,124,110,0.3)"/>
+  <text x="898" y="433" font-family="Arial,sans-serif" font-size="13" fill="#ffffff">Yes please!</text>
+  <!-- Input bar -->
+  <rect x="596" y="508" width="532" height="44" rx="22" fill="rgba(255,255,255,0.06)" stroke="rgba(136,201,179,0.2)" stroke-width="1"/>
+  <text x="620" y="535" font-family="Arial,sans-serif" font-size="13" fill="#4e7c6e">Type a message...</text>
+  <!-- Tech stack labels -->
+  <text x="200" y="280" font-family="Arial,sans-serif" font-size="14" fill="#4e7c6e" font-weight="600">POWERED BY</text>
+  <text x="200" y="312" font-family="Arial,sans-serif" font-size="16" fill="#88C9B3" font-weight="700">GPT-4  |  Claude  |  React</text>
+  <text x="200" y="344" font-family="Arial,sans-serif" font-size="15" fill="#88C9B3" font-weight="700">Node.js  |  WebSocket</text>
+  <text x="600" y="600" font-family="Arial,sans-serif" font-size="13" fill="#4e7c6e" text-anchor="middle" opacity="0.6">AI Advocate Holding</text>
+</svg>

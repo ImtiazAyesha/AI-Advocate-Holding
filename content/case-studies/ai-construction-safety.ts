@@ -10,7 +10,7 @@ export const AI_CONSTRUCTION_SAFETY_CONTENT: TextFocusedCaseStudyContent = {
   timeline: "5 Months",
   teamSize: "5 Specialists",
   hardMetric: "40% Fewer Incidents",
-  heroImage: "/case studies/case 3.webp",
+  heroImage: "/case-study-images/ai-construction-safety/hero.svg",
   hero: {
     headline:
       "Slashing On-Site Incidents with AI-Powered Safety & Compliance Monitoring",

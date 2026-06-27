@@ -173,7 +173,38 @@ export default function Hero() {
           : "min-h-[100dvh] md:h-[100svh] md:min-h-[640px] lg:min-h-[680px]"
       }`}
     >
-      {/* Layer 0 — subtle plus grid (below text) */}
+      {/* Layer 0a — glassmorphism color blobs (give backdrop-filter something rich to blur) */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden" style={{ zIndex: 0 }}>
+        <div
+          className="absolute rounded-full"
+          style={{
+            top: "10%", left: "5%",
+            width: "48%", height: "55%",
+            background: "radial-gradient(ellipse at center, rgba(136,201,179,0.42) 0%, rgba(136,201,179,0.18) 45%, transparent 72%)",
+            filter: "blur(48px)",
+          }}
+        />
+        <div
+          className="absolute rounded-full"
+          style={{
+            top: "20%", right: "4%",
+            width: "44%", height: "52%",
+            background: "radial-gradient(ellipse at center, rgba(224,242,236,0.60) 0%, rgba(107,168,142,0.22) 50%, transparent 75%)",
+            filter: "blur(56px)",
+          }}
+        />
+        <div
+          className="absolute rounded-full"
+          style={{
+            bottom: "15%", left: "28%",
+            width: "42%", height: "40%",
+            background: "radial-gradient(ellipse at center, rgba(78,124,110,0.28) 0%, transparent 68%)",
+            filter: "blur(64px)",
+          }}
+        />
+      </div>
+
+      {/* Layer 0b — subtle plus grid (below text) */}
       <div className="hero-deco-layer pointer-events-none">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[100vw] h-full min-h-[420px] sm:min-h-[520px] md:min-h-[800px]">
           <div ref={gridRef} className="absolute inset-0">
@@ -243,49 +274,46 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Layer 2 — all readable content */}
+      {/* Layer 2 — site-width wrapper aligns glass panel to navbar */}
       <div
         ref={contentRef}
-        className={`hero-content-layer site-container hero-content-shell flex flex-col flex-1 min-h-0 w-full group/hero hero-fade-in ${
+        className={`relative z-10 flex-1 flex flex-col site-container hero-fade-in min-h-0 ${
           isCompactHero
-            ? "pt-[calc(5rem+env(safe-area-inset-top,0px))] sm:pt-[calc(5.5rem+env(safe-area-inset-top,0px))] pb-[calc(3.25rem+env(safe-area-inset-bottom,0px))]"
-            : "pt-[calc(5.25rem+env(safe-area-inset-top,0px))] sm:pt-[7rem] md:pt-[8.25rem] lg:pt-[8.75rem] pb-[calc(5rem+env(safe-area-inset-bottom,0px))] sm:pb-16 md:pb-28 lg:pb-36"
+            ? "pt-[calc(4.75rem+env(safe-area-inset-top,0px))] pb-[calc(4.5rem+env(safe-area-inset-bottom,0px))]"
+            : "pt-[calc(5rem+env(safe-area-inset-top,0px))] sm:pt-[6.5rem] md:pt-[7.75rem] pb-[calc(5.5rem+env(safe-area-inset-bottom,0px))] sm:pb-24 md:pb-32 lg:pb-36"
         }`}
       >
+        {/* Glassmorphic hero panel — same horizontal footprint as the navbar */}
         <div
-          className={`relative flex-1 flex flex-col items-center w-full min-h-0 ${
+          className={`hero-glass-container hero-content-shell w-full flex-1 flex flex-col items-center justify-center min-h-0 group/hero ${
             isCompactHero
-              ? "justify-center py-2 pb-[clamp(2.75rem,10vh,4.5rem)]"
-              : "justify-center py-4 sm:py-6 md:py-0 pb-[clamp(3.25rem,11vh,7.5rem)] md:pb-14 lg:pb-[7.5rem] xl:pb-32"
+              ? "px-5 sm:px-8 md:px-12 py-6 sm:py-8"
+              : "px-6 sm:px-10 md:px-14 lg:px-16 xl:px-20 py-8 sm:py-10 md:py-14 lg:py-16"
           }`}
         >
-          <div
-            className={`flex flex-col items-center text-center w-full mx-auto min-w-0 px-1 min-[375px]:px-2 sm:px-0 ${
-              isCompactHero ? "max-w-4xl" : "max-w-6xl"
-            }`}
-          >
+          <div className="flex flex-col items-center text-center w-full mx-auto min-w-0">
             {/* Badge */}
             <div className={isCompactHero ? "mb-2 sm:mb-3" : "mb-4 sm:mb-7"}>
               <span className="block text-[9px] min-[375px]:text-[10px] sm:text-[11px] font-heading font-bold text-evren-navy/50 tracking-[0.06em] min-[375px]:tracking-[0.12em] sm:tracking-[0.25em] uppercase text-center leading-snug max-w-[28ch] min-[375px]:max-w-[32ch] sm:max-w-none mx-auto">
-                The universe is always expanding. So are we.
+              AI Development · Automation · SaaS · QA
               </span>
             </div>
 
-            {/* Headline — auto-scales to fit width; line 2 uses dark liquid gradient */}
+            {/* Headline — auto-scales to fill the glass panel width */}
             <h1 className="font-heading w-full min-w-0 overflow-visible flex flex-col gap-0.5 sm:gap-1">
               <HeroHeadlineLine
                 maxSize={headlineLineOneMax}
                 minSize={headlineLineOneMin}
                 className="font-light text-evren-medium-gray/90 tracking-normal leading-[1.12] sm:leading-[1.2]"
               >
-                Where Ideas Become
+                From Concept to
               </HeroHeadlineLine>
               <HeroHeadlineLine
                 maxSize={headlineLineTwoMax}
                 minSize={headlineLineTwoMin}
                 className="heading-liquid font-extrabold tracking-tight leading-[1.06] sm:leading-[1.1] md:leading-[1.12]"
               >
-                Intelligent Products.
+                Production-Ready AI.
               </HeroHeadlineLine>
             </h1>
 
@@ -298,9 +326,9 @@ export default function Hero() {
               }`}
               style={{ lineHeight: 1.65 }}
             >
-              We build AI-powered digital products that grow with your vision.
-              From first spark to global scale, we are your partner in turning
-              ideas into products the world actually needs.
+              We help startups and businesses build AI-powered applications,
+              automate complex workflows, and develop scalable SaaS platforms
+              with expert QA built in from day one.
             </p>
 
             {/* CTAs */}

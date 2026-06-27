@@ -42,8 +42,8 @@ const wordReveal: Variants = {
 };
 
 const HEADLINE_LINES: { words: { text: string; decorated?: boolean; secondary?: boolean; light?: boolean }[] }[] = [
-  { words: [{ text: "Thinking " }, { text: "at " }, { text: "the " }] },
-  { words: [{ text: "Frontier.", decorated: true }] },
+  { words: [{ text: "Built from " }, { text: "Real " }] },
+  { words: [{ text: "Experience.", decorated: true }] },
 ];
 
 const FLOATING_ICONS = [
@@ -170,7 +170,7 @@ export default function ThinkingHero() {
           className="mb-4 sm:mb-7 px-4 sm:px-0"
         >
           <span className="block text-[10px] sm:text-[11px] font-heading font-bold text-evren-navy/50 tracking-[0.1em] sm:tracking-[0.25em] uppercase text-center">
-            The Editorial Index
+            Insights from the Field
           </span>
         </motion.div>
 
@@ -219,7 +219,7 @@ export default function ThinkingHero() {
             className="font-body text-evren-charcoal text-base md:text-lg lg:text-xl leading-relaxed"
             style={{ lineHeight: 1.7 }}
           >
-            We open-source our methodologies, engineering insights, and hard-won lessons from building AI systems in production. Written for the leaders who ship not the algorithms that crawl.
+            Practical guides, technical deep-dives, and real-world lessons from building AI-powered applications, automating workflows, and shipping scalable SaaS products. Written for founders and teams who build.
           </p>
         </motion.div>
         </div>

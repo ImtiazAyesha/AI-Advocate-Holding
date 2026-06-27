@@ -1,0 +1,67 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080f0d"/>
+      <stop offset="100%" stop-color="#111c19"/>
+    </linearGradient>
+    <radialGradient id="shieldGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#88C9B3" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#88C9B3" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="800" fill="url(#bg2)"/>
+
+  <!-- Hex grid background -->
+  <pattern id="hex" x="0" y="0" width="60" height="52" patternUnits="userSpaceOnUse">
+    <polygon points="30,2 56,16 56,44 30,58 4,44 4,16" fill="none" stroke="#88C9B3" stroke-width="0.5" opacity="0.08"/>
+  </pattern>
+  <rect width="1200" height="800" fill="url(#hex)"/>
+
+  <!-- Shield glow -->
+  <ellipse cx="600" cy="380" rx="280" ry="280" fill="url(#shieldGlow)"/>
+
+  <!-- Shield shape -->
+  <path d="M 600 160 L 760 230 L 760 400 Q 760 510 600 580 Q 440 510 440 400 L 440 230 Z" fill="#1A2421" stroke="#88C9B3" stroke-width="2.5" stroke-opacity="0.6"/>
+  <!-- Shield inner -->
+  <path d="M 600 195 L 730 255 L 730 400 Q 730 490 600 550 Q 470 490 470 400 L 470 255 Z" fill="#88C9B3" opacity="0.04"/>
+
+  <!-- Lock icon inside shield -->
+  <rect x="566" y="330" width="68" height="56" rx="8" fill="#88C9B3" opacity="0.7"/>
+  <path d="M 582 330 L 582 314 Q 582 294 600 294 Q 618 294 618 314 L 618 330" fill="none" stroke="#88C9B3" stroke-width="5" stroke-linecap="round" opacity="0.7"/>
+  <circle cx="600" cy="358" r="8" fill="#1A2421" opacity="0.8"/>
+  <rect x="597" y="358" width="6" height="14" rx="3" fill="#1A2421" opacity="0.8"/>
+
+  <!-- Threat nodes — blocked -->
+  <circle cx="200" cy="260" r="28" fill="#ff4444" opacity="0.12" stroke="#ff4444" stroke-width="1.5" stroke-opacity="0.4"/>
+  <line x1="186" y1="246" x2="214" y2="274" stroke="#ff4444" stroke-width="2.5" stroke-opacity="0.5" stroke-linecap="round"/>
+  <line x1="214" y1="246" x2="186" y2="274" stroke="#ff4444" stroke-width="2.5" stroke-opacity="0.5" stroke-linecap="round"/>
+
+  <circle cx="280" cy="500" r="28" fill="#ff4444" opacity="0.12" stroke="#ff4444" stroke-width="1.5" stroke-opacity="0.4"/>
+  <line x1="266" y1="486" x2="294" y2="514" stroke="#ff4444" stroke-width="2.5" stroke-opacity="0.5" stroke-linecap="round"/>
+  <line x1="294" y1="486" x2="266" y2="514" stroke="#ff4444" stroke-width="2.5" stroke-opacity="0.5" stroke-linecap="round"/>
+
+  <circle cx="980" cy="300" r="28" fill="#ff4444" opacity="0.12" stroke="#ff4444" stroke-width="1.5" stroke-opacity="0.4"/>
+  <line x1="966" y1="286" x2="994" y2="314" stroke="#ff4444" stroke-width="2.5" stroke-opacity="0.5" stroke-linecap="round"/>
+  <line x1="994" y1="286" x2="966" y2="314" stroke="#ff4444" stroke-width="2.5" stroke-opacity="0.5" stroke-linecap="round"/>
+
+  <circle cx="1020" cy="520" r="28" fill="#ff4444" opacity="0.12" stroke="#ff4444" stroke-width="1.5" stroke-opacity="0.4"/>
+  <line x1="1006" y1="506" x2="1034" y2="534" stroke="#ff4444" stroke-width="2.5" stroke-opacity="0.5" stroke-linecap="round"/>
+  <line x1="1034" y1="506" x2="1006" y2="534" stroke="#ff4444" stroke-width="2.5" stroke-opacity="0.5" stroke-linecap="round"/>
+
+  <!-- Lines from threats to shield -->
+  <line x1="228" y1="260" x2="440" y2="320" stroke="#ff4444" stroke-width="1" stroke-opacity="0.2" stroke-dasharray="5 4"/>
+  <line x1="308" y1="500" x2="440" y2="430" stroke="#ff4444" stroke-width="1" stroke-opacity="0.2" stroke-dasharray="5 4"/>
+  <line x1="952" y1="300" x2="760" y2="320" stroke="#ff4444" stroke-width="1" stroke-opacity="0.2" stroke-dasharray="5 4"/>
+  <line x1="992" y1="520" x2="760" y2="430" stroke="#ff4444" stroke-width="1" stroke-opacity="0.2" stroke-dasharray="5 4"/>
+
+  <!-- Scan rings -->
+  <circle cx="600" cy="380" r="200" fill="none" stroke="#88C9B3" stroke-width="1" stroke-opacity="0.1" stroke-dasharray="8 6"/>
+  <circle cx="600" cy="380" r="280" fill="none" stroke="#88C9B3" stroke-width="1" stroke-opacity="0.07" stroke-dasharray="8 6"/>
+
+  <!-- Metric -->
+  <text x="600" y="660" text-anchor="middle" fill="#88C9B3" font-size="72" font-family="system-ui,sans-serif" font-weight="800" opacity="0.07">$7.5M+</text>
+
+  <!-- Label -->
+  <text x="60" y="750" fill="#88C9B3" font-size="15" font-family="system-ui,sans-serif" font-weight="700" opacity="0.5" letter-spacing="3">AI CYBERSECURITY PLATFORM</text>
+</svg>

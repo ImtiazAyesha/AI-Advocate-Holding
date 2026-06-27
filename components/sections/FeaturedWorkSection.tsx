@@ -44,25 +44,23 @@ const CASE_STUDIES: CaseStudy[] = [
   {
     title: "iSeedoc Telehealth",
     metric: "90%",
-    metricLabel: "Reduction in Report Analysis Time",
-    client:
-      "Revolutionizing Healthcare Access: An AI-Powered Virtual Consultation Platform",
+    metricLabel: "Faster Report Analysis",
+    client: "AI-Powered Telehealth Platform for iSeedoc",
     description:
-      "Global telehealth innovator iSeedoc partnered with AI Advocate Holding to architect an end-to-end, HIPAA-compliant telehealth platform that automates workflows, streamlines consultations, and leverages AI to deliver intelligent healthcare.",
+      "We built a HIPAA-compliant telehealth platform for iSeedoc that automates patient intake, routes consultations via AI triage, and surfaces clinical summaries in real time. Patients get faster care. Clinicians spend less time on admin.",
     tags: ["Healthcare", "Next.js", "AI Pipelines"],
-    image: "/case studies/case 1.webp",
+    image: "/case-study-images/iseedoc-telehealth/hero.svg",
     href: "/case-studies/iseedoc-telehealth",
   },
   {
-    title: "Cyber Threat Engine",
-    metric: "$M+",
-    metricLabel: "Cyber Risk Mitigated",
-    client:
-      "Mitigating Multi-Million Dollar Cyber Risk with Proactive AI Threat Detection",
+    title: "VerifiedX Cybersecurity",
+    metric: "$7.5M+",
+    metricLabel: "Annual Losses Prevented",
+    client: "Proactive AI Threat Detection for VerifiedX",
     description:
-      "For a high-growth fintech, we deployed a real-time LLM-based detection engine that analyzes and neutralizes sophisticated phishing attacks before they breach enterprise security.",
+      "We deployed an LLM-based threat detection engine for VerifiedX that identifies and neutralizes phishing campaigns and anomalous access patterns before they reach end users. Built on Claude API with real-time alerting and audit logs.",
     tags: ["Cybersecurity", "Python", "LLMs"],
-    image: "/case studies/case 2.webp",
+    image: "/case-study-images/verifiedx-cybersecurity/hero.svg",
     href: "/case-studies/verifiedx-cybersecurity",
   },
 ];

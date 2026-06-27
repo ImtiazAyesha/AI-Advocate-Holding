@@ -1,0 +1,60 @@
+<svg viewBox="0 0 1200 628" xmlns="http://www.w3.org/2000/svg" width="1200" height="628">
+  <defs>
+    <linearGradient id="bg4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f1e1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0a1510;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="628" fill="url(#bg4)"/>
+  <circle cx="150" cy="628" r="400" fill="rgba(136,201,179,0.04)"/>
+  <circle cx="1100" cy="0" r="350" fill="rgba(78,124,110,0.05)"/>
+  <!-- Title -->
+  <text x="600" y="88" font-family="Arial,sans-serif" font-size="34" font-weight="800" fill="#ffffff" text-anchor="middle">QA Automation in AI Development</text>
+  <text x="600" y="124" font-family="Arial,sans-serif" font-size="17" fill="#88C9B3" text-anchor="middle">Why Testing Is Non-Negotiable</text>
+  <!-- Test results panel -->
+  <rect x="80" y="160" width="440" height="380" rx="16" fill="rgba(136,201,179,0.06)" stroke="rgba(136,201,179,0.15)" stroke-width="1"/>
+  <text x="104" y="196" font-family="monospace" font-size="13" fill="#88C9B3" font-weight="600">TEST SUITE RESULTS</text>
+  <line x1="104" y1="208" x2="500" y2="208" stroke="rgba(136,201,179,0.15)" stroke-width="1"/>
+  <!-- Test rows -->
+  <circle cx="120" cy="235" r="8" fill="#4ade80"/>
+  <text x="140" y="240" font-family="monospace" font-size="13" fill="#ffffff">PASS  login_flow_test</text>
+  <circle cx="120" cy="268" r="8" fill="#4ade80"/>
+  <text x="140" y="273" font-family="monospace" font-size="13" fill="#ffffff">PASS  api_response_test</text>
+  <circle cx="120" cy="301" r="8" fill="#4ade80"/>
+  <text x="140" y="306" font-family="monospace" font-size="13" fill="#ffffff">PASS  ai_output_validation</text>
+  <circle cx="120" cy="334" r="8" fill="#f87171"/>
+  <text x="140" y="339" font-family="monospace" font-size="13" fill="#f87171">FAIL  edge_case_handler</text>
+  <circle cx="120" cy="367" r="8" fill="#4ade80"/>
+  <text x="140" y="372" font-family="monospace" font-size="13" fill="#ffffff">PASS  regression_suite</text>
+  <circle cx="120" cy="400" r="8" fill="#4ade80"/>
+  <text x="140" y="405" font-family="monospace" font-size="13" fill="#ffffff">PASS  performance_bench</text>
+  <circle cx="120" cy="433" r="8" fill="#4ade80"/>
+  <text x="140" y="438" font-family="monospace" font-size="13" fill="#ffffff">PASS  mobile_regression</text>
+  <line x1="104" y1="460" x2="500" y2="460" stroke="rgba(136,201,179,0.15)" stroke-width="1"/>
+  <text x="120" y="490" font-family="monospace" font-size="13" fill="#4ade80">6 passed</text>
+  <text x="260" y="490" font-family="monospace" font-size="13" fill="#f87171">1 failed</text>
+  <text x="380" y="490" font-family="monospace" font-size="12" fill="#88C9B3" opacity="0.6">7 total</text>
+  <!-- Right panel: Tools -->
+  <rect x="560" y="160" width="560" height="380" rx="16" fill="rgba(136,201,179,0.06)" stroke="rgba(136,201,179,0.15)" stroke-width="1"/>
+  <text x="584" y="196" font-family="Arial,sans-serif" font-size="13" fill="#88C9B3" font-weight="600">QA TOOLCHAIN</text>
+  <line x1="584" y1="208" x2="1096" y2="208" stroke="rgba(136,201,179,0.15)" stroke-width="1"/>
+  <!-- Tool items -->
+  <rect x="584" y="226" width="220" height="60" rx="10" fill="rgba(136,201,179,0.1)"/>
+  <text x="694" y="252" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle">Selenium</text>
+  <text x="694" y="274" font-family="Arial,sans-serif" font-size="12" fill="#88C9B3" text-anchor="middle">E2E Browser Testing</text>
+  <rect x="826" y="226" width="220" height="60" rx="10" fill="rgba(136,201,179,0.1)"/>
+  <text x="936" y="252" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle">Cypress</text>
+  <text x="936" y="274" font-family="Arial,sans-serif" font-size="12" fill="#88C9B3" text-anchor="middle">Frontend Testing</text>
+  <rect x="584" y="308" width="220" height="60" rx="10" fill="rgba(136,201,179,0.1)"/>
+  <text x="694" y="334" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle">API Testing</text>
+  <text x="694" y="356" font-family="Arial,sans-serif" font-size="12" fill="#88C9B3" text-anchor="middle">Postman / Jest</text>
+  <rect x="826" y="308" width="220" height="60" rx="10" fill="rgba(136,201,179,0.1)"/>
+  <text x="936" y="334" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle">Regression</text>
+  <text x="936" y="356" font-family="Arial,sans-serif" font-size="12" fill="#88C9B3" text-anchor="middle">Automated Suites</text>
+  <rect x="584" y="390" width="462" height="60" rx="10" fill="rgba(78,124,110,0.15)"/>
+  <text x="815" y="416" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle">Performance Testing</text>
+  <text x="815" y="438" font-family="Arial,sans-serif" font-size="12" fill="#88C9B3" text-anchor="middle">Load / Stress / Benchmark across Web, Mobile and AI</text>
+  <line x1="584" y1="468" x2="1096" y2="468" stroke="rgba(136,201,179,0.15)" stroke-width="1"/>
+  <text x="840" y="496" font-family="Arial,sans-serif" font-size="13" fill="#4e7c6e" text-anchor="middle">Built-in QA. Production-ready delivery.</text>
+  <text x="600" y="596" font-family="Arial,sans-serif" font-size="13" fill="#4e7c6e" text-anchor="middle" opacity="0.6">AI Advocate Holding</text>
+</svg>

@@ -1,0 +1,79 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f1a17"/>
+      <stop offset="100%" stop-color="#1A2421"/>
+    </linearGradient>
+    <linearGradient id="ecg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#88C9B3" stop-opacity="0"/>
+      <stop offset="30%" stop-color="#88C9B3"/>
+      <stop offset="70%" stop-color="#88C9B3"/>
+      <stop offset="100%" stop-color="#88C9B3" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#88C9B3" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#88C9B3" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="800" fill="url(#bg1)"/>
+
+  <!-- Dot grid -->
+  <pattern id="dots" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+    <circle cx="20" cy="20" r="1" fill="#88C9B3" opacity="0.12"/>
+  </pattern>
+  <rect width="1200" height="800" fill="url(#dots)"/>
+
+  <!-- Soft glow center -->
+  <ellipse cx="600" cy="400" rx="500" ry="300" fill="#88C9B3" opacity="0.04"/>
+
+  <!-- Medical cross — left section -->
+  <rect x="160" y="280" width="120" height="40" rx="8" fill="#88C9B3" opacity="0.9"/>
+  <rect x="200" y="240" width="40" height="120" rx="8" fill="#88C9B3" opacity="0.9"/>
+  <!-- Cross glow -->
+  <rect x="155" y="275" width="130" height="50" rx="10" fill="#88C9B3" opacity="0.1"/>
+  <rect x="195" y="235" width="50" height="130" rx="10" fill="#88C9B3" opacity="0.1"/>
+
+  <!-- ECG / heartbeat line -->
+  <path d="M 60 400 L 280 400 L 310 400 L 330 340 L 350 460 L 370 320 L 400 480 L 420 400 L 460 400 L 800 400" stroke="url(#ecg)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- ECG glow fill -->
+  <path d="M 280 400 L 310 400 L 330 340 L 350 460 L 370 320 L 400 480 L 420 400 L 460 400 L 460 410 L 280 410 Z" fill="url(#glow)"/>
+
+  <!-- Right section — patient info cards -->
+  <!-- Card 1 -->
+  <rect x="680" y="200" width="220" height="80" rx="12" fill="#ffffff" opacity="0.05" stroke="#88C9B3" stroke-opacity="0.2" stroke-width="1"/>
+  <circle cx="710" cy="240" r="16" fill="#88C9B3" opacity="0.2"/>
+  <rect x="735" y="224" width="80" height="10" rx="4" fill="#88C9B3" opacity="0.5"/>
+  <rect x="735" y="242" width="120" height="8" rx="4" fill="#ffffff" opacity="0.15"/>
+  <rect x="735" y="258" width="100" height="8" rx="4" fill="#ffffff" opacity="0.10"/>
+
+  <!-- Card 2 -->
+  <rect x="780" y="310" width="220" height="80" rx="12" fill="#ffffff" opacity="0.05" stroke="#88C9B3" stroke-opacity="0.2" stroke-width="1"/>
+  <circle cx="810" cy="350" r="16" fill="#88C9B3" opacity="0.2"/>
+  <rect x="835" y="334" width="80" height="10" rx="4" fill="#88C9B3" opacity="0.5"/>
+  <rect x="835" y="352" width="120" height="8" rx="4" fill="#ffffff" opacity="0.15"/>
+  <rect x="835" y="368" width="100" height="8" rx="4" fill="#ffffff" opacity="0.10"/>
+
+  <!-- Card 3 -->
+  <rect x="680" y="420" width="220" height="80" rx="12" fill="#ffffff" opacity="0.05" stroke="#88C9B3" stroke-opacity="0.2" stroke-width="1"/>
+  <circle cx="710" cy="460" r="16" fill="#88C9B3" opacity="0.2"/>
+  <rect x="735" y="444" width="80" height="10" rx="4" fill="#88C9B3" opacity="0.5"/>
+  <rect x="735" y="462" width="120" height="8" rx="4" fill="#ffffff" opacity="0.15"/>
+  <rect x="735" y="478" width="100" height="8" rx="4" fill="#ffffff" opacity="0.10"/>
+
+  <!-- Connecting lines from cross to cards -->
+  <line x1="290" y1="300" x2="680" y2="240" stroke="#88C9B3" stroke-width="1" stroke-opacity="0.2" stroke-dasharray="6 4"/>
+  <line x1="290" y1="340" x2="780" y2="350" stroke="#88C9B3" stroke-width="1" stroke-opacity="0.2" stroke-dasharray="6 4"/>
+  <line x1="290" y1="360" x2="680" y2="460" stroke="#88C9B3" stroke-width="1" stroke-opacity="0.2" stroke-dasharray="6 4"/>
+
+  <!-- HIPAA badge -->
+  <rect x="60" y="580" width="140" height="36" rx="18" fill="#88C9B3" opacity="0.12" stroke="#88C9B3" stroke-width="1" stroke-opacity="0.3"/>
+  <text x="130" y="603" text-anchor="middle" fill="#88C9B3" font-size="13" font-family="system-ui,sans-serif" font-weight="600" opacity="0.8">HIPAA Compliant</text>
+
+  <!-- Metric -->
+  <text x="600" y="650" text-anchor="middle" fill="#88C9B3" font-size="72" font-family="system-ui,sans-serif" font-weight="800" opacity="0.08">90%</text>
+
+  <!-- Label -->
+  <text x="60" y="750" fill="#88C9B3" font-size="15" font-family="system-ui,sans-serif" font-weight="700" opacity="0.5" letter-spacing="3">TELEHEALTH AI PLATFORM</text>
+</svg>

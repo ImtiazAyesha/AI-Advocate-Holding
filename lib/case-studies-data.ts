@@ -3,24 +3,6 @@
 //  Full page copy lives in content/case-studies/*.ts
 // ═══════════════════════════════════════════════════════════════════════
 
-import { AI_CONSTRUCTION_SAFETY_CONTENT } from "@/content/case-studies/ai-construction-safety";
-import { BILLCLEAR_LEGAL_TECH_CONTENT } from "@/content/case-studies/billclear-legal-tech";
-import { CONSTRUCTION_STAFF_AUGMENTATION_CONTENT } from "@/content/case-studies/construction-staff-augmentation";
-import { EVREN_RD_HUMAN_ANALYSIS_CONTENT } from "@/content/case-studies/evren-rd-human-analysis";
-import { EXECUTIVE_GENAI_INSIGHTS_CONTENT } from "@/content/case-studies/executive-genai-insights";
-import { INTELLIBOTS_AI_AGENT_PLATFORM_CONTENT } from "@/content/case-studies/intellibots-ai-agent-platform";
-import { MARKETPULSE_FINANCIAL_AI_CONTENT } from "@/content/case-studies/marketpulse-financial-ai";
-import { TRACKREC_SALES_HIRING_CONTENT } from "@/content/case-studies/trackrec-sales-hiring";
-
-const CONSTRUCTION = AI_CONSTRUCTION_SAFETY_CONTENT;
-const MARKETPULSE = MARKETPULSE_FINANCIAL_AI_CONTENT;
-const BILLCLEAR = BILLCLEAR_LEGAL_TECH_CONTENT;
-const INTELLIBOTS = INTELLIBOTS_AI_AGENT_PLATFORM_CONTENT;
-const TRACKREC = TRACKREC_SALES_HIRING_CONTENT;
-const STAFF_AUG = CONSTRUCTION_STAFF_AUGMENTATION_CONTENT;
-const GENAI_INSIGHTS = EXECUTIVE_GENAI_INSIGHTS_CONTENT;
-const EVREN_RD = EVREN_RD_HUMAN_ANALYSIS_CONTENT;
-
 export interface CaseStudyCard {
   metric: string;
   metricLabel: string;
@@ -35,96 +17,62 @@ export const WORK_CASE_STUDIES: CaseStudyCard[] = [
   {
     metric: "90%",
     metricLabel: "Faster Report Analysis",
-    client:
-      "Revolutionizing Healthcare Access: An AI-Powered Virtual Consultation Platform",
+    client: "AI-Powered Telehealth Platform for iSeedoc",
     description:
-      "Global telehealth innovator iSeedoc partnered with AI Advocate Holding to architect an end-to-end, HIPAA-compliant telehealth platform that automates workflows, streamlines consultations, and leverages AI to deliver intelligent, accessible, and secure healthcare.",
+      "We built a HIPAA-compliant telehealth platform for iSeedoc that automates patient intake, routes consultations via AI triage, and surfaces clinical summaries in real time. Patients get faster care. Clinicians spend less time on admin.",
     tags: ["Healthcare"],
-    image: "/case studies/case 1.webp",
+    image: "/case-study-images/iseedoc-telehealth/hero.svg",
     href: "/case-studies/iseedoc-telehealth",
   },
   {
     metric: "$7.5M+",
     metricLabel: "Annual Losses Prevented",
-    client:
-      "Mitigating Multi-Million Dollar Cyber Risk with Proactive AI Threat Detection",
+    client: "Proactive AI Threat Detection for VerifiedX",
     description:
-      "For a high-growth FinTech, we deployed a real-time LLM-based detection engine that analyzes and neutralizes sophisticated phishing attacks before they breach enterprise security.",
+      "We deployed an LLM-based threat detection engine for VerifiedX that identifies and neutralizes phishing campaigns, credential attacks, and anomalous access patterns before they reach end users. Built on Claude API with real-time alerting and audit logs.",
     tags: ["Cybersecurity"],
-    image: "/case studies/case 2.webp",
+    image: "/case-study-images/verifiedx-cybersecurity/hero.svg",
     href: "/case-studies/verifiedx-cybersecurity",
   },
   {
     metric: "40%",
     metricLabel: "Reduction in On-Site Incidents",
-    client: CONSTRUCTION.hero.headline,
-    description: CONSTRUCTION.hero.subheadline,
-    tags: ["Construction & Real Estate"],
-    image: "/case studies/case 3.webp",
+    client: "Real-Time Construction Safety Monitoring",
+    description:
+      "We integrated computer vision and AI alert pipelines across active construction sites, providing project managers with live safety scoring, PPE compliance tracking, and automated incident reporting. Forty percent fewer on-site incidents in the first quarter.",
+    tags: ["Construction"],
+    image: "/case-study-images/ai-construction-safety/hero.svg",
     href: "/case-studies/ai-construction-safety",
   },
   {
     metric: "< 90s",
-    metricLabel: "Audio to Actionable Insight",
-    client: MARKETPULSE.hero.headline,
-    description: MARKETPULSE.hero.subheadline,
-    tags: ["Finance & Investing"],
-    image: "/case studies/case 4.webp",
+    metricLabel: "Earnings Call to Actionable Insight",
+    client: "Earnings Intelligence Platform for MarketPulse",
+    description:
+      "We built a financial intelligence platform for MarketPulse that transcribes earnings calls, extracts key signals using Claude API, and delivers structured summaries to analysts in under 90 seconds. What used to take hours now takes less than two minutes.",
+    tags: ["Finance"],
+    image: "/case-study-images/marketpulse-financial-ai/hero.svg",
     href: "/case-studies/marketpulse-financial-ai",
   },
   {
     metric: "15%",
     metricLabel: "Revenue Recovered",
-    client: BILLCLEAR.hero.headline,
-    description: BILLCLEAR.hero.subheadline,
+    client: "AI Billing Recovery System for BillClear",
+    description:
+      "BillClear needed a way to catch underbilled and unbilled legal work before invoices were finalized. We built an AI audit layer that cross-references time entries, matter descriptions, and rate cards to surface discrepancies automatically. Recovery rate improved by 15% within two months.",
     tags: ["Legal Tech"],
-    image: "/case studies/case 5.webp",
+    image: "/case-study-images/billclear-legal-tech/hero.svg",
     href: "/case-studies/billclear-legal-tech",
   },
   {
     metric: "70%",
     metricLabel: "Fewer Repetitive Support Queries",
-    client: INTELLIBOTS.hero.headline,
-    description: INTELLIBOTS.hero.subheadline,
+    client: "Multi-Agent Support Automation for InteliBots",
+    description:
+      "We designed and deployed a multi-agent platform for InteliBots that routes, classifies, and resolves tier-1 support tickets without human involvement. Agents triage requests, pull from a live knowledge base, and escalate only what truly needs a human. Support volume handled autonomously rose to 70%.",
     tags: ["Autonomous Agents"],
-    image: "/case studies/case 6.webp",
+    image: "/case-study-images/intellibots-ai-agent-platform/hero.svg",
     href: "/case-studies/intellibots-ai-agent-platform",
-  },
-  {
-    metric: "25%",
-    metricLabel: "Higher First-Year Quota Attainment",
-    client: TRACKREC.hero.headline,
-    description: TRACKREC.hero.subheadline,
-    tags: ["HR Tech / Sales Ops"],
-    image: "/case studies/case 7.webp",
-    href: "/case-studies/trackrec-sales-hiring",
-  },
-  {
-    metric: "9",
-    metricLabel: "Months Accelerated",
-    client: STAFF_AUG.hero.headline,
-    description: STAFF_AUG.hero.subheadline,
-    tags: ["AI Staff Augmentation"],
-    image: "/case studies/case 8.webp",
-    href: "/case-studies/construction-staff-augmentation",
-  },
-  {
-    metric: "Instant",
-    metricLabel: "Executive Insights",
-    client: GENAI_INSIGHTS.hero.headline,
-    description: GENAI_INSIGHTS.hero.subheadline,
-    tags: ["Generative AI"],
-    image: "/case studies/case 9.jpg",
-    href: "/case-studies/executive-genai-insights",
-  },
-  {
-    metric: "98.94%",
-    metricLabel: "Recognition Accuracy",
-    client: EVREN_RD.hero.headline,
-    description: EVREN_RD.hero.subheadline,
-    tags: ["Deep Tech / R&D"],
-    image: "/case studies/case 10.webp",
-    href: "/case-studies/evren-rd-human-analysis",
   },
 ];
 

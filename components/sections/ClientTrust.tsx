@@ -171,7 +171,7 @@ export default function ClientTrust() {
             Client Trust
           </span>
           <h2 className="font-heading font-bold text-evren-navy text-[2.25rem] sm:text-4xl md:text-5xl lg:text-[2.75rem] leading-[1.15] tracking-tight max-w-4xl">
-            Trusted by <span className="text-evren-peach">Visionary Leaders.</span>
+            Trusted by Startups &amp; <span className="text-evren-peach">Growing Businesses.</span>
           </h2>
         </motion.div>
 
@@ -261,7 +261,7 @@ export default function ClientTrust() {
         >
           {/* Tagline */}
           <p className="text-center text-sm font-body text-evren-medium-gray/70 mb-8">
-            Built alongside teams in logistics, healthcare, construction, and enterprise.
+            Partnering with founders, SaaS teams, and enterprises to build, automate, and scale production-ready digital products.
           </p>
 
           {/* Logo row — single row, minimal */}
