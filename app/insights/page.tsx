@@ -7,21 +7,20 @@ import ArticleGrid from "@/components/sections/thinking/ArticleGrid";
 import { getPosts } from "@/lib/blog/posts";
 
 export const metadata: Metadata = {
-  title:
-    "Thinking - AI Advocate | AI Engineering Insights for CTOs & Product Leaders",
+  title: "Insights | AI Advocate",
   description:
-    "Open-sourced methodologies, engineering deep-dives, and strategic frameworks from the AI Advocate studio. Written for CTOs and Product Leaders who ship.",
+    "AI engineering insights, product strategy, and hard-won lessons from building production-ready AI systems. Written for CTOs, founders, and product teams.",
   openGraph: {
-    title: "Thinking - AI Advocate",
+    title: "Insights | AI Advocate",
     description:
-      "AI engineering insights, product strategy, and hard-won lessons from building AI systems in production.",
+      "Practical AI guides, technical deep-dives, and real-world lessons from building AI systems that deliver measurable business outcomes.",
     type: "website",
   },
 };
 
 export const revalidate = 60;
 
-export default async function ThinkingPage() {
+export default async function InsightsPage() {
   const initialPosts = await getPosts();
 
   return (

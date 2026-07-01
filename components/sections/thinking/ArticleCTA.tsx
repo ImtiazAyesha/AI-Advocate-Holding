@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import { MotionLink } from "@/components/ui/MotionLink";
@@ -38,7 +38,7 @@ export default function ArticleCTA() {
             Building <span className="heading-highlight">something?</span>
           </h2>
           <p className="font-body text-evren-charcoal/70 text-base md:text-lg leading-relaxed max-w-lg mx-auto mb-8">
-            We would love to hear about it. Let&apos;s discuss how AI Advocate Holding can
+            We would love to hear about it. Let&apos;s discuss how AI Advocate can
             accelerate your journey from prototype to production.
           </p>
           <MotionLink

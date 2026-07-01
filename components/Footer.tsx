@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -15,10 +15,10 @@ import { SOCIAL_LINKS } from "@/lib/social-links";
 // ═══════════════════════════════════════════════════════════════════════
 
 const NAV_LINKS = [
-  { label: "About", href: "/about" },
-  { label: "Approach", href: "/approach" },
-  { label: "Work", href: "/work" },
-  { label: "Thinking", href: "/thinking" },
+  { label: "About Us", href: "/about" },
+  { label: "Capabilities", href: "/capabilities" },
+  { label: "Case Studies", href: "/case-studies" },
+  { label: "Insights", href: "/insights" },
   // { label: "Business Transformation", href: "/business-transformation" },
 ];
 
@@ -37,7 +37,7 @@ export default function Footer({ hideCTA = false }: { hideCTA?: boolean }) {
   const ctaInView = useInView(ctaRef, { once: true, margin: "-80px" });
   
   const pathname = usePathname();
-  const isArticlePage = pathname?.startsWith('/thinking/') && pathname !== '/thinking';
+  const isArticlePage = (pathname?.startsWith('/thinking/') && pathname !== '/thinking') || (pathname?.startsWith('/insights/') && pathname !== '/insights');
   const isAboutPage = pathname === '/about';
 
   return (
@@ -126,7 +126,7 @@ export default function Footer({ hideCTA = false }: { hideCTA?: boolean }) {
                 className="text-base md:text-lg text-white/50 font-body max-w-lg mt-6 leading-relaxed"
               >
                 {isArticlePage
-                  ? "We would love to hear about it. Let's discuss how AI Advocate Holding can accelerate your journey from prototype to production."
+                  ? "We would love to hear about it. Let's discuss how AI Advocate can accelerate your journey from prototype to production."
                   : "From AI development and workflow automation to SaaS platforms and QA we help you ship production-ready software that works from day one. Send us a message to discuss your project."}
               </motion.p>
             </div>
@@ -169,21 +169,20 @@ export default function Footer({ hideCTA = false }: { hideCTA?: boolean }) {
           </div>
           </div>
 
-          <CtaWatermark text="AI Advocate Holding" />
+          <CtaWatermark text="AI Advocate" />
         </motion.div>
         </div>
       )}
 
       {/* ─── Part B: Main Footer ─── */}
-      <div className="bg-evren-warm-white border-t border-evren-navy/10 py-8 sm:py-10 px-4 sm:px-6">
+      <div className="bg-evren-warm-white border-t border-evren-navy/10 py-12 sm:py-16 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="hero-glass-container px-10 pt-12 pb-8 md:px-14 md:pt-16 md:pb-10 lg:px-16 lg:pt-20 lg:pb-12">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-10 md:gap-6 mb-10 md:mb-12">
             {/* Col 1 — Brand */}
             <div className="md:col-span-2">
               <Link
                 href="/"
-                aria-label="AI Advocate Holding"
+                aria-label="AI Advocate"
                 className="flex items-center gap-3 md:gap-3.5 mb-3 transition-opacity duration-200 hover:opacity-80 w-fit"
               >
                 <span className="relative block h-10 w-10 sm:h-11 sm:w-11 shrink-0">
@@ -199,7 +198,7 @@ export default function Footer({ hideCTA = false }: { hideCTA?: boolean }) {
                   className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-evren-navy tracking-tight"
                   aria-hidden="true"
                 >
-                  AI Advocate Holding
+                  AI Advocate
                 </span>
               </Link>
               <p className="text-evren-medium-gray font-body text-sm max-w-xs leading-relaxed">
@@ -266,7 +265,7 @@ export default function Footer({ hideCTA = false }: { hideCTA?: boolean }) {
           <div className="h-px bg-evren-medium-gray/15 mb-6" />
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-xs text-evren-medium-gray/70 font-body">
-              &copy; 2026 AI Advocate Holding. All rights reserved.
+              &copy; 2026 AI Advocate. All rights reserved.
             </p>
             <div className="flex items-center gap-4">
               {SOCIALS.map((social) => (
@@ -288,7 +287,6 @@ export default function Footer({ hideCTA = false }: { hideCTA?: boolean }) {
                 </a>
               ))}
             </div>
-          </div>
           </div>
         </div>
       </div>

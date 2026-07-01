@@ -1,4 +1,4 @@
-import { type Metadata } from "next";
+﻿import { type Metadata } from "next";
 import Script from "next/script";
 import DeferredSmoothScroll from "@/components/DeferredSmoothScroll";
 import Navbar from "@/components/Navbar";
@@ -30,7 +30,7 @@ const blogSchema = {
   description: "Compare n8n, Zapier, and Make for workflow automation.",
   datePublished: "2026-06-18",
   author: { "@type": "Organization", name: "AI Advocate Team" },
-  publisher: { "@type": "Organization", name: "AI Advocate Holding", url: "https://www.aiadvocateholding.com" },
+  publisher: { "@type": "Organization", name: "AI Advocate", url: "https://www.aiadvocateholding.com" },
 };
 
 export default async function WorkflowAutomationPage() {

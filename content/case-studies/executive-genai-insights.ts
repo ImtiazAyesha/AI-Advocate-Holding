@@ -1,4 +1,4 @@
-import type { TextFocusedCaseStudyContent } from "@/lib/case-studies/types";
+﻿import type { TextFocusedCaseStudyContent } from "@/lib/case-studies/types";
 
 /**
  * Executive GenAI / Brain AI — text-focused case study copy.
@@ -52,7 +52,7 @@ export const EXECUTIVE_GENAI_INSIGHTS_CONTENT: TextFocusedCaseStudyContent = {
     accentWord: "Had to Say",
     label: "Client Testimonial",
     quote:
-      "Brain AI has fundamentally changed our relationship with our own data. Our teams can now ask critical business questions and get answers instantly, without needing to file a ticket with the analytics team. The velocity this has unlocked is a true competitive advantage. AI Advocate Holding delivered on a vision we thought was years away.",
+      "Brain AI has fundamentally changed our relationship with our own data. Our teams can now ask critical business questions and get answers instantly, without needing to file a ticket with the analytics team. The velocity this has unlocked is a true competitive advantage. AI Advocate delivered on a vision we thought was years away.",
     title: "Chief Data Officer",
     company: "Enterprise Client",
   },

@@ -134,14 +134,14 @@ export default function CaseStudyHero({ content }: { content: TextFocusedCaseStu
               whileHover={{ scale: 1.01 }}
               transition={{ type: "spring", stiffness: 260, damping: 24 }}
             >
-              <div className="relative aspect-[4/3] w-full">
+              <div className="relative aspect-[4/3] w-full bg-evren-navy">
                 <Image
                   src={content.heroImage}
                   alt={hero.headline}
                   fill
                   priority
                   sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover"
+                  className="object-contain p-8"
                 />
               </div>
             </motion.div>

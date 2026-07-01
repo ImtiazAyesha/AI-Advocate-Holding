@@ -122,7 +122,7 @@ export default function LeadershipSection() {
                 variants={fadeSlideUp}
                 className="font-heading text-evren-charcoal text-lg sm:text-lg md:text-xl lg:text-2xl leading-[1.8] -tracking-[0.01em]"
               >
-                <span>Most teams spend months debating tools and architectures before writing a single line of production code. We built AI Advocate Holding to close that gap. </span>
+                <span>Most teams spend months debating tools and architectures before writing a single line of production code. We built AI Advocate to close that gap. </span>
                 <span className="heading-highlight font-semibold">
                   We bring the technical depth, the QA discipline, and the delivery speed
                 </span>
@@ -140,7 +140,7 @@ export default function LeadershipSection() {
               <div className="relative w-full rounded-2xl overflow-hidden shadow-2xl shadow-evren-navy/10 border-4 border-evren-peach/10 bg-evren-peach">
                 <Image
                   src="/Meer.png"
-                  alt="Moazzam Ali, Founder & CEO of AI Advocate Holding"
+                  alt="Moazzam Ali, Founder & CEO of AI Advocate"
                   width={600}
                   height={800}
                   sizes="(max-width: 768px) 100vw, 50vw"

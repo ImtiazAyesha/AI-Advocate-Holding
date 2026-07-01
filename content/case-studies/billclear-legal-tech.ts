@@ -1,4 +1,4 @@
-import type { TextFocusedCaseStudyContent } from "@/lib/case-studies/types";
+﻿import type { TextFocusedCaseStudyContent } from "@/lib/case-studies/types";
 
 /**
  * BillClear Legal Tech — text-focused case study copy.
@@ -10,13 +10,13 @@ export const BILLCLEAR_LEGAL_TECH_CONTENT: TextFocusedCaseStudyContent = {
   timeline: "6 Months",
   teamSize: "4 Specialists",
   hardMetric: "15% Revenue Recovered",
-  heroImage: "/case-study-images/billclear-legal-tech/hero.svg",
+  heroImage: "/case-study/Legal tech.png",
   hero: {
     headline:
       "Recovering Lost Revenue & Ensuring Billing Compliance for a Top-Tier Law Firm",
     accentWord: "Recovering Lost Revenue",
     subheadline:
-      "A leading national law firm was facing a significant challenge: revenue leakage caused by vague, non-compliant, or incomplete timekeeper narratives that were being rejected by clients. They partnered with AI Advocate Holding to build BillClear AI, a smart platform that uses a legal-specific AI engine to automatically analyze and improve billing narratives, ensuring every minute of work is accurately and compliantly captured.",
+      "A leading national law firm was facing a significant challenge: revenue leakage caused by vague, non-compliant, or incomplete timekeeper narratives that were being rejected by clients. They partnered with AI Advocate to build BillClear AI, a smart platform that uses a legal-specific AI engine to automatically analyze and improve billing narratives, ensuring every minute of work is accurately and compliantly captured.",
     metadata: {
       industry: "Legal Technology & Services",
       coreChallenge: "Revenue Leakage & Billing Compliance Risk",
@@ -51,7 +51,7 @@ export const BILLCLEAR_LEGAL_TECH_CONTENT: TextFocusedCaseStudyContent = {
     accentWord: "Had to Say",
     label: "Client Testimonial",
     quote:
-      "Revenue leakage from billing is a silent killer of profitability. AI Advocate Holding's BillClear platform has been a game-changer. It not only plugged the leaks in our revenue cycle but also gave our clients a new level of confidence in our operations. It is one of the best investments in operational technology we have ever made.",
+      "Revenue leakage from billing is a silent killer of profitability. AI Advocate's BillClear platform has been a game-changer. It not only plugged the leaks in our revenue cycle but also gave our clients a new level of confidence in our operations. It is one of the best investments in operational technology we have ever made.",
     title: "Managing Partner",
     company: "National Law Firm",
   },

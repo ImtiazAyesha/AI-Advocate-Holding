@@ -1,4 +1,4 @@
-import type { TextFocusedCaseStudyContent } from "@/lib/case-studies/types";
+﻿import type { TextFocusedCaseStudyContent } from "@/lib/case-studies/types";
 
 /**
  * Construction Staff Augmentation — text-focused case study copy.
@@ -17,7 +17,7 @@ export const CONSTRUCTION_STAFF_AUGMENTATION_CONTENT: TextFocusedCaseStudyConten
         "Accelerating a Construction Tech's Product Roadmap by 9 Months",
       accentWord: "Construction",
       subheadline:
-        "A major construction enterprise needed to develop a proprietary, AI-powered safety and efficiency monitoring system but faced a significant internal challenge: a shortage of specialized computer vision talent and a long, competitive hiring cycle. To accelerate their time-to-market, they partnered with AI Advocate Holding, embedding our elite AI engineers directly into their team to build and deploy a sophisticated computer vision platform in record time.",
+        "A major construction enterprise needed to develop a proprietary, AI-powered safety and efficiency monitoring system but faced a significant internal challenge: a shortage of specialized computer vision talent and a long, competitive hiring cycle. To accelerate their time-to-market, they partnered with AI Advocate, embedding our elite AI engineers directly into their team to build and deploy a sophisticated computer vision platform in record time.",
       metadata: {
         industry: "Construction Technology",
         coreChallenge:
@@ -54,7 +54,7 @@ export const CONSTRUCTION_STAFF_AUGMENTATION_CONTENT: TextFocusedCaseStudyConten
       accentWord: "Had to Say",
       label: "Client Testimonial",
       quote:
-        "We had the vision, but we didn't have the specialized talent in-house to execute quickly. Bringing AI Advocate Holding's team on board was like hitting the accelerator. They integrated seamlessly with our engineers, brought world-class expertise to the table, and helped us launch a mission-critical product in a fraction of the time it would have taken us otherwise.",
+        "We had the vision, but we didn't have the specialized talent in-house to execute quickly. Bringing AI Advocate's team on board was like hitting the accelerator. They integrated seamlessly with our engineers, brought world-class expertise to the table, and helped us launch a mission-critical product in a fraction of the time it would have taken us otherwise.",
       title: "Chief Technology Officer",
       company: "Major Construction Enterprise",
     },

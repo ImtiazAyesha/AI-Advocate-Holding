@@ -1,7 +1,8 @@
-"use client";
+﻿"use client";
 
 import { useRef, useEffect, useLayoutEffect, useState } from "react";
 import ArrowButton from "@/components/ui/ArrowButton";
+import InnovationIllustration from "@/components/icons/InnovationIllustration";
 
 // ═══════════════════════════════════════════════════════════════════════
 //  HEADLINE FIT — scales each row to container width so text never clips
@@ -126,7 +127,6 @@ function useMediaQuery(query: string) {
 export default function Hero() {
   const isXs = useMediaQuery("(max-width: 374px)");
   const isSm = useMediaQuery("(max-width: 639px)");
-  const isMd = useMediaQuery("(max-width: 767px)");
   const isCompactHero = useMediaQuery("(max-height: 860px)");
   const sectionRef = useRef<HTMLElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
@@ -156,10 +156,11 @@ export default function Hero() {
   };
 
 
-  const headlineLineOneMax = isXs ? 30 : isSm ? 36 : isCompactHero ? 38 : isMd ? 46 : 54;
-  const headlineLineOneMin = isXs ? 13 : isSm ? 14 : 18;
-  const headlineLineTwoMax = isXs ? 48 : isSm ? 62 : isCompactHero ? 64 : isMd ? 88 : 108;
-  const headlineLineTwoMin = isXs ? 14 : isSm ? 15 : 24;
+  // Content column is full-width on mobile, ~48% on md+
+  const headlineLineOneMax = isXs ? 26 : isSm ? 34 : isCompactHero ? 28 : 44;
+  const headlineLineOneMin = 14;
+  const headlineLineTwoMax = isXs ? 42 : isSm ? 60 : isCompactHero ? 48 : 82;
+  const headlineLineTwoMin = 18;
 
   return (
     <section
@@ -170,7 +171,7 @@ export default function Hero() {
       className={`relative isolate w-full flex flex-col bg-evren-warm-white overflow-x-clip ${
         isCompactHero
           ? "min-h-[100dvh] max-h-[100dvh] overflow-y-auto"
-          : "min-h-[100dvh] md:h-[100svh] md:min-h-[640px] lg:min-h-[680px]"
+          : "min-h-[100dvh] lg:h-[100svh] lg:min-h-[700px]"
       }`}
     >
       {/* Layer 0a — glassmorphism color blobs (give backdrop-filter something rich to blur) */}
@@ -274,7 +275,7 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Layer 2 — site-width wrapper aligns glass panel to navbar */}
+      {/* Layer 2 — two-column layout */}
       <div
         ref={contentRef}
         className={`relative z-10 flex-1 flex flex-col site-container hero-fade-in min-h-0 ${
@@ -283,35 +284,43 @@ export default function Hero() {
             : "pt-[calc(5rem+env(safe-area-inset-top,0px))] sm:pt-[6.5rem] md:pt-[7.75rem] pb-[calc(5.5rem+env(safe-area-inset-bottom,0px))] sm:pb-24 md:pb-32 lg:pb-36"
         }`}
       >
-        {/* Glassmorphic hero panel — same horizontal footprint as the navbar */}
         <div
-          className={`hero-glass-container hero-content-shell w-full flex-1 flex flex-col items-center justify-center min-h-0 group/hero ${
+          className={`w-full flex-1 flex flex-col lg:flex-row items-center min-h-0 gap-4 sm:gap-5 md:gap-6 lg:gap-12 xl:gap-16 ${
             isCompactHero
-              ? "px-5 sm:px-8 md:px-12 py-6 sm:py-8"
-              : "px-6 sm:px-10 md:px-14 lg:px-16 xl:px-20 py-8 sm:py-10 md:py-14 lg:py-16"
+              ? "px-5 sm:px-8 md:px-12 py-3 sm:py-4"
+              : "px-5 sm:px-8 md:px-12 lg:px-14 xl:px-20 py-4 sm:py-6 md:py-8 lg:py-0"
           }`}
         >
-          <div className="flex flex-col items-center text-center w-full mx-auto min-w-0">
+          {/* SVG — top on mobile/md (order-1), right column on lg+ (order-2) */}
+          <div className="order-1 lg:order-2 flex w-full lg:w-[52%] flex-shrink-0 items-center justify-center">
+            <InnovationIllustration
+              className="w-full h-auto max-w-[200px] sm:max-w-[260px] md:max-w-[320px] lg:max-w-[480px] xl:max-w-[520px]"
+            />
+          </div>
+
+          {/* Content — below SVG on mobile/md (order-2), left column on lg+ (order-1) */}
+          <div className="order-2 lg:order-1 flex flex-col items-start text-left w-full lg:w-[48%] min-w-0">
+
             {/* Badge */}
-            <div className={isCompactHero ? "mb-2 sm:mb-3" : "mb-4 sm:mb-7"}>
-              <span className="block text-[9px] min-[375px]:text-[10px] sm:text-[11px] font-heading font-bold text-evren-navy/50 tracking-[0.06em] min-[375px]:tracking-[0.12em] sm:tracking-[0.25em] uppercase text-center leading-snug max-w-[28ch] min-[375px]:max-w-[32ch] sm:max-w-none mx-auto">
-              AI Development · Automation · SaaS · QA
+            <div className={isCompactHero ? "mb-2" : "mb-3 sm:mb-4 md:mb-5"}>
+              <span className="block text-[9px] sm:text-[10px] font-heading font-bold text-evren-navy/50 tracking-[0.1em] sm:tracking-[0.18em] uppercase leading-snug">
+                AI Development · Automation · SaaS · QA
               </span>
             </div>
 
-            {/* Headline — auto-scales to fill the glass panel width */}
+            {/* Headline */}
             <h1 className="font-heading w-full min-w-0 overflow-visible flex flex-col gap-0.5 sm:gap-1">
               <HeroHeadlineLine
                 maxSize={headlineLineOneMax}
                 minSize={headlineLineOneMin}
-                className="font-light text-evren-medium-gray/90 tracking-normal leading-[1.12] sm:leading-[1.2]"
+                className="font-light text-evren-medium-gray/90 tracking-normal leading-[1.12] sm:leading-[1.18]"
               >
                 From Concept to
               </HeroHeadlineLine>
               <HeroHeadlineLine
                 maxSize={headlineLineTwoMax}
                 minSize={headlineLineTwoMin}
-                className="heading-liquid font-extrabold tracking-tight leading-[1.06] sm:leading-[1.1] md:leading-[1.12]"
+                className="heading-liquid font-extrabold tracking-tight leading-[1.06] sm:leading-[1.1]"
               >
                 Production-Ready AI.
               </HeroHeadlineLine>
@@ -319,47 +328,45 @@ export default function Hero() {
 
             {/* Body copy */}
             <p
-              className={`font-body text-evren-charcoal leading-relaxed text-pretty mx-auto ${
-                isCompactHero
-                  ? "mt-3 sm:mt-4 text-sm sm:text-base max-w-[40ch] sm:max-w-[46ch]"
-                  : "mt-4 min-[375px]:mt-5 sm:mt-8 md:mt-10 text-[13px] min-[375px]:text-sm sm:text-base md:text-lg max-w-[32ch] min-[375px]:max-w-[34ch] sm:max-w-[42ch] md:max-w-[48ch]"
-              }`}
+              className={`font-body text-evren-charcoal leading-relaxed text-pretty
+                text-[13px] sm:text-sm md:text-base lg:text-[17px]
+                max-w-[38ch] sm:max-w-[48ch] md:max-w-[54ch] lg:max-w-none
+                ${isCompactHero ? "mt-2 sm:mt-3" : "mt-3 sm:mt-4 md:mt-5 lg:mt-6"}`}
               style={{ lineHeight: 1.65 }}
             >
-              We help startups and businesses build AI-powered applications,
-              automate complex workflows, and develop scalable SaaS platforms
-              with expert QA built in from day one.
+              We build production-ready AI systems that turn complex data into
+              measurable business outcomes.
             </p>
 
-            {/* CTAs */}
+            {/* CTAs
+                < 640px        → stacked, full-width
+                640–1023px     → side-by-side (single-col hero, full width available)
+                1024–1279px    → stacked again (two-col hero, content col ~415px — too narrow)
+                1280px+        → side-by-side (two-col hero, content col ~490px — fits)  */}
             <div
-              className={`flex flex-col sm:flex-row items-stretch sm:items-center justify-center w-full ${
-                isCompactHero
-                  ? "mt-3 sm:mt-4 gap-2.5 sm:gap-3 max-w-[min(100%,22rem)] sm:max-w-none"
-                  : "mt-4 min-[375px]:mt-5 sm:mt-8 md:mt-10 gap-3 sm:gap-4 max-w-[min(100%,20rem)] sm:max-w-none"
-              }`}
+              className={`flex flex-col sm:flex-row lg:flex-col xl:flex-row xl:items-center gap-2.5 sm:gap-3 xl:gap-4 w-full sm:w-auto lg:w-full xl:w-auto
+                ${isCompactHero ? "mt-3 sm:mt-4" : "mt-4 sm:mt-5 md:mt-6 lg:mt-7 xl:mt-8"}`}
             >
               <ArrowButton
                 href="/connect"
                 id="hero-cta-primary"
-                ariaLabel="Book a free consultation with AI Advocate Holding"
+                ariaLabel="Book a free consultation with AI Advocate"
                 variant="primary"
                 size={isSm ? "md" : isCompactHero ? "md" : "lg"}
-                className="w-full sm:w-auto min-h-[44px] justify-between sm:justify-center text-[12px] min-[375px]:text-[13px] sm:text-base"
+                className="w-full sm:w-auto lg:w-full xl:w-auto whitespace-nowrap justify-between sm:justify-start lg:justify-between xl:justify-start"
               >
-                <span className="sm:hidden">Book Consultation</span>
-                <span className="hidden sm:inline">Book a Free Consultation</span>
+                Book a Free Consultation
               </ArrowButton>
 
               <ArrowButton
-                href="/approach"
+                href="/capabilities"
                 id="hero-cta-secondary"
-                ariaLabel="See our approach"
+                ariaLabel="See our capabilities"
                 variant="outline"
                 size={isSm ? "md" : isCompactHero ? "md" : "lg"}
-                className="w-full sm:w-auto min-h-[44px] justify-between sm:justify-center text-[12px] min-[375px]:text-[13px] sm:text-base"
+                className="w-full sm:w-auto lg:w-full xl:w-auto whitespace-nowrap justify-between sm:justify-start lg:justify-between xl:justify-start"
               >
-                See Our Approach
+                See Our Capabilities
               </ArrowButton>
             </div>
           </div>
@@ -370,7 +377,7 @@ export default function Hero() {
       <div
         className={`hero-watermark-band pointer-events-none ${isCompactHero ? "hero-watermark-band--compact" : ""}`}
       >
-        <HeroWatermark text="AI Advocate Holding" compact={isCompactHero} />
+        <HeroWatermark text="AI Advocate" compact={isCompactHero} />
       </div>
 
       {/* Layer 3 — bottom section fade (above bg, below content) */}

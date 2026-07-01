@@ -9,10 +9,34 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: "https://www.aiadvocateholding.com/thinking",
+      url: "https://www.aiadvocateholding.com/about",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: "https://www.aiadvocateholding.com/capabilities",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: "https://www.aiadvocateholding.com/case-studies",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: "https://www.aiadvocateholding.com/insights",
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.9,
+    },
+    {
+      url: "https://www.aiadvocateholding.com/start-a-project",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
     },
     {
       url: "https://www.aiadvocateholding.com/thinking/openai-claude-api-integration-guide",

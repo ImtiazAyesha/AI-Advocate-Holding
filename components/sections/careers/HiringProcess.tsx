@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef, useState } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
@@ -27,7 +27,7 @@ const STEPS = [
     num: "04",
     title: "Team Conversation",
     timing: "45 mins",
-    description: "You meet the people you'd work with. Ask anything. We'll do the same. This is about fit in both directions you should walk away knowing exactly what joining AI Advocate Holding would mean.",
+    description: "You meet the people you'd work with. Ask anything. We'll do the same. This is about fit in both directions you should walk away knowing exactly what joining AI Advocate would mean.",
   },
 ];
 

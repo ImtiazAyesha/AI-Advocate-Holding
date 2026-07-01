@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 
 function SectionHeading({ children }: { children: React.ReactNode }) {
   return (
@@ -61,10 +61,10 @@ export default function PrivacyPolicyContent() {
       <div className="relative z-10 px-5 sm:px-6 mt-8 md:mt-10 pb-2 md:pb-4">
         <div className="max-w-[1024px] mx-auto">
           <section className={sectionClass}>
-            <SectionHeading>A Note from AI Advocate Holding</SectionHeading>
+            <SectionHeading>A Note from AI Advocate</SectionHeading>
             <div className={bodyClass}>
               <p>
-                Welcome. We are <strong className="text-evren-navy">AI Advocate Holding</strong>, a digital product studio with operations in the United States and Dubai. We build intelligent software solutions, and we believe protecting your privacy is integral to building exceptional products.
+                Welcome. We are <strong className="text-evren-navy">AI Advocate</strong>, a digital product studio with operations in the United States and Dubai. We build intelligent software solutions, and we believe protecting your privacy is integral to building exceptional products.
               </p>
               <p>
                 This Privacy Policy applies to our website at{" "}

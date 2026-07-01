@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import MotionProvider from "@/components/providers/MotionProvider";
 import "./globals.css";
@@ -21,9 +21,9 @@ const plusJakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "AI Advocate Holding - Enterprise AI Consulting & Automation",
+  title: "AI Advocate - Enterprise AI Consulting & Automation",
   description:
-    "Stop experimenting with AI. Start driving measurable enterprise ROI. AI Advocate Holding delivers custom AI strategy, automation, and integration for growth-focused businesses.",
+    "Stop experimenting with AI. Start driving measurable enterprise ROI. AI Advocate delivers custom AI strategy, automation, and integration for growth-focused businesses.",
   keywords: [
     "AI consulting",
     "enterprise AI",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     "AI integration",
   ],
   openGraph: {
-    title: "AI Advocate Holding - Enterprise AI Consulting & Automation",
+    title: "AI Advocate - Enterprise AI Consulting & Automation",
     description:
       "Stop experimenting with AI. Start driving measurable enterprise ROI.",
     type: "website",

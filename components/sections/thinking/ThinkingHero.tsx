@@ -41,17 +41,18 @@ const wordReveal: Variants = {
   },
 };
 
-const HEADLINE_LINES: { words: { text: string; decorated?: boolean; secondary?: boolean; light?: boolean }[] }[] = [
-  { words: [{ text: "Built from " }, { text: "Real " }] },
-  { words: [{ text: "Experience.", decorated: true }] },
-];
-
 const FLOATING_ICONS = [
   { icon: Network, top: "18%", left: "2%", delay: 0, scale: 1.05, initRotate: -8, moveX: 0, moveY: -20 },
   { icon: BrainCircuit, top: "25%", right: "0%", delay: 1.5, scale: 1.25, initRotate: 10, moveX: -15, moveY: -15 },
   { icon: Terminal, bottom: "28%", left: "4%", delay: 0.8, scale: 0.95, initRotate: 6, moveX: 20, moveY: 0 },
   { icon: Cpu, bottom: "20%", right: "5%", delay: 2.2, scale: 1.15, initRotate: -10, moveX: -15, moveY: 15 },
 ];
+
+const HEADLINE_LINES: { words: { text: string; decorated?: boolean; secondary?: boolean; light?: boolean }[] }[] = [
+  { words: [{ text: "Built from " }, { text: "Real " }] },
+  { words: [{ text: "Experience.", decorated: true }] },
+];
+
 
 // ═══════════════════════════════════════════════════════════════════════
 //  THINKING HERO

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
@@ -57,7 +57,7 @@ export default function CareersCtaBanner() {
                   <Sparkles size={16} className="text-evren-peach" strokeWidth={2.5} />
                 </div>
                 <span className="text-[10px] sm:text-[11px] font-heading font-semibold text-evren-peach/90 uppercase tracking-[0.2em] leading-tight mt-0.5">
-                  AI Advocate Holding &middot; CAREERS
+                  AI Advocate &middot; CAREERS
                 </span>
               </motion.div>
 

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
@@ -86,7 +86,7 @@ export default function BTContextualizer() {
             >
               Before automating, digitizing, or scaling some organizations
               need to get clear on direction, remove structural blockers, and
-              align around what actually needs to change. AI Advocate Holding&apos;s
+              align around what actually needs to change. AI Advocate&apos;s
               Business Transformation offering exists for those moments.
             </motion.p>
           </div>

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import DeferredSmoothScroll from "@/components/DeferredSmoothScroll";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -10,11 +10,11 @@ import HiringProcess from "@/components/sections/careers/HiringProcess";
 import CareersCtaBanner from "@/components/sections/careers/CareersCtaBanner";
 
 export const metadata: Metadata = {
-  title: "Careers - Join AI Advocate Holding | Digital Product Studio",
+  title: "Careers - Join AI Advocate | Digital Product Studio",
   description:
     "We're building AI-powered products that matter. Join a team of engineers, designers, and strategists at the frontier of intelligent product development. Two roles open: Full Stack AI Engineer and Senior AI Engineer.",
   openGraph: {
-    title: "Careers - Join AI Advocate Holding | Digital Product Studio",
+    title: "Careers - Join AI Advocate | Digital Product Studio",
     description:
       "We're building AI-powered products that matter. Join a team of engineers, designers, and strategists at the frontier of intelligent product development.",
     type: "website",

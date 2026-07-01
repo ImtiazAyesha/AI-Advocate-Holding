@@ -1,4 +1,4 @@
-import { type Metadata } from "next";
+﻿import { type Metadata } from "next";
 import Script from "next/script";
 import DeferredSmoothScroll from "@/components/DeferredSmoothScroll";
 import Navbar from "@/components/Navbar";
@@ -30,7 +30,7 @@ const blogSchema = {
   description: "Step-by-step guide to building an AI chatbot using OpenAI or Claude API.",
   datePublished: "2026-06-15",
   author: { "@type": "Organization", name: "AI Advocate Team" },
-  publisher: { "@type": "Organization", name: "AI Advocate Holding", url: "https://www.aiadvocateholding.com" },
+  publisher: { "@type": "Organization", name: "AI Advocate", url: "https://www.aiadvocateholding.com" },
 };
 
 export default async function AIChatbotPage() {

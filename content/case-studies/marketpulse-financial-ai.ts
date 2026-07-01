@@ -1,4 +1,4 @@
-import type { TextFocusedCaseStudyContent } from "@/lib/case-studies/types";
+﻿import type { TextFocusedCaseStudyContent } from "@/lib/case-studies/types";
 
 /**
  * MarketPulse Financial AI — text-focused case study copy.
@@ -10,13 +10,13 @@ export const MARKETPULSE_FINANCIAL_AI_CONTENT: TextFocusedCaseStudyContent = {
   timeline: "7 Months",
   teamSize: "6 Specialists",
   hardMetric: "< 90 Seconds to Insight",
-  heroImage: "/case-study-images/marketpulse-financial-ai/hero.svg",
+  heroImage: "/case-study/Finance.png",
   hero: {
     headline:
       "Delivering Actionable Market Alpha with Real-Time Earnings Call Intelligence",
     accentWord: "Alpha",
     subheadline:
-      "In the world of finance, information latency is the difference between profit and loss. A leading financial advisory firm needed to equip its strategists and investors with an immediate information edge during the volatile earnings season. They partnered with AI Advocate Holding to build MarketPulse Live, a real-time analysis platform that ingests, transcribes, and summarizes earnings calls the moment they happen, turning unstructured audio into actionable market intelligence.",
+      "In the world of finance, information latency is the difference between profit and loss. A leading financial advisory firm needed to equip its strategists and investors with an immediate information edge during the volatile earnings season. They partnered with AI Advocate to build MarketPulse Live, a real-time analysis platform that ingests, transcribes, and summarizes earnings calls the moment they happen, turning unstructured audio into actionable market intelligence.",
     metadata: {
       industry: "Financial Services & Investment Tech",
       coreChallenge: "Information Latency & Inefficient Data Analysis",
@@ -52,7 +52,7 @@ export const MARKETPULSE_FINANCIAL_AI_CONTENT: TextFocusedCaseStudyContent = {
     accentWord: "Had to Say",
     label: "Client Testimonial",
     quote:
-      "In our business, speed is everything. AI Advocate Holding delivered a platform that has fundamentally changed how we operate during earnings season. We are no longer reacting to the market, we are anticipating it. Their ability to translate a complex architectural vision into a high-performance, real-world tool has been exceptional.",
+      "In our business, speed is everything. AI Advocate delivered a platform that has fundamentally changed how we operate during earnings season. We are no longer reacting to the market, we are anticipating it. Their ability to translate a complex architectural vision into a high-performance, real-world tool has been exceptional.",
     title: "Chief Investment Officer",
     company: "Financial Advisory Firm",
   },

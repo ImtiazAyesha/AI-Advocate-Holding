@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 import DeferredSmoothScroll from "@/components/DeferredSmoothScroll";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -6,13 +6,13 @@ import PrivacyPolicyContent from "./PrivacyPolicyContent";
 import LegalPageCtaBanner from "@/components/sections/legal/LegalPageCtaBanner";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | AI Advocate Holding",
+  title: "Privacy Policy | AI Advocate",
   description:
-    "How AI Advocate Holding collects, uses, and protects your personal information. A clear, human explanation of our data practices.",
+    "How AI Advocate collects, uses, and protects your personal information. A clear, human explanation of our data practices.",
   openGraph: {
-    title: "Privacy Policy | AI Advocate Holding",
+    title: "Privacy Policy | AI Advocate",
     description:
-      "How AI Advocate Holding collects, uses, and protects your personal information.",
+      "How AI Advocate collects, uses, and protects your personal information.",
   },
   robots: {
     index: true,
@@ -28,7 +28,7 @@ export default function PrivacyPolicyPage() {
         <PrivacyPolicyContent />
         <LegalPageCtaBanner
           iconName="shield"
-          eyebrow="AI Advocate Holding · Privacy"
+          eyebrow="AI Advocate · Privacy"
           headlineBefore="Questions about your"
           accentWord="data?"
           description="To exercise your choices, request data deletion, or report a concern, we're here to help. Replies are typically provided within 48 business hours."

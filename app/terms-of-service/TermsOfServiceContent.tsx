@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 
 function SectionHeading({ children }: { children: React.ReactNode }) {
   return (
@@ -81,7 +81,7 @@ export default function TermsOfServiceContent() {
             <SectionHeading>Our Core Services</SectionHeading>
             <div className={bodyClass}>
               <p>
-                AI Advocate Holding specializes in custom enterprise software integration, native intelligence systems, and design-led engineering:
+                AI Advocate specializes in custom enterprise software integration, native intelligence systems, and design-led engineering:
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5">
                 {[
@@ -123,7 +123,7 @@ export default function TermsOfServiceContent() {
                   <ul className="space-y-3 text-[15px] md:text-[16px] pl-0 list-none">
                     <li className="flex gap-2"><span className="text-evren-peach">•</span>Bulk data scraping, harvesting, or site spoofing.</li>
                     <li className="flex gap-2"><span className="text-evren-peach">•</span>Injecting malicious code or scanning system vulnerabilities.</li>
-                    <li className="flex gap-2"><span className="text-evren-peach">•</span>Impersonating AI Advocate Holding team members or partners.</li>
+                    <li className="flex gap-2"><span className="text-evren-peach">•</span>Impersonating AI Advocate team members or partners.</li>
                   </ul>
                 </div>
               </div>
@@ -133,7 +133,7 @@ export default function TermsOfServiceContent() {
           <section className={sectionClass}>
             <SectionHeading>Intellectual Property</SectionHeading>
             <div className={bodyClass}>
-              <p>All content on this Site logo patterns, text articles, visual illustrations, component layouts, and custom animations is the exclusive property of AI Advocate Holding or our licensors, safeguarded by international copyright and trademark protections.</p>
+              <p>All content on this Site logo patterns, text articles, visual illustrations, component layouts, and custom animations is the exclusive property of AI Advocate or our licensors, safeguarded by international copyright and trademark protections.</p>
               <p>You are granted a limited, personal, non-exclusive license to browse the site. You may not copy, reverse engineer, or sell our assets without express written clearance.</p>
             </div>
           </section>
@@ -150,7 +150,7 @@ export default function TermsOfServiceContent() {
             <SectionHeading>Disclaimers & Limitation of Liability</SectionHeading>
             <div className={bodyClass}>
               <p>This Site is provided &ldquo;as is&rdquo; without warranties of any kind, whether express or implied. While we strive to present accurate editorial thoughts, we do not warrant that site features will be entirely uninterrupted or error-free.</p>
-              <p>To the maximum extent permitted by law, AI Advocate Holding will not be liable for any indirect, incidental, or consequential damages resulting from your use or inability to access our public site pages.</p>
+              <p>To the maximum extent permitted by law, AI Advocate will not be liable for any indirect, incidental, or consequential damages resulting from your use or inability to access our public site pages.</p>
             </div>
           </section>
 

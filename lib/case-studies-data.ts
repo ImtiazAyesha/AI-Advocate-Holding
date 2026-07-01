@@ -21,7 +21,7 @@ export const WORK_CASE_STUDIES: CaseStudyCard[] = [
     description:
       "We built a HIPAA-compliant telehealth platform for iSeedoc that automates patient intake, routes consultations via AI triage, and surfaces clinical summaries in real time. Patients get faster care. Clinicians spend less time on admin.",
     tags: ["Healthcare"],
-    image: "/case-study-images/iseedoc-telehealth/hero.svg",
+    image: "/case-study/Healthcare.png",
     href: "/case-studies/iseedoc-telehealth",
   },
   {
@@ -31,7 +31,7 @@ export const WORK_CASE_STUDIES: CaseStudyCard[] = [
     description:
       "We deployed an LLM-based threat detection engine for VerifiedX that identifies and neutralizes phishing campaigns, credential attacks, and anomalous access patterns before they reach end users. Built on Claude API with real-time alerting and audit logs.",
     tags: ["Cybersecurity"],
-    image: "/case-study-images/verifiedx-cybersecurity/hero.svg",
+    image: "/case-study/Cybersecurity.png",
     href: "/case-studies/verifiedx-cybersecurity",
   },
   {
@@ -41,7 +41,7 @@ export const WORK_CASE_STUDIES: CaseStudyCard[] = [
     description:
       "We integrated computer vision and AI alert pipelines across active construction sites, providing project managers with live safety scoring, PPE compliance tracking, and automated incident reporting. Forty percent fewer on-site incidents in the first quarter.",
     tags: ["Construction"],
-    image: "/case-study-images/ai-construction-safety/hero.svg",
+    image: "/case-study/Construction.png",
     href: "/case-studies/ai-construction-safety",
   },
   {
@@ -51,7 +51,7 @@ export const WORK_CASE_STUDIES: CaseStudyCard[] = [
     description:
       "We built a financial intelligence platform for MarketPulse that transcribes earnings calls, extracts key signals using Claude API, and delivers structured summaries to analysts in under 90 seconds. What used to take hours now takes less than two minutes.",
     tags: ["Finance"],
-    image: "/case-study-images/marketpulse-financial-ai/hero.svg",
+    image: "/case-study/Finance.png",
     href: "/case-studies/marketpulse-financial-ai",
   },
   {
@@ -61,7 +61,7 @@ export const WORK_CASE_STUDIES: CaseStudyCard[] = [
     description:
       "BillClear needed a way to catch underbilled and unbilled legal work before invoices were finalized. We built an AI audit layer that cross-references time entries, matter descriptions, and rate cards to surface discrepancies automatically. Recovery rate improved by 15% within two months.",
     tags: ["Legal Tech"],
-    image: "/case-study-images/billclear-legal-tech/hero.svg",
+    image: "/case-study/Legal tech.png",
     href: "/case-studies/billclear-legal-tech",
   },
   {
@@ -71,7 +71,7 @@ export const WORK_CASE_STUDIES: CaseStudyCard[] = [
     description:
       "We designed and deployed a multi-agent platform for InteliBots that routes, classifies, and resolves tier-1 support tickets without human involvement. Agents triage requests, pull from a live knowledge base, and escalate only what truly needs a human. Support volume handled autonomously rose to 70%.",
     tags: ["Autonomous Agents"],
-    image: "/case-study-images/intellibots-ai-agent-platform/hero.svg",
+    image: "/case-study/Automation.png",
     href: "/case-studies/intellibots-ai-agent-platform",
   },
 ];

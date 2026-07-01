@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef } from "react";
 import {
@@ -248,7 +248,7 @@ export default function ApproachHero() {
           <ArrowButton
             href="/connect"
             id="approach-hero-cta"
-            ariaLabel="Book a strategy call with AI Advocate Holding"
+            ariaLabel="Book a strategy call with AI Advocate"
             variant="primary"
             size="lg"
             className="w-full sm:w-auto justify-between sm:justify-center text-[14px] sm:text-base whitespace-nowrap"
@@ -257,14 +257,14 @@ export default function ApproachHero() {
           </ArrowButton>
 
           <ArrowButton
-            href="/work"
+            href="/case-studies"
             id="approach-hero-cta-secondary"
-            ariaLabel="See our work"
+            ariaLabel="See our case studies"
             variant="outline"
             size="lg"
             className="w-full sm:w-auto justify-between sm:justify-center text-[14px] sm:text-base whitespace-nowrap"
           >
-            See Our Work
+            See Our Case Studies
           </ArrowButton>
         </motion.div>
         </div>

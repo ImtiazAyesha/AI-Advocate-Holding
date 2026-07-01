@@ -1,4 +1,4 @@
-import type { TextFocusedCaseStudyContent } from "@/lib/case-studies/types";
+﻿import type { TextFocusedCaseStudyContent } from "@/lib/case-studies/types";
 
 /**
  * TrackRec Sales Hiring — text-focused case study copy.
@@ -16,7 +16,7 @@ export const TRACKREC_SALES_HIRING_CONTENT: TextFocusedCaseStudyContent = {
       "Improving Sales Quota Attainment by Hiring the Right Reps, Faster",
     accentWord: "Attainment",
     subheadline:
-      "A premier sales recruitment agency recognized a costly inefficiency in the market: traditional hiring, based on resumes and interviews, was failing to consistently identify top-performing sales candidates. This led to high turnover and missed revenue targets for their clients. They partnered with AI Advocate Holding to build TrackRec, an AI-driven platform that moves beyond resumes to generate a data-backed 'Sales Fit Score,' revolutionizing how sales talent is assessed and placed.",
+      "A premier sales recruitment agency recognized a costly inefficiency in the market: traditional hiring, based on resumes and interviews, was failing to consistently identify top-performing sales candidates. This led to high turnover and missed revenue targets for their clients. They partnered with AI Advocate to build TrackRec, an AI-driven platform that moves beyond resumes to generate a data-backed 'Sales Fit Score,' revolutionizing how sales talent is assessed and placed.",
     metadata: {
       industry: "HR Technology / Sales & Recruitment",
       coreChallenge: "Inaccurate Candidate Vetting & High Cost of Bad Hires",
@@ -52,7 +52,7 @@ export const TRACKREC_SALES_HIRING_CONTENT: TextFocusedCaseStudyContent = {
     accentWord: "Had to Say",
     label: "Client Testimonial",
     quote:
-      "TrackRec has fundamentally changed the way we operate. We are no longer just matching resumes to job descriptions, we are matching sales DNA to business needs. Our clients are seeing higher quota attainment from the candidates we place, and our own efficiency has skyrocketed. AI Advocate Holding understood our business problem perfectly.",
+      "TrackRec has fundamentally changed the way we operate. We are no longer just matching resumes to job descriptions, we are matching sales DNA to business needs. Our clients are seeing higher quota attainment from the candidates we place, and our own efficiency has skyrocketed. AI Advocate understood our business problem perfectly.",
     title: "CEO",
     company: "Premier Sales Recruitment Agency",
   },

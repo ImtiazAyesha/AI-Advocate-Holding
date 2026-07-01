@@ -1,15 +1,12 @@
 "use client";
 
-import { useRef, useLayoutEffect } from "react";
+import { useRef } from "react";
 import { motion, useInView, type Variants } from "framer-motion";
 import { Cpu, Users, Shield, type LucideIcon } from "lucide-react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger);
-
-const SCROLL_STEP_RATIO = 0.42;
-const SCROLL_STEP_MIN_PX = 28;
+// ═══════════════════════════════════════════════════════════════════════
+//  MOTION VARIANTS
+// ═══════════════════════════════════════════════════════════════════════
 
 const headerFade: Variants = {
   hidden: { opacity: 0, y: 24 },
@@ -20,40 +17,44 @@ const headerFade: Variants = {
   },
 };
 
-interface Principle {
+const cardVariants: Variants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: 0.1 + i * 0.18,
+      duration: 0.75,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  }),
+};
+
+// ═══════════════════════════════════════════════════════════════════════
+//  DATA
+// ═══════════════════════════════════════════════════════════════════════
+
+interface Card {
   id: string;
   label: string;
   title: string;
   body: string;
   icon: LucideIcon;
-  layerClass: string;
-  labelClass: string;
-  titleClass: string;
-  bodyClass: string;
-  iconClass: string;
-  iconBgClass: string;
-  iconWrapClass: string;
-  iconSize: number;
-  bodyMaxClass: string;
+  glow: string;
+  glowDim: string;
+  accent: string;
 }
 
-const PRINCIPLES: Principle[] = [
+const CARDS: Card[] = [
   {
     id: "ai-native",
     label: "AI + AUTOMATION EXPERTISE",
     title: "Full-Stack AI Capability",
     body: "From OpenAI and Claude API integrations to workflow automation with Zapier, Make, and n8n we bring end-to-end AI expertise that turns complex requirements into practical, production-ready solutions.",
     icon: Cpu,
-    layerClass:
-      "bg-evren-navy border border-evren-navy-light/30 shadow-[0_20px_60px_rgba(26,36,33,0.25)]",
-    labelClass: "text-evren-peach/90",
-    titleClass: "text-white",
-    bodyClass: "text-white/70",
-    iconClass: "text-white",
-    iconBgClass: "opacity-[0.08] group-hover:opacity-10",
-    iconWrapClass: "-top-16 -right-12 rotate-12",
-    iconSize: 280,
-    bodyMaxClass: "max-w-md",
+    glow: "rgba(136, 201, 179, 0.75)",
+    glowDim: "rgba(136, 201, 179, 0.22)",
+    accent: "#88C9B3",
   },
   {
     id: "partnership",
@@ -61,278 +62,212 @@ const PRINCIPLES: Principle[] = [
     title: "Built-In QA, Zero Surprises",
     body: "Every product we ship includes automated testing Selenium, Cypress, API and regression testing. Quality is built in from the first sprint, not bolted on as an afterthought.",
     icon: Users,
-    layerClass:
-      "bg-white border border-evren-light-gray/40 shadow-warm",
-    labelClass: "text-evren-peach/90",
-    titleClass: "text-evren-navy",
-    bodyClass: "text-evren-charcoal/80",
-    iconClass: "text-evren-navy",
-    iconBgClass: "opacity-[0.03] group-hover:opacity-[0.06]",
-    iconWrapClass: "-top-12 -right-12 -rotate-12",
-    iconSize: 240,
-    bodyMaxClass: "max-w-sm",
+    glow: "rgba(107, 200, 160, 0.75)",
+    glowDim: "rgba(107, 200, 160, 0.22)",
+    accent: "#6BC8A0",
   },
   {
     id: "built-to-last",
     label: "BUSINESS OUTCOMES",
     title: "Scalable Code. Real Results.",
-    body: "We write clean, scalable architecture and maintain fast, structured communication throughout. Our focus is your business outcome shipping software that works, scales, and grows with you.",
+    body: "We write clean, scalable architecture and maintain fast, structured communication throughout. Our focus is your business outcome: shipping software that works, scales, and grows with you.",
     icon: Shield,
-    layerClass:
-      "bg-gradient-to-br from-evren-peach-light via-evren-peach/25 to-evren-peach-light/90 border border-evren-peach/50 shadow-[0_15px_40px_rgba(136,201,179,0.28)]",
-    labelClass: "text-evren-gold",
-    titleClass: "text-evren-navy",
-    bodyClass: "text-evren-navy/80",
-    iconClass: "text-evren-gold",
-    iconBgClass: "opacity-[0.2] group-hover:opacity-[0.32]",
-    iconWrapClass: "top-1/2 -translate-y-1/2 -right-12 md:right-16 -rotate-[5deg]",
-    iconSize: 260,
-    bodyMaxClass: "md:max-w-xl",
+    glow: "rgba(78, 180, 140, 0.75)",
+    glowDim: "rgba(78, 180, 140, 0.22)",
+    accent: "#4EB48C",
   },
 ];
 
-function SectionLabel({
-  text,
-  className = "",
-}: {
-  text: string;
-  className?: string;
-}) {
-  return (
-    <span
-      className={`block text-[11px] font-heading font-semibold uppercase tracking-[0.2em] mb-3 ${className}`}
-    >
-      {text}
-    </span>
-  );
-}
+// ═══════════════════════════════════════════════════════════════════════
+//  GLASS CARD
+// ═══════════════════════════════════════════════════════════════════════
 
-function PrincipleLayer({ principle }: { principle: Principle }) {
-  const Icon = principle.icon;
+function GlassCard({ card, index, inView }: { card: Card; index: number; inView: boolean }) {
+  const Icon = card.icon;
 
   return (
-    <div
-      className={`group relative w-full rounded-[24px] overflow-hidden p-8 lg:p-10 flex flex-col justify-between ${principle.layerClass}`}
+    <motion.div
+      custom={index}
+      variants={cardVariants}
+      initial="hidden"
+      animate={inView ? "visible" : "hidden"}
+      className="group relative flex flex-col cursor-pointer"
     >
+      {/* Outer glow shell — overflow-visible so the icon circle can protrude above */}
       <div
-        className={`absolute transform ${principle.iconWrapClass} ${principle.iconBgClass} group-hover:scale-105 transition-all duration-700 ease-out pointer-events-none`}
+        className="relative rounded-2xl p-px flex flex-col flex-1 overflow-visible transition-all duration-500 group-hover:scale-[1.02]"
+        style={{
+          background: `linear-gradient(135deg, ${card.glow} 0%, rgba(255,255,255,0.15) 40%, ${card.glowDim} 100%)`,
+          boxShadow: `0 0 18px ${card.glowDim}, 0 4px 32px rgba(0,0,0,0.18)`,
+          transition: "box-shadow 0.4s ease, transform 0.4s ease",
+        }}
+        onMouseEnter={(e) => {
+          (e.currentTarget as HTMLDivElement).style.boxShadow =
+            `0 0 32px ${card.glow}, 0 0 72px ${card.glowDim}, 0 8px 40px rgba(0,0,0,0.25)`;
+        }}
+        onMouseLeave={(e) => {
+          (e.currentTarget as HTMLDivElement).style.boxShadow =
+            `0 0 18px ${card.glowDim}, 0 4px 32px rgba(0,0,0,0.18)`;
+        }}
       >
-        <Icon
-          size={principle.iconSize}
-          strokeWidth={0.7}
-          className={principle.iconClass}
-        />
-      </div>
+        {/* ── Floating icon circle — centered on top edge, half above ── */}
+        <div
+          className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20
+                     w-16 h-16 rounded-full flex items-center justify-center
+                     transition-all duration-400 group-hover:scale-110"
+          style={{
+            background: "rgba(8, 22, 17, 0.90)",
+            border: `1.5px solid ${card.glow}`,
+            boxShadow: `0 0 14px ${card.glow}, 0 0 32px ${card.glowDim}, inset 0 0 10px ${card.glowDim}`,
+            backdropFilter: "blur(12px)",
+            WebkitBackdropFilter: "blur(12px)",
+          }}
+        >
+          {/* Inner ring */}
+          <span
+            className="absolute inset-[4px] rounded-full pointer-events-none"
+            style={{ border: `1px solid ${card.glowDim}` }}
+          />
+          <Icon size={24} style={{ color: card.accent }} strokeWidth={1.6} />
+        </div>
 
-      <div className="relative z-10">
-        <SectionLabel text={principle.label} className={principle.labelClass} />
-        <h3
-          className={`text-2xl lg:text-3xl font-heading font-bold mt-2 mb-3 leading-tight ${principle.titleClass}`}
+        {/* Corner glow accents */}
+        <span
+          className="absolute -top-px -left-px w-16 h-16 rounded-tl-2xl opacity-50 group-hover:opacity-90 transition-opacity duration-500 pointer-events-none"
+          style={{ background: `radial-gradient(circle at 0% 0%, ${card.glow} 0%, transparent 70%)` }}
+        />
+        <span
+          className="absolute -bottom-px -right-px w-16 h-16 rounded-br-2xl opacity-30 group-hover:opacity-70 transition-opacity duration-500 pointer-events-none"
+          style={{ background: `radial-gradient(circle at 100% 100%, ${card.glow} 0%, transparent 70%)` }}
+        />
+
+        {/* Glass inner surface */}
+        <div
+          className="relative flex flex-col flex-1 rounded-2xl overflow-hidden pt-12 px-7 pb-7 lg:pt-14 lg:px-8 lg:pb-8"
+          style={{
+            background: "rgba(8, 20, 16, 0.72)",
+            backdropFilter: "blur(24px)",
+            WebkitBackdropFilter: "blur(24px)",
+          }}
         >
-          {principle.title}
-        </h3>
-        <p
-          className={`font-body text-[15px] leading-relaxed ${principle.bodyClass} ${principle.bodyMaxClass}`}
-        >
-          {principle.body}
-        </p>
+          {/* Noise texture */}
+          <div
+            className="absolute inset-0 pointer-events-none rounded-2xl opacity-[0.03]"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
+              backgroundSize: "180px 180px",
+            }}
+          />
+
+          {/* Top inner glow line */}
+          <div
+            className="absolute top-0 left-6 right-6 h-px pointer-events-none"
+            style={{
+              background: `linear-gradient(90deg, transparent, ${card.glow}, transparent)`,
+              opacity: 0.45,
+            }}
+          />
+
+          {/* Label */}
+          <span
+            className="block text-[10px] font-heading font-bold uppercase tracking-[0.22em] mb-3 text-center"
+            style={{ color: card.accent }}
+          >
+            {card.label}
+          </span>
+
+          {/* Title */}
+          <h3 className="text-xl lg:text-2xl font-heading font-bold text-white leading-tight mb-4 text-center">
+            {card.title}
+          </h3>
+
+          {/* Body */}
+          <p className="font-body text-[14px] lg:text-[15px] text-white/60 leading-relaxed text-center">
+            {card.body}
+          </p>
+        </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
-const portalMaskStyle = {
-  WebkitMaskImage:
-    "radial-gradient(circle at 50% 50%, transparent var(--portal-r, 0%), black var(--portal-r, 0%))",
-  maskImage:
-    "radial-gradient(circle at 50% 50%, transparent var(--portal-r, 0%), black var(--portal-r, 0%))",
-} as const;
+// ═══════════════════════════════════════════════════════════════════════
+//  SECTION
+// ═══════════════════════════════════════════════════════════════════════
 
 export default function Differentiators() {
   const sectionRef = useRef<HTMLElement>(null);
-  const stackRef = useRef<HTMLDivElement>(null);
-  const stageRef = useRef<HTMLDivElement>(null);
-  const layerRefs = useRef<(HTMLDivElement | null)[]>([]);
   const headerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(headerRef, { once: true, margin: "-80px" });
-
-  useLayoutEffect(() => {
-    const section = sectionRef.current;
-    const stack = stackRef.current;
-    const stage = stageRef.current;
-    if (!section || !stack || !stage) return;
-
-    let ctx: gsap.Context | undefined;
-    let refreshTimer = 0;
-    let retryId = 0;
-    let mounted = true;
-
-    const setup = (): boolean => {
-      const prefersReducedMotion = window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
-      ).matches;
-
-      const layerEls = layerRefs.current.filter(Boolean) as HTMLDivElement[];
-      if (layerEls.length !== PRINCIPLES.length) return false;
-
-      ctx?.revert();
-
-      if (prefersReducedMotion) {
-        layerEls.forEach((el) => {
-          el.style.maskImage = "none";
-          el.style.webkitMaskImage = "none";
-        });
-        return true;
-      }
-
-      ctx = gsap.context(() => {
-        const cardHeight = stage.offsetHeight;
-        const stepPx = Math.max(
-          Math.round(cardHeight * SCROLL_STEP_RATIO + SCROLL_STEP_MIN_PX),
-          180
-        );
-        const scrollTrackPx = (PRINCIPLES.length - 1) * stepPx;
-
-        layerEls.forEach((el) => {
-          gsap.set(el, { "--portal-r": "0%" });
-        });
-
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: stage,
-            start: "top 72%",
-            end: `+=${scrollTrackPx}`,
-            scrub: 0.35,
-            invalidateOnRefresh: true,
-          },
-        });
-
-        for (let i = 0; i < PRINCIPLES.length - 1; i++) {
-          tl.to(
-            layerEls[i],
-            {
-              "--portal-r": "150%",
-              ease: "power4.in",
-              duration: 1,
-            },
-            i
-          );
-        }
-      }, section);
-
-      ScrollTrigger.refresh();
-      return true;
-    };
-
-    const refresh = () => ScrollTrigger.refresh();
-
-    const bind = () => {
-      window.addEventListener("resize", refresh);
-      window.addEventListener("lenis-ready", refresh);
-      refreshTimer = window.setTimeout(refresh, 2800);
-    };
-
-    const unbind = () => {
-      window.clearTimeout(refreshTimer);
-      window.removeEventListener("resize", refresh);
-      window.removeEventListener("lenis-ready", refresh);
-      ctx?.revert();
-    };
-
-    if (!setup()) {
-      retryId = requestAnimationFrame(() => {
-        if (!mounted) return;
-        if (setup()) bind();
-      });
-    } else {
-      bind();
-    }
-
-    return () => {
-      mounted = false;
-      cancelAnimationFrame(retryId);
-      unbind();
-    };
-  }, []);
 
   return (
     <section
       ref={sectionRef}
       id="why-evren"
-      className="relative w-full bg-evren-warm-white"
+      className="relative w-full overflow-hidden py-20 sm:py-24 lg:py-28"
+      style={{ background: "linear-gradient(160deg, #0b1812 0%, #0d1e18 55%, #091410 100%)" }}
     >
-      <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+      {/* Background ambient glows */}
+      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         <div
-          className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full"
+          className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[400px] rounded-full"
           style={{
-            background:
-              "radial-gradient(circle, rgba(136, 201, 179, 0.06) 0%, transparent 70%)",
-            filter: "blur(100px)",
+            background: "radial-gradient(ellipse at center, rgba(136,201,179,0.08) 0%, transparent 65%)",
+            filter: "blur(60px)",
           }}
         />
         <div
-          className="absolute bottom-[-15%] left-[-8%] w-[400px] h-[400px] rounded-full"
+          className="absolute bottom-0 left-0 w-[500px] h-[400px]"
           style={{
-            background:
-              "radial-gradient(circle, rgba(78, 124, 110, 0.05) 0%, transparent 70%)",
+            background: "radial-gradient(ellipse at 20% 80%, rgba(78,180,140,0.07) 0%, transparent 60%)",
             filter: "blur(80px)",
           }}
         />
+        <div
+          className="absolute top-1/4 right-0 w-[400px] h-[400px]"
+          style={{
+            background: "radial-gradient(ellipse at 80% 30%, rgba(107,200,160,0.06) 0%, transparent 60%)",
+            filter: "blur(80px)",
+          }}
+        />
+        {/* Subtle grid overlay */}
+        <svg className="absolute inset-0 w-full h-full opacity-[0.04]" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="diff-grid" x="0" y="0" width="48" height="48" patternUnits="userSpaceOnUse">
+              <path d="M48 0H0M0 48V0" stroke="rgba(136,201,179,0.8)" strokeWidth="0.5" fill="none" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#diff-grid)" />
+        </svg>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
         <motion.div
           ref={headerRef}
-          className="pt-12 sm:pt-16 lg:pt-20 pb-10 lg:pb-14 max-w-3xl"
+          className="mb-12 lg:mb-16 max-w-3xl"
           variants={headerFade}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
           <p className="text-sm uppercase tracking-widest text-evren-peach font-heading font-bold mb-4">
-            Why AI Advocate Holding
+            Why AI Advocate
           </p>
-          <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] text-evren-navy font-heading font-bold leading-tight">
+          <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] text-white font-heading font-bold leading-tight">
             AI Expertise.{" "}
             <span className="heading-highlight">Built-In Quality.</span>
           </h2>
-          <p className="mt-4 text-evren-medium-gray font-body text-[15px] leading-relaxed max-w-xl">
+          <p className="mt-4 text-white/50 font-body text-[15px] leading-relaxed max-w-xl">
             Three reasons our clients choose us and why they keep coming back
             to build, automate, and scale with us.
           </p>
         </motion.div>
-      </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8 lg:pb-12">
-        <div ref={stackRef} className="relative w-full">
-          <div ref={stageRef} className="relative w-full">
-              <div className="invisible pointer-events-none select-none" aria-hidden="true">
-                <PrincipleLayer principle={PRINCIPLES[0]} />
-              </div>
-
-              {PRINCIPLES.map((principle, index) => {
-                const zIndex = PRINCIPLES.length - index;
-
-                return (
-                  <div
-                    key={principle.id}
-                    ref={(el) => {
-                      layerRefs.current[index] = el;
-                    }}
-                    className="absolute inset-0 w-full"
-                    style={{
-                      zIndex,
-                      ...portalMaskStyle,
-                      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                      ["--portal-r" as any]: "0%",
-                    }}
-                    aria-label={`${principle.title} principle`}
-                    aria-hidden={index !== 0}
-                  >
-                    <PrincipleLayer principle={principle} />
-                  </div>
-                );
-              })}
-          </div>
+        {/* 3-card row — pt-10 gives clearance for the icon circle protruding above each card */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6 pt-10">
+          {CARDS.map((card, i) => (
+            <GlassCard key={card.id} card={card} index={i} inView={isInView} />
+          ))}
         </div>
       </div>
     </section>

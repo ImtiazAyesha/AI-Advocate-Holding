@@ -8,28 +8,29 @@ import AINativeDifference from "@/components/sections/approach/AINativeDifferenc
 import EnterpriseStack from "@/components/sections/approach/EnterpriseStack";
 
 export const metadata: Metadata = {
-  title: "Our Approach | AI Advocate",
+  title: "Capabilities | AI Advocate",
   description:
-    "How AI Advocate builds AI-powered applications, automates workflows, and ships scalable SaaS platforms with QA built in from day one.",
+    "Explore AI Advocate's capabilities: AI Strategy & Advisory, Data Engineering, Machine Learning, Generative AI, AI Agents, AI Product Development, and MLOps.",
   keywords: [
-    "AI development approach",
+    "AI strategy",
+    "data engineering",
+    "machine learning solutions",
+    "generative AI",
+    "AI agents",
     "workflow automation",
-    "SaaS development",
-    "QA automation",
-    "OpenAI integration",
-    "Claude API",
-    "n8n automation",
+    "AI product development",
+    "MLOps",
     "production-ready AI",
   ],
   openGraph: {
-    title: "Our Approach | AI Advocate",
+    title: "Capabilities | AI Advocate",
     description:
-      "How we build AI-powered products, automate workflows, and ship production-ready SaaS with expert QA.",
+      "Applied AI, Data & Product Engineering — from strategy to production-ready systems.",
     type: "website",
   },
 };
 
-export default function ApproachPage() {
+export default function CapabilitiesPage() {
   return (
     <DeferredSmoothScroll>
       <Navbar />

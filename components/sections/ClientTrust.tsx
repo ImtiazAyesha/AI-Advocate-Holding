@@ -1,279 +1,250 @@
 "use client";
 
-import { motion, useInView, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useInView } from "framer-motion";
 import { useRef, useState, useEffect, useCallback } from "react";
-import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import ArrowButton from "@/components/ui/ArrowButton";
 
-// ─── LOGO DATA ──────────────────────────────────────────────────────
-const LOGOS = [
-  "Apex Construction",
-  "NovaCare Health",
-  "Meridian Logistics",
-  "Summit Financial",
-  "Ironclad Security",
-];
-
-// ─── ALL TESTIMONIAL DATA ───────────────────────────────────────────
+// ─── 6 testimonials matching available case studies ──────────────────
 const TESTIMONIALS = [
   {
     quote: (
       <>
-        The <span className="text-evren-peach">IntelliBots platform</span> transformed our approach to internal AI. We&apos;re now empowering our own teams to deploy solutions in <span className="text-evren-peach">hours, not months</span>. It is a game-changer for <span className="text-evren-peach">organizational agility</span>.
+        The <span className="text-evren-peach">IntelliBots platform</span> transformed our approach to internal AI. We&apos;re now empowering teams to deploy solutions in <span className="text-evren-peach">hours, not months</span>, a game-changer for <span className="text-evren-peach">organizational agility</span>.
       </>
     ),
     name: "Maria Flores",
-    title: "Chief Digital Officer at Global Freight Logistics",
+    title: "Chief Digital Officer",
+    company: "Global Freight Logistics",
   },
   {
     quote: (
       <>
-        Navigating healthcare compliance is our biggest challenge. AI Advocate Holding delivered a <span className="text-evren-peach">sophisticated, HIPAA-compliant telehealth solution</span> that balanced innovation with the rigorous security our patients deserve.
+        AI Advocate delivered a <span className="text-evren-peach">sophisticated, HIPAA-compliant telehealth solution</span> that balanced innovation with the rigorous security our patients deserve.
       </>
     ),
     name: "Dr. Marcus Thorne",
-    title: "Chief Medical Officer at iSeedoc.com",
+    title: "Chief Medical Officer",
+    company: "iSeedoc.com",
   },
   {
     quote: (
       <>
-        The AI safety monitoring system has been invaluable. We have seen a <span className="text-evren-peach">40% reduction in on-site incidents</span>. AI Advocate Holding understands the realities of our operational environment better than anyone.
+        We have seen a <span className="text-evren-peach">40% reduction in on-site incidents</span>. AI Advocate understands the realities of our operational environment better than anyone.
       </>
     ),
     name: "Bill Schmidt",
-    title: "Head of Operations at Apex Construction Group",
+    title: "Head of Operations",
+    company: "Apex Construction Group",
   },
   {
     quote: (
       <>
-        In our business, speed is alpha. The <span className="text-evren-peach">real-time intelligence platform</span> AI Advocate Holding built for us delivers insights from earnings calls in seconds. It is a fundamental part of our <span className="text-evren-peach">competitive edge</span>.
+        The <span className="text-evren-peach">real-time intelligence platform</span> AI Advocate built delivers insights from earnings calls in seconds, a fundamental part of our <span className="text-evren-peach">competitive edge</span>.
       </>
     ),
     name: "Olivia Reed",
-    title: "Chief Investment Officer at Stone Ridge Capital",
+    title: "Chief Investment Officer",
+    company: "Stone Ridge Capital",
   },
   {
     quote: (
       <>
-        We were leaking revenue through billing inefficiencies. AI Advocate Holding&apos;s platform <span className="text-evren-peach">recovered 15% of previously unbillable time</span> in the first quarter alone. The system <span className="text-evren-peach">paid for itself almost immediately</span>.
+        AI Advocate&apos;s platform <span className="text-evren-peach">recovered 15% of previously unbillable time</span> in the first quarter alone. The system <span className="text-evren-peach">paid for itself almost immediately</span>.
       </>
     ),
     name: "Mark Goldstein",
-    title: "Managing Partner at Goldstein & Associates Law",
+    title: "Managing Partner",
+    company: "Goldstein & Associates Law",
   },
   {
     quote: (
       <>
-        We had an aggressive roadmap and a critical talent gap. AI Advocate Holding&apos;s embedded engineers were <span className="text-evren-peach">world-class</span> and integrated seamlessly. We launched our product <span className="text-evren-peach">six months ahead of schedule</span>.
+        AI Advocate&apos;s embedded engineers were <span className="text-evren-peach">world-class</span> and integrated seamlessly. We launched our product <span className="text-evren-peach">six months ahead of schedule</span>.
       </>
     ),
     name: "Sarah Kim",
-    title: "VP of Engineering at InnovateX",
-  },
-  {
-    quote: (
-      <>
-        We needed more than a vendor, we needed a research partner to solve a problem that had no existing solution. AI Advocate Holding&apos;s deep expertise in <span className="text-evren-peach">fundamental AI research</span> made them the <span className="text-evren-peach">only choice</span>.
-      </>
-    ),
-    name: "Elena Petrova",
-    title: "Head of Innovation at QuantumLeap Technologies",
-  },
-  {
-    quote: (
-      <>
-        I have worked with dozens of tech vendors. AI Advocate Holding is different. They think like <span className="text-evren-peach">business partners</span>, focusing on our strategic outcomes first and foremost. Their expertise in AI implementation is simply <span className="text-evren-peach">unmatched</span>.
-      </>
-    ),
-    name: "Michael Rodriguez",
-    title: "CEO at FutureTech Solutions",
-  },
-  {
-    quote: (
-      <>
-        AI Advocate Holding didn&apos;t just build a platform, they built a <span className="text-evren-peach">revenue engine</span>. The candidates sourced through TrackRec have a <span className="text-evren-peach">25% higher quota attainment</span>. The ROI is <span className="text-evren-peach">undeniable</span>.
-      </>
-    ),
-    name: "Catherine Jensen",
-    title: "Chief Revenue Officer at SalesForce Dynamics",
+    title: "VP of Engineering",
+    company: "InnovateX",
   },
 ];
 
 const AUTOPLAY_INTERVAL = 5000;
+// 6 testimonials → 3 pages of 2
+const TOTAL_PAGES = 3;
 
-// ─── ANIMATION VARIANTS ─────────────────────────────────────────────
 const slideVariants = {
-  enter: (direction: number) => ({
-    x: direction > 0 ? 60 : -60,
-    opacity: 0,
-  }),
-  center: {
-    x: 0,
-    opacity: 1,
-  },
-  exit: (direction: number) => ({
-    x: direction > 0 ? -60 : 60,
-    opacity: 0,
-  }),
+  enter: (d: number) => ({ opacity: 0, x: d > 0 ? 100 : -100 }),
+  center: { opacity: 1, x: 0 },
+  exit: (d: number) => ({ opacity: 0, x: d > 0 ? -100 : 100 }),
 };
 
-// ─── COMPONENT ──────────────────────────────────────────────────────
 export default function ClientTrust() {
   const sectionRef = useRef<HTMLElement>(null);
-  const isInView = useInView(sectionRef, { amount: 0.15, once: true });
+  const isInView = useInView(sectionRef, { amount: 0.2, once: true });
 
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [direction, setDirection] = useState(0);
+  const [page, setPage] = useState(0);          // 0 | 1 | 2
+  const [direction, setDirection] = useState(1);
+  const [paused, setPaused] = useState(false);
 
-  const goTo = useCallback(
-    (index: number, dir?: number) => {
-      setDirection(dir ?? (index > currentIndex ? 1 : -1));
-      setCurrentIndex(index);
-    },
-    [currentIndex]
-  );
+  const goTo = useCallback((p: number, dir?: number) => {
+    setDirection(dir ?? (p > page ? 1 : -1));
+    setPage(p);
+  }, [page]);
 
-  const next = useCallback(() => {
-    const nextIdx = (currentIndex + 1) % TESTIMONIALS.length;
-    goTo(nextIdx, 1);
-  }, [currentIndex, goTo]);
+  const next = useCallback(() => goTo((page + 1) % TOTAL_PAGES, 1), [page, goTo]);
+  const prev = useCallback(() => goTo((page - 1 + TOTAL_PAGES) % TOTAL_PAGES, -1), [page, goTo]);
 
-  const prev = useCallback(() => {
-    const prevIdx = (currentIndex - 1 + TESTIMONIALS.length) % TESTIMONIALS.length;
-    goTo(prevIdx, -1);
-  }, [currentIndex, goTo]);
-
-  // Autoplay
   useEffect(() => {
-    if (!isInView) return;
-    const timer = setInterval(next, AUTOPLAY_INTERVAL);
-    return () => clearInterval(timer);
-  }, [isInView, next]);
+    if (!isInView || paused) return;
+    const t = setInterval(next, AUTOPLAY_INTERVAL);
+    return () => clearInterval(t);
+  }, [isInView, paused, next]);
 
-  const testimonial = TESTIMONIALS[currentIndex];
+  // Each page shows 2 cards
+  const startIndex = page * 2;
+  const pair = [TESTIMONIALS[startIndex], TESTIMONIALS[startIndex + 1]];
 
   return (
     <section
       ref={sectionRef}
       id="client-trust"
-      className="relative bg-evren-peach/5 py-10 sm:py-16 lg:py-20 overflow-hidden"
+      className="relative bg-white py-20 sm:py-24 lg:py-32 overflow-hidden"
     >
-      <div className="mx-auto max-w-6xl relative z-10 px-4 sm:px-6 lg:px-8">
-        {/* ── Section Header ─────────────────────────────────────── */}
+      {/* Subtle dot texture */}
+      <div className="absolute inset-0 pointer-events-none">
+        <svg className="absolute inset-0 w-full h-full opacity-[0.03]" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="ct-dots" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+              <circle cx="1" cy="1" r="1" fill="#1a2421" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#ct-dots)" />
+        </svg>
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 xl:px-16">
+
+        {/* ── Header row: heading left, CTA right ──────────────── */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
+          viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center flex flex-col items-center mb-8 lg:mb-12 px-4"
+          className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12 sm:mb-14 lg:mb-16"
         >
-          <span className="text-sm uppercase tracking-widest text-evren-peach font-bold mb-4 block">
-            Client Trust
-          </span>
-          <h2 className="font-heading font-bold text-evren-navy text-[2.25rem] sm:text-4xl md:text-5xl lg:text-[2.75rem] leading-[1.15] tracking-tight max-w-4xl">
-            Trusted by Startups &amp; <span className="text-evren-peach">Growing Businesses.</span>
-          </h2>
+          <div>
+            <span className="block text-[10px] sm:text-xs uppercase tracking-[0.25em] text-evren-peach font-bold mb-3">
+              Client Trust
+            </span>
+            <h2 className="font-heading font-bold text-evren-navy text-3xl sm:text-4xl lg:text-5xl leading-[1.15] tracking-tight">
+              Trusted by Startups &amp;&nbsp;
+              <span className="text-evren-peach">Growing Businesses.</span>
+            </h2>
+          </div>
+
+          <div className="shrink-0">
+            <ArrowButton href="/work" variant="primary" size="md" className="whitespace-nowrap w-full sm:w-auto">
+              View All Case Studies
+            </ArrowButton>
+          </div>
         </motion.div>
 
-        {/* ═══════════════════════════════════════════════════════════════
-            CONTAINERIZED TESTIMONIAL LAYOUT
-        ═══════════════════════════════════════════════════════════════ */}
-        <div className="w-full max-w-5xl mx-auto relative px-4 sm:px-6 md:px-8">
-          <div className="w-full mx-auto bg-white rounded-3xl sm:rounded-[2.5rem] shadow-sm border border-black/5 px-5 py-10 sm:px-12 md:px-16 sm:py-16 text-left sm:text-center">
-            {/* ── Navigation Chevron Arrows (TOP RIGHT) ── */}
-            <div className="flex items-center justify-end gap-2 sm:gap-3 mb-6 sm:mb-10 w-full">
-              <button
-                onClick={prev}
-                aria-label="Previous testimonial"
-                className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-evren-navy/15 flex items-center justify-center text-evren-navy hover:bg-evren-navy hover:text-white transition-colors duration-300"
+        {/* ── Carousel card ─────────────────────────────────────── */}
+        <motion.div
+          initial={{ opacity: 0, y: 32 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.15 }}
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
+        >
+          {/* Carousel track */}
+          <div className="relative overflow-hidden">
+            <AnimatePresence initial={false} custom={direction} mode="wait">
+              <motion.div
+                key={page}
+                custom={direction}
+                variants={slideVariants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 lg:gap-6"
               >
-                <ChevronLeft size={20} strokeWidth={1.5} />
-              </button>
-              <button
-                onClick={next}
-                aria-label="Next testimonial"
-                className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-evren-navy/15 flex items-center justify-center text-evren-navy hover:bg-evren-navy hover:text-white transition-colors duration-300"
-              >
-                <ChevronRight size={20} strokeWidth={1.5} />
-              </button>
-            </div>
+                {pair.map((t, i) => (
+                  <div
+                    key={i}
+                    className="bg-[#f7f9f8] rounded-2xl sm:rounded-3xl border border-evren-navy/[0.07] p-6 sm:p-8 lg:p-9 flex flex-col"
+                  >
+                    {/* Quote mark */}
+                    <span
+                      className="font-heading font-extrabold text-evren-peach/35 leading-none select-none block mb-4"
+                      style={{ fontSize: "2.5rem", lineHeight: 1 }}
+                    >
+                      &ldquo;
+                    </span>
 
-            {/* Animated quote area */}
-            <div className="relative min-h-[220px] sm:min-h-[240px] md:min-h-[280px] flex items-start justify-center">
-              <AnimatePresence initial={false} custom={direction} mode="wait">
-                <motion.div
-                  key={currentIndex}
-                  custom={direction}
-                  variants={slideVariants}
-                  initial="enter"
-                  animate="center"
-                  exit="exit"
-                  transition={{
-                    x: { type: "spring", stiffness: 300, damping: 30 },
-                    opacity: { duration: 0.2 },
-                  }}
-                  className="w-full"
-                >
-                  {/* Small / Medium quote with inline icons */}
-                  <blockquote className="font-heading text-evren-navy font-medium text-lg sm:text-xl lg:text-2xl leading-[1.6] -tracking-[0.01em] text-left sm:text-center w-full max-w-4xl mx-auto mb-8 sm:mb-12">
-                    <Quote className="inline-block w-5 h-5 sm:w-7 sm:h-7 text-evren-peach/50 rotate-180 -mt-2 mr-2" strokeWidth={2.5} />
-                    {testimonial.quote}
-                    <Quote className="inline-block w-5 h-5 sm:w-7 sm:h-7 text-evren-peach/50 ml-2" strokeWidth={2.5} />
-                  </blockquote>
+                    {/* Quote */}
+                    <blockquote className="font-heading font-medium text-evren-navy text-base sm:text-[17px] lg:text-lg leading-[1.65] flex-1 mb-7">
+                      {t.quote}
+                    </blockquote>
 
-                  {/* Metadata & CTA Row */}
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pt-6 border-t border-evren-navy/10 text-left">
-                    <div>
-                      <p className="font-heading font-extrabold text-evren-navy text-xl sm:text-2xl tracking-tight mb-1">
-                        {testimonial.name}
+                    {/* Author */}
+                    <div className="border-t border-evren-navy/8 pt-5">
+                      <p className="font-heading font-extrabold text-evren-navy text-sm sm:text-base tracking-tight leading-snug">
+                        {t.name}
                       </p>
-                      <p className="font-heading font-semibold text-evren-peach text-xs sm:text-sm uppercase tracking-widest max-w-sm">
-                        {testimonial.title}
+                      <p className="text-[10px] uppercase tracking-[0.18em] font-bold text-evren-peach mt-1">
+                        {t.title}&nbsp;&middot;&nbsp;{t.company}
                       </p>
-                    </div>
-
-                    {/* Case Study CTA */}
-                    <div className="shrink-0">
-                      <ArrowButton
-                        href="/work"
-                        variant="outline"
-                        size="lg"
-                        className="w-full sm:w-auto justify-between sm:justify-center text-[14px] sm:text-base whitespace-nowrap"
-                      >
-                        Read Case Study
-                      </ArrowButton>
                     </div>
                   </div>
-                </motion.div>
-              </AnimatePresence>
-            </div>
+                ))}
+              </motion.div>
+            </AnimatePresence>
           </div>
-        </div>
 
-        {/* ═══════════════════════════════════════════════════════════════
-            CLIENT LOGOS — OUTSIDE THE CARD
-        ═══════════════════════════════════════════════════════════════ */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-16 pt-10"
-        >
-          {/* Tagline */}
-          <p className="text-center text-sm font-body text-evren-medium-gray/70 mb-8">
-            Partnering with founders, SaaS teams, and enterprises to build, automate, and scale production-ready digital products.
-          </p>
+          {/* ── Nav row: arrows + 6 dots ───────────────────────── */}
+          <div className="flex items-center justify-center gap-4 mt-7 sm:mt-8">
+            <button
+              onClick={prev}
+              aria-label="Previous"
+              className="w-9 h-9 rounded-full border border-evren-navy/15 flex items-center justify-center text-evren-navy/40 hover:bg-evren-navy hover:text-white hover:border-evren-navy transition-all duration-200"
+            >
+              <ChevronLeft size={16} strokeWidth={1.8} />
+            </button>
 
-          {/* Logo row — single row, minimal */}
-          <div className="flex items-center justify-center gap-4 sm:gap-8 md:gap-10 overflow-x-auto scrollbar-hide pb-2">
-            {LOGOS.map((logo, i) => (
-              <span
-                key={logo}
-                className="text-sm md:text-base font-semibold font-heading text-evren-navy/20 hover:text-evren-navy/50 transition-colors duration-300 whitespace-nowrap select-none cursor-default tracking-[0.15em] uppercase shrink-0"
-              >
-                {logo}
-              </span>
-            ))}
+            {/* 6 dots — 2 highlighted per page */}
+            <div className="flex items-center gap-2">
+              {TESTIMONIALS.map((_, i) => {
+                const isActive = Math.floor(i / 2) === page;
+                return (
+                  <button
+                    key={i}
+                    onClick={() => goTo(Math.floor(i / 2))}
+                    aria-label={`Go to testimonials ${i * 2 + 1}–${i * 2 + 2}`}
+                    className="focus:outline-none"
+                  >
+                    <span
+                      className={`block rounded-full transition-all duration-300 ${
+                        isActive
+                          ? "w-5 h-2 bg-evren-peach"
+                          : "w-2 h-2 bg-evren-navy/15 hover:bg-evren-navy/30"
+                      }`}
+                    />
+                  </button>
+                );
+              })}
+            </div>
+
+            <button
+              onClick={next}
+              aria-label="Next"
+              className="w-9 h-9 rounded-full border border-evren-navy/15 flex items-center justify-center text-evren-navy/40 hover:bg-evren-navy hover:text-white hover:border-evren-navy transition-all duration-200"
+            >
+              <ChevronRight size={16} strokeWidth={1.8} />
+            </button>
           </div>
         </motion.div>
       </div>

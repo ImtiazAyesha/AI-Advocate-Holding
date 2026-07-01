@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 import DeferredSmoothScroll from "@/components/DeferredSmoothScroll";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -6,13 +6,13 @@ import TermsOfServiceContent from "./TermsOfServiceContent";
 import LegalPageCtaBanner from "@/components/sections/legal/LegalPageCtaBanner";
 
 export const metadata: Metadata = {
-  title: "Terms of Service | AI Advocate Holding",
+  title: "Terms of Service | AI Advocate",
   description:
-    "The ground rules for using the AI Advocate Holding website and engaging us as your digital product studio. Clear, honest, and human.",
+    "The ground rules for using the AI Advocate website and engaging us as your digital product studio. Clear, honest, and human.",
   openGraph: {
-    title: "Terms of Service | AI Advocate Holding",
+    title: "Terms of Service | AI Advocate",
     description:
-      "The ground rules for using the AI Advocate Holding website and our services.",
+      "The ground rules for using the AI Advocate website and our services.",
   },
   robots: {
     index: true,
@@ -28,7 +28,7 @@ export default function TermsOfServicePage() {
         <TermsOfServiceContent />
         <LegalPageCtaBanner
           iconName="scale"
-          eyebrow="AI Advocate Holding · Legal"
+          eyebrow="AI Advocate · Legal"
           headlineBefore="Need legal"
           accentWord="clarity?"
           description="If you have questions or require official communication regarding these terms, send us a brief message and our team will get back to you."

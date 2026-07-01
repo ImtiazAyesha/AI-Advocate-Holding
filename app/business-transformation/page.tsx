@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import DeferredSmoothScroll from "@/components/DeferredSmoothScroll";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -10,9 +10,9 @@ import BTWhoItsFor from "@/components/sections/business-transformation/BTWhoItsF
 import BTCtaBanner from "@/components/sections/business-transformation/BTCtaBanner";
 
 export const metadata: Metadata = {
-  title: "Business Transformation - AI Advocate Holding",
+  title: "Business Transformation - AI Advocate",
   description:
-    "Strategic clarity before you build. AI Advocate Holding's Business Transformation practice helps organizations rethink, realign, and roadmap before a single line of code is written.",
+    "Strategic clarity before you build. AI Advocate's Business Transformation practice helps organizations rethink, realign, and roadmap before a single line of code is written.",
   keywords: [
     "business transformation",
     "digital strategy consulting",
@@ -21,12 +21,12 @@ export const metadata: Metadata = {
     "organizational change management",
     "AI strategy",
     "digital product studio",
-    "AI Advocate Holding",
+    "AI Advocate",
   ],
   openGraph: {
-    title: "Business Transformation - AI Advocate Holding",
+    title: "Business Transformation - AI Advocate",
     description:
-      "Strategic clarity before you build. AI Advocate Holding's Business Transformation practice helps organizations rethink, realign, and roadmap before a single line of code is written.",
+      "Strategic clarity before you build. AI Advocate's Business Transformation practice helps organizations rethink, realign, and roadmap before a single line of code is written.",
     type: "website",
   },
 };

@@ -1,4 +1,4 @@
-import type { TextFocusedCaseStudyContent } from "@/lib/case-studies/types";
+﻿import type { TextFocusedCaseStudyContent } from "@/lib/case-studies/types";
 
 /**
  * iSeedoc Telehealth — text-focused case study copy.
@@ -11,13 +11,13 @@ export const ISEEDOC_TELEHEALTH_CONTENT: TextFocusedCaseStudyContent = {
   timeline: "8 Months",
   teamSize: "6 Specialists",
   hardMetric: "90% Faster Reports",
-  heroImage: "/case-study-images/iseedoc-telehealth/hero.svg",
+  heroImage: "/case-study/Healthcare.png",
   hero: {
     headline:
       "Revolutionizing Healthcare Access: An AI-Powered Virtual Consultation Platform",
     accentWord: "Access",
     subheadline:
-      "In today's complex healthcare landscape, virtual consultation platforms must balance patient access with provider efficiency. iSeedoc partnered with AI Advocate Holding to architect an end-to-end, HIPAA-compliant platform that automates workflows, streamlines consultations, and leverages AI to deliver intelligent, accessible, and secure healthcare.",
+      "In today's complex healthcare landscape, virtual consultation platforms must balance patient access with provider efficiency. iSeedoc partnered with AI Advocate to architect an end-to-end, HIPAA-compliant platform that automates workflows, streamlines consultations, and leverages AI to deliver intelligent, accessible, and secure healthcare.",
     metadata: {
       industry: "Healthcare & Telemedicine",
       coreChallenge: "Scaling Care Delivery & Ensuring HIPAA Compliance",
@@ -54,7 +54,7 @@ export const ISEEDOC_TELEHEALTH_CONTENT: TextFocusedCaseStudyContent = {
     accentWord: "Had to Say",
     label: "Client Testimonial",
     quote:
-      "AI Advocate Holding delivered more than a backend, they delivered a strategic foundation for our entire business. Their expertise in secure, scalable architecture and their intelligent integration of AI has allowed us to operate with a level of efficiency and compliance we didn't think possible. They are true partners in innovation.",
+      "AI Advocate delivered more than a backend, they delivered a strategic foundation for our entire business. Their expertise in secure, scalable architecture and their intelligent integration of AI has allowed us to operate with a level of efficiency and compliance we didn't think possible. They are true partners in innovation.",
     title: "Chief Technology Officer",
     company: "iSeedoc.com",
   },
@@ -90,7 +90,7 @@ export const ISEEDOC_TELEHEALTH_CONTENT: TextFocusedCaseStudyContent = {
     title: "The Transformational Outcome:",
     accentPhrase: "A New Paradigm in Efficiency, Security, and Care Delivery",
     closingStatement:
-      "By delivering this intelligent, secure platform, AI Advocate Holding provided iSeedoc with more than software—we delivered the foundational technology to scale their mission of making specialist healthcare accessible globally.",
+      "By delivering this intelligent, secure platform, AI Advocate provided iSeedoc with more than software—we delivered the foundational technology to scale their mission of making specialist healthcare accessible globally.",
     cards: [
       {
         title: "Achieved End-to-End HIPAA-Compliant Automation",

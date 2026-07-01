@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef } from "react";
 import {
@@ -56,7 +56,7 @@ const FLOATING_ICONS = [
 ];
 
 // ═══════════════════════════════════════════════════════════════════════
-//  ABOUT HERO — 'The AI Advocate Holding Story'
+//  ABOUT HERO — 'The AI Advocate Story'
 // ═══════════════════════════════════════════════════════════════════════
 
 export default function AboutHero() {
@@ -213,7 +213,7 @@ export default function AboutHero() {
             </span>
           ))}
           <span className="sr-only">
-            AI Advocate Holding. The Future Is Always Expanding. So Are We.
+            AI Advocate. The Future Is Always Expanding. So Are We.
           </span>
         </motion.h1>
 
@@ -223,7 +223,7 @@ export default function AboutHero() {
             className="font-body text-evren-charcoal text-base md:text-lg lg:text-xl leading-relaxed"
             style={{ lineHeight: 1.7 }}
           >
-            AI Advocate Holding is an AI development and automation agency based in Dallas, TX.
+            AI Advocate is an AI development and automation agency based in Dallas, TX.
             We help startups and businesses build AI-powered applications, automate complex
             workflows, and ship scalable SaaS platforms with expert QA built in from day one.
           </p>
@@ -234,7 +234,7 @@ export default function AboutHero() {
           <ArrowButton
             href="/connect"
             id="about-hero-cta"
-            ariaLabel="Get in touch with AI Advocate Holding"
+            ariaLabel="Get in touch with AI Advocate"
             variant="primary"
             size="lg"
             className="w-full sm:w-auto justify-between sm:justify-center text-[14px] sm:text-base whitespace-nowrap"
@@ -243,14 +243,14 @@ export default function AboutHero() {
           </ArrowButton>
 
           <ArrowButton
-            href="/approach"
+            href="/capabilities"
             id="about-hero-cta-secondary"
-            ariaLabel="See our approach"
+            ariaLabel="See our capabilities"
             variant="outline"
             size="lg"
             className="w-full sm:w-auto justify-between sm:justify-center text-[14px] sm:text-base whitespace-nowrap"
           >
-            See Our Approach
+            See Our Capabilities
           </ArrowButton>
         </motion.div>
         </div>

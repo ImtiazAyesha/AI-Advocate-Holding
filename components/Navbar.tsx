@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
@@ -14,10 +14,10 @@ import { MotionLink } from "@/components/ui/MotionLink";
 // ═══════════════════════════════════════════════════════════════════════
 
 const NAV_LINKS = [
-  { label: "About", href: "/about" },
-  { label: "Approach", href: "/approach" },
-  { label: "Work", href: "/work" },
-  { label: "Thinking", href: "/thinking" },
+  { label: "About Us", href: "/about" },
+  { label: "Capabilities", href: "/capabilities" },
+  { label: "Case Studies", href: "/case-studies" },
+  { label: "Insights", href: "/insights" },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════
@@ -94,7 +94,7 @@ export default function Navbar() {
           <Link
             href="/"
             id="navbar-logo"
-            aria-label="AI Advocate Holding"
+            aria-label="AI Advocate"
             className="relative z-50 group flex items-center gap-2.5 md:gap-3 shrink-0 transition-opacity duration-200 hover:opacity-80"
           >
             <span className="relative block h-9 w-9 sm:h-10 sm:w-10 shrink-0">
@@ -108,18 +108,18 @@ export default function Navbar() {
               />
             </span>
             <span
-              className="hidden md:inline font-heading text-2xl font-bold tracking-tight text-evren-navy"
+              className="hidden lg:inline font-heading text-2xl font-bold tracking-tight text-evren-navy"
               aria-hidden="true"
             >
-              AI Advocate Holding
+              AI Advocate
             </span>
           </Link>
 
           {/* ── Desktop Navigation & CTA (Right) ── */}
-          <div className="hidden md:flex items-center gap-4 lg:gap-8">
+          <div className="hidden md:flex items-center gap-3 lg:gap-6 xl:gap-8">
             <nav id="desktop-nav" className="flex items-center">
               {/* Nav links pill — subtle inner container */}
-              <div className="flex items-center gap-1 bg-evren-warm-gray/40 rounded-full px-1.5 py-1">
+              <div className="flex items-center gap-0.5 bg-evren-warm-gray/40 rounded-full px-1 py-1">
                 {NAV_LINKS.map((link) => {
                   const isActive = pathname === link.href || (pathname?.startsWith(link.href) && link.href !== '/');
                   return (
@@ -127,9 +127,9 @@ export default function Navbar() {
                       key={link.label}
                       href={link.href}
                       id={`nav-link-${link.label.toLowerCase()}`}
-                      className={`relative font-body text-sm font-medium transition-all duration-300 px-4 py-2 rounded-full
-                                   ${isActive 
-                                     ? "bg-white text-evren-navy font-bold shadow-sm" 
+                      className={`relative font-body text-sm font-medium whitespace-nowrap transition-all duration-300 px-3 md:px-3 lg:px-4 py-2 rounded-full
+                                   ${isActive
+                                     ? "bg-white text-evren-navy font-bold shadow-sm"
                                      : "text-evren-charcoal hover:text-evren-navy hover:bg-evren-peach-light"
                                    }`}
                     >
@@ -141,12 +141,12 @@ export default function Navbar() {
             </nav>
 
             <ArrowButton
-              href="/connect"
+              href="/start-a-project"
               id="navbar-cta"
               variant="primary"
               size="sm"
             >
-              Let&apos;s Talk
+              Start a Project
             </ArrowButton>
           </div>
 
@@ -202,12 +202,12 @@ export default function Navbar() {
               {/* Mobile CTA */}
               <div className="mt-12 w-full">
                 <ArrowButton
-                  href="/connect"
+                  href="/start-a-project"
                   variant="primary"
                   size="lg"
                   className="w-full justify-between"
                 >
-                  Let&apos;s Talk
+                  Start a Project
                 </ArrowButton>
               </div>
             </div>

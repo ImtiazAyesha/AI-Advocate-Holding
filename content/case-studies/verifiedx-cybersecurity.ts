@@ -1,4 +1,4 @@
-import type { TextFocusedCaseStudyContent } from "@/lib/case-studies/types";
+﻿import type { TextFocusedCaseStudyContent } from "@/lib/case-studies/types";
 
 /**
  * VerifiedX Cybersecurity — text-focused case study copy.
@@ -10,13 +10,13 @@ export const VERIFIEDX_CYBERSECURITY_CONTENT: TextFocusedCaseStudyContent = {
   timeline: "6 Months",
   teamSize: "5 Specialists",
   hardMetric: "$7.5M+ Losses Prevented",
-  heroImage: "/case-study-images/verifiedx-cybersecurity/hero.svg",
+  heroImage: "/case-study/Cybersecurity.png",
   hero: {
     headline:
       "Mitigating Multi-Million Dollar Cyber Risk with Proactive AI Threat Detection",
     accentWord: "Dollar",
     subheadline:
-      "In today's threat landscape, reactive cybersecurity is a recipe for financial and reputational disaster. VerifiedX, a high-growth FinTech platform, required an ironclad defense against sophisticated, AI-driven phishing attacks that traditional filters were missing. They partnered with AI Advocate Holding to build a proactive threat neutralization engine that leverages state-of-the-art LLMs to identify and stop attacks before they can impact the enterprise.",
+      "In today's threat landscape, reactive cybersecurity is a recipe for financial and reputational disaster. VerifiedX, a high-growth FinTech platform, required an ironclad defense against sophisticated, AI-driven phishing attacks that traditional filters were missing. They partnered with AI Advocate to build a proactive threat neutralization engine that leverages state-of-the-art LLMs to identify and stop attacks before they can impact the enterprise.",
     metadata: {
       industry: "Cybersecurity / Financial Technology",
       coreChallenge:
@@ -53,7 +53,7 @@ export const VERIFIEDX_CYBERSECURITY_CONTENT: TextFocusedCaseStudyContent = {
     accentWord: "Had to Say",
     label: "Client Testimonial",
     quote:
-      "The threat landscape is relentless. AI Advocate Holding didn't just sell us a product, they partnered with us to build a strategic defense. Their AI engine has become our first and most effective line of protection, delivering a level of security and a quantifiable ROI that far exceeded our expectations.",
+      "The threat landscape is relentless. AI Advocate didn't just sell us a product, they partnered with us to build a strategic defense. Their AI engine has become our first and most effective line of protection, delivering a level of security and a quantifiable ROI that far exceeded our expectations.",
     title: "Chief Information Security Officer (CISO)",
     company: "VerifiedX",
   },

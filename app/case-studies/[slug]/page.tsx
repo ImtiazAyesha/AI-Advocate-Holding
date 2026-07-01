@@ -1,4 +1,4 @@
-import TextFocusedCaseStudyTemplate from "@/components/sections/work/text-focused/TextFocusedCaseStudyTemplate";
+﻿import TextFocusedCaseStudyTemplate from "@/components/sections/work/text-focused/TextFocusedCaseStudyTemplate";
 import {
   getTextFocusedCaseStudy,
   getTextFocusedSlugs,
@@ -19,11 +19,11 @@ export async function generateMetadata({
   const content = getTextFocusedCaseStudy(slug);
 
   if (!content) {
-    return { title: "Case Study Not Found | AI Advocate Holding" };
+    return { title: "Case Study Not Found | AI Advocate" };
   }
 
   return {
-    title: `${content.client} - ${content.hero.headline} | AI Advocate Holding Case Study`,
+    title: `${content.client} - ${content.hero.headline} | AI Advocate Case Study`,
     description: content.hero.subheadline,
     openGraph: {
       title: `${content.client} Case Study - ${content.hardMetric}`,

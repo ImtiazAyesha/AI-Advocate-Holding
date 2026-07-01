@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef, useState, useEffect } from "react";
 import {
@@ -240,7 +240,7 @@ export default function CareersHero() {
           className="mb-4 px-4 sm:px-0"
         >
           <span className="block text-[10px] sm:text-[11px] font-heading font-bold text-evren-navy/50 tracking-[0.1em] sm:tracking-[0.25em] uppercase text-center">
-            Careers at AI Advocate Holding
+            Careers at AI Advocate
           </span>
         </motion.div>
 
@@ -291,7 +291,7 @@ export default function CareersHero() {
             className="font-body text-evren-charcoal text-base md:text-lg lg:text-xl leading-relaxed"
             style={{ lineHeight: 1.7 }}
           >
-            AI Advocate Holding is a digital product studio where AI isn&apos;t a feature it&apos;s the
+            AI Advocate is a digital product studio where AI isn&apos;t a feature it&apos;s the
             foundation. We&apos;re a team of engineers, designers, and strategists who believe
             the most interesting work in technology right now is building intelligent
             products that solve real problems. If that sounds like your kind of work,

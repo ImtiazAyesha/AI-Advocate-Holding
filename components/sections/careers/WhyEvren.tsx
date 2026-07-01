@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
@@ -8,7 +8,7 @@ const CARDS = [
   {
     tag: "CORE ARCHITECTURE",
     title: "AI-Native by Design",
-    body: "You won't be bolting AI onto products that were designed without it. At AI Advocate Holding, intelligence is an architectural decision made at day one. You'll work on systems where the AI layer is as fundamental as the data model.",
+    body: "You won't be bolting AI onto products that were designed without it. At AI Advocate, intelligence is an architectural decision made at day one. You'll work on systems where the AI layer is as fundamental as the data model.",
     icon: Cpu,
   },
   {
@@ -43,7 +43,7 @@ export default function WhyEvren() {
           className="text-center"
         >
           <span className="block text-[12px] font-heading font-semibold text-evren-rose uppercase tracking-[0.1em] mb-[16px]">
-            Why Engineers Choose AI Advocate Holding
+            Why Engineers Choose AI Advocate
           </span>
           <h2 className="font-heading text-[32px] md:text-[40px] lg:text-[48px] font-semibold text-evren-navy leading-[1.2] tracking-tight max-w-[800px] mx-auto">
             You&apos;ll Build Things That Actually{" "}

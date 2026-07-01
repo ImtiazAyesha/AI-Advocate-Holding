@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import DeferredSmoothScroll from "@/components/DeferredSmoothScroll";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -10,11 +10,11 @@ import ConnectSection from "@/components/sections/connect/ConnectSection";
 // ═══════════════════════════════════════════════════════════════════════
 
 export const metadata: Metadata = {
-  title: "Connect - AI Advocate Holding | Book a Strategy Call",
+  title: "Connect - AI Advocate | Book a Strategy Call",
   description:
-    "Start a conversation with the AI Advocate Holding studio. Book a strategy call or tell us about your AI product vision. Offices in Houston, TX and Dubai, UAE.",
+    "Start a conversation with the AI Advocate studio. Book a strategy call or tell us about your AI product vision. Offices in Houston, TX and Dubai, UAE.",
   openGraph: {
-    title: "Connect with AI Advocate Holding",
+    title: "Connect with AI Advocate",
     description:
       "Book a strategy call or share your AI product vision with our team.",
     type: "website",

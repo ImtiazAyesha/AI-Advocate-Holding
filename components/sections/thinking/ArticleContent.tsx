@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion, useScroll, useSpring } from "framer-motion";
 import Link from "next/link";
@@ -118,7 +118,7 @@ export default function ArticleContent({
                     By
                   </span>
                   <span className="text-evren-navy font-semibold text-[15px] whitespace-nowrap">
-                    {article.author?.name || "AI Advocate Holding Team"}
+                    {article.author?.name || "AI Advocate Team"}
                   </span>
                 </div>
 

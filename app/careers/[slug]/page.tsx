@@ -1,4 +1,4 @@
-import { notFound } from "next/navigation";
+﻿import { notFound } from "next/navigation";
 import { POSITIONS } from "@/lib/careers-data";
 import DeferredSmoothScroll from "@/components/DeferredSmoothScroll";
 import Navbar from "@/components/Navbar";
@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const job = POSITIONS.find((p) => p.slug === slug);
   if (!job) return { title: "Not Found" };
   return {
-    title: `${job.title} - AI Advocate Holding Careers`,
+    title: `${job.title} - AI Advocate Careers`,
     description: job.opening.slice(0, 160) + "...",
   };
 }

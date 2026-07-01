@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import DeferredSmoothScroll from "@/components/DeferredSmoothScroll";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -8,20 +8,20 @@ import TeamModelSection from "@/components/sections/about/TeamModelSection";
 import CoreValuesSection from "@/components/sections/about/CoreValuesSection";
 
 export const metadata: Metadata = {
-  title: "About Us | AI Advocate Holding",
+  title: "About Us | AI Advocate",
   description:
-    "AI Advocate Holding is an AI development and automation agency helping startups and businesses build AI-powered applications, automate workflows, and ship scalable SaaS platforms with expert QA.",
+    "AI Advocate is an AI development and automation agency helping startups and businesses build AI-powered applications, automate workflows, and ship scalable SaaS platforms with expert QA.",
   keywords: [
-    "AI Advocate Holding",
+    "AI Advocate",
     "AI development agency",
     "workflow automation",
     "SaaS development",
     "QA automation",
-    "about AI Advocate Holding",
+    "about AI Advocate",
     "AI company Dallas",
   ],
   openGraph: {
-    title: "About Us | AI Advocate Holding",
+    title: "About Us | AI Advocate",
     description:
       "AI development, automation, and SaaS built production-ready with expert QA.",
     type: "website",

@@ -5,18 +5,18 @@ import WorkCaseStudies from "@/components/sections/work/WorkCaseStudies";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Our Work - Real Products, Measurable Impact | AI Advocate",
+  title: "Case Studies | AI Advocate",
   description:
-    "Explore the portfolio of AI-powered enterprise products built by AI Advocate. From healthcare intelligence to fintech compliance engines see the ROI we deliver.",
+    "Explore AI Advocate's case studies — production-ready AI systems, data platforms, and automation solutions delivering measurable business outcomes.",
   openGraph: {
-    title: "Our Work - Real Products, Measurable Impact | AI Advocate",
+    title: "Case Studies | AI Advocate",
     description:
-      "Explore the portfolio of AI-powered enterprise products built by AI Advocate.",
+      "Real AI systems. Measurable outcomes. See how we turn complex data into business results.",
     type: "website",
   },
 };
 
-export default function WorkPage() {
+export default function CaseStudiesPage() {
   return (
     <DeferredSmoothScroll>
       <Navbar />

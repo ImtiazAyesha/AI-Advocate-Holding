@@ -1,11 +1,11 @@
-export const POSITIONS = [
+﻿export const POSITIONS = [
   {
     slug: "full-stack-ai-engineer",
     title: "Full Stack AI Engineer",
     meta: ["Full-Time", "Remote", "Product Engineering"],
     emailSubject: "Application Full Stack AI Engineer",
     opening:
-      "You're the engineer who reads about a new model release and immediately thinks about what you could build with it. You're equally comfortable designing a data schema at 9am and integrating an LLM pipeline by noon. At AI Advocate Holding, you'll build complete, production-grade AI products from the interface a user touches to the intelligence layer underneath it.",
+      "You're the engineer who reads about a new model release and immediately thinks about what you could build with it. You're equally comfortable designing a data schema at 9am and integrating an LLM pipeline by noon. At AI Advocate, you'll build complete, production-grade AI products from the interface a user touches to the intelligence layer underneath it.",
     whatYoullDo: [
       "Build full-stack web and mobile applications with AI embedded at the architecture level not patched in at the end",
       "Design and implement LLM integration layers including RAG pipelines, prompt engineering systems, and context management",
@@ -39,7 +39,7 @@ export const POSITIONS = [
     meta: ["Full-Time", "Remote", "AI & ML"],
     emailSubject: "Application Senior AI Engineer",
     opening:
-      "You've moved past proof-of-concepts. You've shipped AI systems in production, dealt with the real problems latency, hallucination, cost, context drift and come out with opinions about how to build reliably. At AI Advocate Holding, you'll be the person who defines how intelligence gets built into every product we touch.",
+      "You've moved past proof-of-concepts. You've shipped AI systems in production, dealt with the real problems latency, hallucination, cost, context drift and come out with opinions about how to build reliably. At AI Advocate, you'll be the person who defines how intelligence gets built into every product we touch.",
     whatYoullDo: [
       "Lead the AI architecture and implementation on client product engagements from model selection through production deployment",
       "Design and build production LLM pipelines including RAG architectures, agent systems, and domain-specific fine-tuning workflows",
@@ -47,7 +47,7 @@ export const POSITIONS = [
       "Work in the Discover phase to define AI feasibility, data requirements, and integration strategy before a single sprint begins",
       "Mentor Full Stack engineers on AI integration best practices",
       "Stay ahead of the field new models, new frameworks, new techniques and bring what's useful back to the team",
-      "Contribute to AI Advocate Holding's technical thought leadership through blog posts, internal playbooks, and open-source contributions",
+      "Contribute to AI Advocate's technical thought leadership through blog posts, internal playbooks, and open-source contributions",
     ],
     whatYouBring: [
       "5+ years of software engineering with at least 2+ years focused on AI/ML systems in production",
@@ -66,7 +66,7 @@ export const POSITIONS = [
     ],
     whyThisRole: {
       label: "Why This Role",
-      copy: "You'll set the AI standard for every product AI Advocate Holding builds. The decisions you make about how intelligence gets architected into a product will shape what clients ship into the world. That's not a small thing.",
+      copy: "You'll set the AI standard for every product AI Advocate builds. The decisions you make about how intelligence gets architected into a product will shape what clients ship into the world. That's not a small thing.",
     },
   },
 ];

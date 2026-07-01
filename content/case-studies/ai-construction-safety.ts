@@ -1,4 +1,4 @@
-import type { TextFocusedCaseStudyContent } from "@/lib/case-studies/types";
+﻿import type { TextFocusedCaseStudyContent } from "@/lib/case-studies/types";
 
 /**
  * AI Construction Safety — text-focused case study copy.
@@ -10,13 +10,13 @@ export const AI_CONSTRUCTION_SAFETY_CONTENT: TextFocusedCaseStudyContent = {
   timeline: "5 Months",
   teamSize: "5 Specialists",
   hardMetric: "40% Fewer Incidents",
-  heroImage: "/case-study-images/ai-construction-safety/hero.svg",
+  heroImage: "/case-study/Construction.png",
   hero: {
     headline:
       "Slashing On-Site Incidents with AI-Powered Safety & Compliance Monitoring",
     accentWord: "On-Site",
     subheadline:
-      "For a leading national construction firm, ensuring worker safety and maintaining OSHA compliance across multiple active job sites was a mission-critical, yet resource-intensive challenge. Traditional oversight was prone to human error. They partnered with AI Advocate Holding to deploy a real-time, AI-powered computer vision system that autonomously identifies and flags safety hazards, preventing accidents before they happen.",
+      "For a leading national construction firm, ensuring worker safety and maintaining OSHA compliance across multiple active job sites was a mission-critical, yet resource-intensive challenge. Traditional oversight was prone to human error. They partnered with AI Advocate to deploy a real-time, AI-powered computer vision system that autonomously identifies and flags safety hazards, preventing accidents before they happen.",
     metadata: {
       industry: "Construction & Real Estate",
       coreChallenge: "Job Site Safety, Risk Mitigation & OSHA Compliance",
@@ -51,7 +51,7 @@ export const AI_CONSTRUCTION_SAFETY_CONTENT: TextFocusedCaseStudyContent = {
     accentWord: "Had to Say",
     label: "Client Testimonial",
     quote:
-      "Safety is our number one priority, and AI Advocate Holding has given us a powerful new tool to uphold that commitment. Their AI system is our tireless eye in the sky, identifying risks we might have missed. The reduction in incidents and the peace of mind it provides are invaluable to our operations.",
+      "Safety is our number one priority, and AI Advocate has given us a powerful new tool to uphold that commitment. Their AI system is our tireless eye in the sky, identifying risks we might have missed. The reduction in incidents and the peace of mind it provides are invaluable to our operations.",
     title: "Head of Operations",
     company: "Major National Construction Firm",
   },

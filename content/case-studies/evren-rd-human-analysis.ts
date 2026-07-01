@@ -1,11 +1,11 @@
-import type { TextFocusedCaseStudyContent } from "@/lib/case-studies/types";
+﻿import type { TextFocusedCaseStudyContent } from "@/lib/case-studies/types";
 
 /**
- * AI Advocate Holding R&D — Human Activity Recognition — text-focused case study copy.
+ * AI Advocate R&D — Human Activity Recognition — text-focused case study copy.
  */
 export const EVREN_RD_HUMAN_ANALYSIS_CONTENT: TextFocusedCaseStudyContent = {
   slug: "evren-rd-human-analysis",
-  client: "AI Advocate Holding R&D",
+  client: "AI Advocate R&D",
   industry: "Deep Tech / Applied Research & Development",
   timeline: "18 Months",
   teamSize: "Internal R&D Team",
@@ -52,7 +52,7 @@ export const EVREN_RD_HUMAN_ANALYSIS_CONTENT: TextFocusedCaseStudyContent = {
     accentWord: "Had to Say",
     label: "Partner Testimonial",
     quote:
-      "In today's market, true innovation requires a partner who operates at the bleeding edge. AI Advocate Holding's published research in Human Activity Recognition is a testament to their deep technical expertise. It is this commitment to fundamental R&D that gives us the confidence to partner with them on our most ambitious and complex AI initiatives.",
+      "In today's market, true innovation requires a partner who operates at the bleeding edge. AI Advocate's published research in Human Activity Recognition is a testament to their deep technical expertise. It is this commitment to fundamental R&D that gives us the confidence to partner with them on our most ambitious and complex AI initiatives.",
     title: "Chief AI Officer",
     company: "Fortune 500 Technology Partner",
   },
@@ -104,12 +104,12 @@ export const EVREN_RD_HUMAN_ANALYSIS_CONTENT: TextFocusedCaseStudyContent = {
       {
         title: "Created a Reusable Framework for Future Applications",
         description:
-          "The R&D effort produced a robust framework that AI Advocate Holding can now use to address real-world challenges in various industries.",
+          "The R&D effort produced a robust framework that AI Advocate can now use to address real-world challenges in various industries.",
       },
       {
-        title: "Cemented AI Advocate Holding as a Leader in Applied AI Research",
+        title: "Cemented AI Advocate as a Leader in Applied AI Research",
         description:
-          "This project highlights our commitment to advancing AI and solving industry challenges, solidifying AI Advocate Holding's leadership in applied research.",
+          "This project highlights our commitment to advancing AI and solving industry challenges, solidifying AI Advocate's leadership in applied research.",
       },
     ],
   },

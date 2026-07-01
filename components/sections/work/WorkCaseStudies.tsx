@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useMemo, useEffect } from "react";
 import Link from "next/link";
@@ -52,7 +52,7 @@ function FeaturedCaseStudy({ study }: { study: CaseStudyCard }) {
         </motion.div>
 
         <motion.div
-          className="relative flex-shrink-0 w-full max-w-[280px] sm:w-[180px] lg:w-[200px] aspect-[4/5] rounded-2xl overflow-hidden mx-auto sm:mx-0"
+          className="relative flex-shrink-0 w-full max-w-[280px] sm:w-[180px] lg:w-[200px] aspect-[4/5] rounded-2xl overflow-hidden mx-auto sm:mx-0 bg-white/5"
           whileHover={{ scale: 1.03 }}
           transition={{ type: "spring", stiffness: 260, damping: 22 }}
         >
@@ -61,7 +61,8 @@ function FeaturedCaseStudy({ study }: { study: CaseStudyCard }) {
             alt={`${study.tags[0]} case study`}
             fill
             sizes="200px"
-            className="object-cover"
+            quality={100}
+            className="object-contain p-3"
           />
         </motion.div>
       </Link>
@@ -94,7 +95,7 @@ function CaseStudyCardComponent({
         className="relative flex flex-col bg-white rounded-2xl border border-evren-light-gray/60 overflow-hidden w-full transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group"
       >
         <motion.div
-          className="relative h-[220px] sm:h-[240px] w-full bg-[#F2F2F2] overflow-hidden flex-shrink-0"
+          className="relative h-[220px] sm:h-[240px] w-full bg-evren-navy overflow-hidden flex-shrink-0"
           whileHover={{ scale: 1.02 }}
           transition={{ type: "spring", stiffness: 300, damping: 28 }}
         >
@@ -103,7 +104,8 @@ function CaseStudyCardComponent({
             alt={`${primaryTag} case study preview`}
             fill
             sizes="(max-width: 768px) 100vw, 33vw"
-            className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+            quality={100}
+            className="object-contain p-4 group-hover:scale-105 transition-transform duration-500 ease-out"
           />
           <motion.div
             className="absolute inset-0 bg-gradient-to-br from-evren-navy/90 to-evren-peach/90 flex flex-col items-center justify-center text-center p-6"
@@ -216,7 +218,7 @@ function CaseStudiesPagination({
 // ═══════════════════════════════════════════════════════════════════════
 
 const PAGE_DESCRIPTION =
-  "Explore the portfolio of AI-powered enterprise products built by AI Advocate Holding. From healthcare intelligence to fintech compliance engines see the ROI we deliver.";
+  "Explore the portfolio of AI-powered enterprise products built by AI Advocate. From healthcare intelligence to fintech compliance engines see the ROI we deliver.";
 
 export default function WorkCaseStudies() {
   const [searchQuery, setSearchQuery] = useState("");

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef } from "react";
 import Link from "next/link";
@@ -99,7 +99,7 @@ export default function BTBridge() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="font-body text-[16px] md:text-[18px] text-evren-medium-gray leading-[1.7] max-w-[540px]"
             >
-              Business Transformation at AI Advocate Holding isn&apos;t consulting for its
+              Business Transformation at AI Advocate isn&apos;t consulting for its
               own sake. Every strategy session, roadmap, and process
               review feeds directly into the product we build together making your eventual product smarter and more aligned from day one.
             </motion.p>

@@ -1,4 +1,4 @@
-import type { TextFocusedCaseStudyContent } from "@/lib/case-studies/types";
+﻿import type { TextFocusedCaseStudyContent } from "@/lib/case-studies/types";
 
 /**
  * IntelliBots AI Agent Platform — text-focused case study copy.
@@ -10,13 +10,13 @@ export const INTELLIBOTS_AI_AGENT_PLATFORM_CONTENT: TextFocusedCaseStudyContent 
   timeline: "8 Months",
   teamSize: "6 Specialists",
   hardMetric: "70% Fewer Support Queries",
-  heroImage: "/case-study-images/intellibots-ai-agent-platform/hero.svg",
+  heroImage: "/case-study/Automation.png",
   hero: {
     headline:
       "From Chatbot to Command Center: Empowering Enterprise with an AI Agent Deployment Platform",
     accentWord: "Center",
     subheadline:
-      "A global logistics enterprise needed to move beyond simple, single-purpose chatbots. Their goal was to empower their internal teams to create, manage, and deploy multiple, sophisticated AI assistants for various use cases from internal IT support to customer service without a massive development overhead for each new bot. They partnered with AI Advocate Holding to build IntelliBots, a centralized platform for deploying and managing autonomous, RAG-powered AI agents at scale.",
+      "A global logistics enterprise needed to move beyond simple, single-purpose chatbots. Their goal was to empower their internal teams to create, manage, and deploy multiple, sophisticated AI assistants for various use cases from internal IT support to customer service without a massive development overhead for each new bot. They partnered with AI Advocate to build IntelliBots, a centralized platform for deploying and managing autonomous, RAG-powered AI agents at scale.",
     metadata: {
       industry: "Enterprise Software & Logistics",
       coreChallenge:
@@ -53,7 +53,7 @@ export const INTELLIBOTS_AI_AGENT_PLATFORM_CONTENT: TextFocusedCaseStudyContent 
     accentWord: "Had to Say",
     label: "Client Testimonial",
     quote:
-      "IntelliBots has transformed our approach to internal AI. Instead of commissioning one-off projects, we now have a platform that empowers our own teams to build the solutions they need. AI Advocate Holding delivered a scalable, secure, and remarkably intuitive system that is driving efficiency across our entire organization.",
+      "IntelliBots has transformed our approach to internal AI. Instead of commissioning one-off projects, we now have a platform that empowers our own teams to build the solutions they need. AI Advocate delivered a scalable, secure, and remarkably intuitive system that is driving efficiency across our entire organization.",
     title: "Chief Digital Officer",
     company: "Global Logistics Enterprise",
   },
